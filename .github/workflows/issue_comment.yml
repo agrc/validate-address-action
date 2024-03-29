@@ -1,0 +1,43 @@
+name: Issue Comment Events
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add emoji to comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = context.payload.comment;
+            const body = comment.body;
+
+            if (!body.startsWith('/validate addresses')) {
+              return;
+            }
+
+             github.rest.reactions.createForIssueComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: context.payload.comment.id,
+                content: 'eyes'
+              });
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+      - name: 📥 Download dependencies
+        run: npm ci
+      - name: 🏗 Run build command
+        run: npm run build
+      - name: 🧪 Test action
+        uses: ./
+        with:
+          API_KEY: ${{ secrets.API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

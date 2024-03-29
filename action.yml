@@ -1,0 +1,25 @@
+name: Validate Address Slash Commands
+description: Perform commands when Issues or Pull Requests are commented with slash commands.
+author: steveoh <sgourley@utah.gov>
+
+inputs:
+  GITHUB_TOKEN:
+    description: Your GitHub token for authentication
+    required: true
+  API_KEY:
+    description: The UGRC API key
+    required: true
+
+outputs:
+  command:
+    description: Slash command.
+  args:
+    description: Args of the command.
+
+runs:
+  using: node20
+  main: dist/index.js
+
+branding:
+  icon: command
+  color: yellow # gray-dark purple red orange green blue yellow black white
