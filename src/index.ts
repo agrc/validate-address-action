@@ -15,8 +15,6 @@ export async function run() {
     const payload = context.payload;
     const commentBody = context.payload.comment!.body as string;
 
-    core.debug(JSON.stringify(payload));
-
     if (payload?.comment?.id == null) {
       core.setFailed('no comment found in payload');
 
@@ -29,12 +27,9 @@ export async function run() {
       return;
     }
 
-    core.notice('getting octokit');
     const octokit = getOctokit();
 
-    core.notice('finding addresses');
     const { addresses } = generateTokens(commentBody);
-    core.notice(`addresses: ${addresses}`);
 
     const results = await geocode(addresses, core.getInput('API_KEY'));
 
@@ -51,4 +46,4 @@ export async function run() {
   }
 }
 
-run()
+run();

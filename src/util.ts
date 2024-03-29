@@ -16,7 +16,6 @@ export const requiresAction = (
 
   // Check if the first line of the comment is a slash command
   const firstLine = commentBody.split(/\r?\n/)[0].trim();
-  core.notice(firstLine);
   if (firstLine.length < 2 || firstLine.charAt(0) !== '/') {
     core.error('The first line of the comment is not a valid slash command.');
 
@@ -24,9 +23,6 @@ export const requiresAction = (
   }
 
   const { command } = generateTokens(commentBody);
-  core.notice(
-    `'${command}' === 'validate addresses': ${command === 'validate addresses'}`,
-  );
 
   return command === 'validate addresses';
 };

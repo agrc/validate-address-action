@@ -35,37 +35,6 @@ const coolYourJets = () => {
   );
 };
 
-export const checkApiKey = async (apiKey: string) => {
-  core.info(`Checking API key: ${apiKey}`);
-
-  let response;
-
-  try {
-    response = await ky(`geocode/326 east south temple street/slc`, {
-      headers: {
-        'x-agrc-geocode-client': 'github-action',
-        'x-agrc-geocode-client-version': '1.0.0',
-        Referer: 'https://api-client.ugrc.utah.gov/',
-      },
-      searchParams: {
-        apiKey: apiKey,
-      },
-      prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
-    }).json();
-  } catch (error) {
-    if (error?.response?.body) {
-      core.error(`Error checking api key: ${error.response.body}`);
-      response = JSON.parse(error.response.body);
-    } else {
-      throw error;
-    }
-  }
-
-  const isValid = response.status === 200;
-
-  return isValid;
-};
-
 export const geocode = async (addresses: string[], apiKey: string) => {
   const results: {
     status: boolean;
@@ -107,7 +76,14 @@ export const geocode = async (addresses: string[], apiKey: string) => {
         } catch {
           response = { error: error.message };
         }
-        results.push({ status: false, response, record });
+
+        core.debug(`Error response: ${JSON.stringify(response)}`);
+
+        results.push({
+          status: false,
+          response: response?.error ?? 'unknown error',
+          record,
+        });
       }
     }
 
