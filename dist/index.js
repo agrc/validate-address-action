@@ -28935,7 +28935,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.geocode = exports.checkApiKey = void 0;
+exports.geocode = void 0;
 var core = __importStar(__nccwpck_require__(2186));
 var ky_1 = __importDefault(__nccwpck_require__(9908));
 var SPACES = / +/;
@@ -28963,63 +28963,23 @@ var coolYourJets = function () {
         return setTimeout(resolve, Math.random() * (max - min) + min);
     });
 };
-var checkApiKey = function (apiKey) { return __awaiter(void 0, void 0, void 0, function () {
-    var response, error_1, isValid;
-    var _a;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                core.info("Checking API key: ".concat(apiKey));
-                _b.label = 1;
-            case 1:
-                _b.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, (0, ky_1.default)("geocode/326 east south temple street/slc", {
-                        headers: {
-                            'x-agrc-geocode-client': 'github-action',
-                            'x-agrc-geocode-client-version': '1.0.0',
-                            Referer: 'https://api-client.ugrc.utah.gov/',
-                        },
-                        searchParams: {
-                            apiKey: apiKey,
-                        },
-                        prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
-                    }).json()];
-            case 2:
-                response = _b.sent();
-                return [3 /*break*/, 4];
-            case 3:
-                error_1 = _b.sent();
-                if ((_a = error_1 === null || error_1 === void 0 ? void 0 : error_1.response) === null || _a === void 0 ? void 0 : _a.body) {
-                    core.error("Error checking api key: ".concat(error_1.response.body));
-                    response = JSON.parse(error_1.response.body);
-                }
-                else {
-                    throw error_1;
-                }
-                return [3 /*break*/, 4];
-            case 4:
-                isValid = response.status === 200;
-                return [2 /*return*/, isValid];
-        }
-    });
-}); };
-exports.checkApiKey = checkApiKey;
 var geocode = function (addresses, apiKey) { return __awaiter(void 0, void 0, void 0, function () {
-    var results, record, _a, street, zone, response, error_2, result, score, e_1_1;
+    var results, record, _a, street, zone, response, error_1, result, score, e_1_1;
     var _b, addresses_1, addresses_1_1;
     var _c, e_1, _d, _e;
-    return __generator(this, function (_f) {
-        switch (_f.label) {
+    var _f;
+    return __generator(this, function (_g) {
+        switch (_g.label) {
             case 0:
                 results = [];
-                _f.label = 1;
+                _g.label = 1;
             case 1:
-                _f.trys.push([1, 11, 12, 17]);
+                _g.trys.push([1, 11, 12, 17]);
                 _b = true, addresses_1 = __asyncValues(addresses);
-                _f.label = 2;
+                _g.label = 2;
             case 2: return [4 /*yield*/, addresses_1.next()];
             case 3:
-                if (!(addresses_1_1 = _f.sent(), _c = addresses_1_1.done, !_c)) return [3 /*break*/, 10];
+                if (!(addresses_1_1 = _g.sent(), _c = addresses_1_1.done, !_c)) return [3 /*break*/, 10];
                 _e = addresses_1_1.value;
                 _b = false;
                 record = _e;
@@ -29031,7 +28991,7 @@ var geocode = function (addresses, apiKey) { return __awaiter(void 0, void 0, vo
                 results.push({ status: false, record: record, response: 'Invalid address' });
                 return [3 /*break*/, 9];
             case 4:
-                _f.trys.push([4, 6, , 7]);
+                _g.trys.push([4, 6, , 7]);
                 return [4 /*yield*/, (0, ky_1.default)("geocode/".concat(street, "/").concat(zone), {
                         headers: {
                             'x-agrc-geocode-client': 'github-action',
@@ -29045,18 +29005,23 @@ var geocode = function (addresses, apiKey) { return __awaiter(void 0, void 0, vo
                         prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
                     }).json()];
             case 5:
-                response = _f.sent();
+                response = _g.sent();
                 return [3 /*break*/, 7];
             case 6:
-                error_2 = _f.sent();
-                core.error("Error geocoding street [".concat(street, "] zone [").concat(zone, "]: ").concat(error_2));
+                error_1 = _g.sent();
+                core.error("Error geocoding street [".concat(street, "] zone [").concat(zone, "]: ").concat(error_1));
                 try {
-                    response = JSON.parse(error_2.response.body);
+                    response = JSON.parse(error_1.response.body);
                 }
-                catch (_g) {
-                    response = { error: error_2.message };
+                catch (_h) {
+                    response = { error: error_1.message };
                 }
-                results.push({ status: false, response: response, record: record });
+                core.debug("Error response: ".concat(JSON.stringify(response)));
+                results.push({
+                    status: false,
+                    response: (_f = response === null || response === void 0 ? void 0 : response.error) !== null && _f !== void 0 ? _f : 'unknown error',
+                    record: record,
+                });
                 return [3 /*break*/, 7];
             case 7:
                 if (response.status === 200) {
@@ -29066,23 +29031,23 @@ var geocode = function (addresses, apiKey) { return __awaiter(void 0, void 0, vo
                 }
                 return [4 /*yield*/, coolYourJets()];
             case 8:
-                _f.sent();
-                _f.label = 9;
+                _g.sent();
+                _g.label = 9;
             case 9:
                 _b = true;
                 return [3 /*break*/, 2];
             case 10: return [3 /*break*/, 17];
             case 11:
-                e_1_1 = _f.sent();
+                e_1_1 = _g.sent();
                 e_1 = { error: e_1_1 };
                 return [3 /*break*/, 17];
             case 12:
-                _f.trys.push([12, , 15, 16]);
+                _g.trys.push([12, , 15, 16]);
                 if (!(!_b && !_c && (_d = addresses_1.return))) return [3 /*break*/, 14];
                 return [4 /*yield*/, _d.call(addresses_1)];
             case 13:
-                _f.sent();
-                _f.label = 14;
+                _g.sent();
+                _g.label = 14;
             case 14: return [3 /*break*/, 16];
             case 15:
                 if (e_1) throw e_1.error;
@@ -29180,7 +29145,6 @@ function run() {
                     context = github.context;
                     payload = context.payload;
                     commentBody = context.payload.comment.body;
-                    core.debug(JSON.stringify(payload));
                     if (((_a = payload === null || payload === void 0 ? void 0 : payload.comment) === null || _a === void 0 ? void 0 : _a.id) == null) {
                         core.setFailed('no comment found in payload');
                         return [2 /*return*/];
@@ -29189,11 +29153,8 @@ function run() {
                         core.warning('no action required');
                         return [2 /*return*/];
                     }
-                    core.notice('getting octokit');
                     octokit = (0, util_1.getOctokit)();
-                    core.notice('finding addresses');
                     addresses = (0, util_1.generateTokens)(commentBody).addresses;
-                    core.notice("addresses: ".concat(addresses));
                     return [4 /*yield*/, (0, geocode_1.geocode)(addresses, core.getInput('API_KEY'))];
                 case 2:
                     results = _b.sent();
@@ -29261,13 +29222,11 @@ var requiresAction = function (payload, commentBody) {
     }
     // Check if the first line of the comment is a slash command
     var firstLine = commentBody.split(/\r?\n/)[0].trim();
-    core.notice(firstLine);
     if (firstLine.length < 2 || firstLine.charAt(0) !== '/') {
         core.error('The first line of the comment is not a valid slash command.');
         return false;
     }
     var command = generateTokens(commentBody).command;
-    core.notice("'".concat(command, "' === 'validate addresses': ").concat(command === 'validate addresses'));
     return command === 'validate addresses';
 };
 exports.requiresAction = requiresAction;
