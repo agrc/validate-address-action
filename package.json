@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "lint": "eslint 'src/**/*.{js,ts}?(x)' --fix",
-    "build": "ncc build src/index.ts --minify --v8-cache",
+    "build": "ncc build src/index.ts -o dist --source-map --license licenses.txt",
     "test": "vitest"
   },
   "prettier": {
