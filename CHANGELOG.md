@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.2](https://github.com/agrc/validate-address-action/compare/v1.0.1...v1.0.2) (2024-04-02)
+
+
+### 🌲 Dependencies
+
+* **dev:** bump the safe-dependencies group with 5 updates ([931c7ea](https://github.com/agrc/validate-address-action/commit/931c7ea2dd3843d8f39d892d5287b396a9096858))
+
+
+### 📖 Documentation Improvements
+
+* update readme ([03dd015](https://github.com/agrc/validate-address-action/commit/03dd01515a3602cfa9c1dd4aea6ac99e0f916839))
+
 ## [1.0.1](https://github.com/agrc/validate-address-action/compare/v1.0.0...v1.0.1) (2024-03-29)
 
 
