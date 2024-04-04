@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/agrc/validate-address-action/compare/v1.0.2...v1.0.3) (2024-04-04)
+
+
+### 🌲 Dependencies
+
+* bump undici from 5.28.3 to 5.28.4 ([2037820](https://github.com/agrc/validate-address-action/commit/2037820f27a264948d7203f81e3ccb7128d9aa21))
+
 ## [1.0.2](https://github.com/agrc/validate-address-action/compare/v1.0.1...v1.0.2) (2024-04-02)
 
 
