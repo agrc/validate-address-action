@@ -29102,175 +29102,87 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-var __asyncValues = (this && this.__asyncValues) || function (o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.geocode = void 0;
-var core = __importStar(__nccwpck_require__(2186));
-var ky_1 = __importDefault(__nccwpck_require__(9908));
-var SPACES = / +/;
-var INVALID_CHARS = /[^a-zA-Z0-9]/g;
-var cleanseStreet = function (data) {
-    var replacement = ' ';
+const core = __importStar(__nccwpck_require__(2186));
+const ky_1 = __importDefault(__nccwpck_require__(9908));
+const SPACES = / +/;
+const INVALID_CHARS = /[^a-zA-Z0-9]/g;
+const cleanseStreet = (data) => {
+    const replacement = ' ';
     // & -> and
-    var street = data.replace('&', 'and');
+    let street = data.replace('&', 'and');
     street = street.replace(INVALID_CHARS, replacement);
     street = street.replace(SPACES, replacement);
     return street.trim();
 };
-var cleanseZone = function (data) {
-    var zone = data.toString().replace(INVALID_CHARS, ' ');
+const cleanseZone = (data) => {
+    let zone = data.toString().replace(INVALID_CHARS, ' ');
     zone = zone.replace(SPACES, ' ').trim();
     if (zone.length > 0 && zone[0] == '8') {
         zone = zone.slice(0, 5);
     }
     return zone;
 };
-var coolYourJets = function () {
-    var min = 150;
-    var max = 300;
-    return new Promise(function (resolve) {
-        return setTimeout(resolve, Math.random() * (max - min) + min);
-    });
+const coolYourJets = () => {
+    const min = 150;
+    const max = 300;
+    return new Promise((resolve) => setTimeout(resolve, Math.random() * (max - min) + min));
 };
-var geocode = function (addresses, apiKey) { return __awaiter(void 0, void 0, void 0, function () {
-    var results, record, _a, street, zone, response, error_1, result, score, e_1_1;
-    var _b, addresses_1, addresses_1_1;
-    var _c, e_1, _d, _e;
-    var _f;
-    return __generator(this, function (_g) {
-        switch (_g.label) {
-            case 0:
-                results = [];
-                _g.label = 1;
-            case 1:
-                _g.trys.push([1, 11, 12, 17]);
-                _b = true, addresses_1 = __asyncValues(addresses);
-                _g.label = 2;
-            case 2: return [4 /*yield*/, addresses_1.next()];
-            case 3:
-                if (!(addresses_1_1 = _g.sent(), _c = addresses_1_1.done, !_c)) return [3 /*break*/, 10];
-                _e = addresses_1_1.value;
-                _b = false;
-                record = _e;
-                _a = record.split(','), street = _a[0], zone = _a[1];
-                street = cleanseStreet(street);
-                zone = cleanseZone(zone);
-                response = void 0;
-                if (!(!street.length || !zone.length)) return [3 /*break*/, 4];
-                results.push({ status: false, record: record, response: 'Invalid address' });
-                return [3 /*break*/, 9];
-            case 4:
-                _g.trys.push([4, 6, , 7]);
-                return [4 /*yield*/, (0, ky_1.default)("geocode/".concat(street, "/").concat(zone), {
-                        headers: {
-                            'x-agrc-geocode-client': 'github-action',
-                            'x-agrc-geocode-client-version': '1.0.0',
-                            Referer: 'https://api-client.ugrc.utah.gov/',
-                        },
-                        searchParams: {
-                            apiKey: apiKey,
-                            locators: 'roadCenterlines',
-                        },
-                        prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
-                    }).json()];
-            case 5:
-                response = _g.sent();
-                return [3 /*break*/, 7];
-            case 6:
-                error_1 = _g.sent();
-                core.error("Error geocoding street [".concat(street, "] zone [").concat(zone, "]: ").concat(error_1));
+const geocode = async (addresses, apiKey) => {
+    const results = [];
+    for await (const record of addresses) {
+        let [street, zone] = record.split(',');
+        street = cleanseStreet(street);
+        zone = cleanseZone(zone);
+        let response;
+        if (!street.length || !zone.length) {
+            results.push({ status: false, record, response: 'Invalid address' });
+            continue;
+        }
+        else {
+            try {
+                response = await (0, ky_1.default)(`geocode/${street}/${zone}`, {
+                    headers: {
+                        'x-agrc-geocode-client': 'github-action',
+                        'x-agrc-geocode-client-version': '1.0.0',
+                        Referer: 'https://api-client.ugrc.utah.gov/',
+                    },
+                    searchParams: {
+                        apiKey: apiKey,
+                        locators: 'roadCenterlines',
+                    },
+                    prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
+                }).json();
+            }
+            catch (error) {
+                core.error(`Error geocoding street [${street}] zone [${zone}]: ${error}`);
                 try {
-                    response = JSON.parse(error_1.response.body);
+                    response = JSON.parse(error.response.body);
                 }
-                catch (_h) {
-                    response = { error: error_1.message };
+                catch {
+                    response = { error: error.message };
                 }
-                core.debug("Error response: ".concat(JSON.stringify(response)));
+                core.debug(`Error response: ${JSON.stringify(response)}`);
                 results.push({
                     status: false,
-                    response: (_f = response === null || response === void 0 ? void 0 : response.error) !== null && _f !== void 0 ? _f : 'unknown error',
-                    record: record,
+                    response: response?.error ?? 'unknown error',
+                    record,
                 });
-                return [3 /*break*/, 7];
-            case 7:
-                if (response.status === 200) {
-                    result = response.result;
-                    score = result.score;
-                    results.push({ status: true, response: score, record: record });
-                }
-                return [4 /*yield*/, coolYourJets()];
-            case 8:
-                _g.sent();
-                _g.label = 9;
-            case 9:
-                _b = true;
-                return [3 /*break*/, 2];
-            case 10: return [3 /*break*/, 17];
-            case 11:
-                e_1_1 = _g.sent();
-                e_1 = { error: e_1_1 };
-                return [3 /*break*/, 17];
-            case 12:
-                _g.trys.push([12, , 15, 16]);
-                if (!(!_b && !_c && (_d = addresses_1.return))) return [3 /*break*/, 14];
-                return [4 /*yield*/, _d.call(addresses_1)];
-            case 13:
-                _g.sent();
-                _g.label = 14;
-            case 14: return [3 /*break*/, 16];
-            case 15:
-                if (e_1) throw e_1.error;
-                return [7 /*endfinally*/];
-            case 16: return [7 /*endfinally*/];
-            case 17: return [2 /*return*/, results];
+            }
         }
-    });
-}); };
+        if (response.status === 200) {
+            const result = response.result;
+            const { score } = result;
+            results.push({ status: true, response: score, record });
+        }
+        await coolYourJets();
+    }
+    return results;
+};
 exports.geocode = geocode;
 
 
@@ -29303,96 +29215,42 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = void 0;
-var core = __importStar(__nccwpck_require__(2186));
-var github = __importStar(__nccwpck_require__(5438));
-var geocode_1 = __nccwpck_require__(8537);
-var util_1 = __nccwpck_require__(2629);
-function run() {
-    return __awaiter(this, void 0, void 0, function () {
-        var context, payload, commentBody, octokit, addresses, results, e_1;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    core.notice('Starting action');
-                    _b.label = 1;
-                case 1:
-                    _b.trys.push([1, 4, , 5]);
-                    context = github.context;
-                    payload = context.payload;
-                    commentBody = context.payload.comment.body;
-                    if (((_a = payload === null || payload === void 0 ? void 0 : payload.comment) === null || _a === void 0 ? void 0 : _a.id) == null) {
-                        core.setFailed('no comment found in payload');
-                        return [2 /*return*/];
-                    }
-                    if (!(0, util_1.requiresAction)(payload, commentBody)) {
-                        core.warning('no action required');
-                        return [2 /*return*/];
-                    }
-                    octokit = (0, util_1.getOctokit)();
-                    addresses = (0, util_1.generateTokens)(commentBody).addresses;
-                    return [4 /*yield*/, (0, geocode_1.geocode)(addresses, core.getInput('API_KEY'))];
-                case 2:
-                    results = _b.sent();
-                    core.notice('updating comments');
-                    return [4 /*yield*/, octokit.rest.issues.updateComment({
-                            owner: context.repo.owner,
-                            repo: context.repo.repo,
-                            comment_id: payload.comment.id,
-                            body: (0, util_1.formatResults)(results),
-                        })];
-                case 3:
-                    _b.sent();
-                    return [3 /*break*/, 5];
-                case 4:
-                    e_1 = _b.sent();
-                    core.error(e_1);
-                    core.setFailed(e_1.message);
-                    return [3 /*break*/, 5];
-                case 5: return [2 /*return*/];
-            }
-        });
-    });
-}
 exports.run = run;
+const core = __importStar(__nccwpck_require__(2186));
+const github = __importStar(__nccwpck_require__(5438));
+const geocode_1 = __nccwpck_require__(8537);
+const util_1 = __nccwpck_require__(2629);
+async function run() {
+    core.notice('Starting action');
+    try {
+        const { context } = github;
+        const payload = context.payload;
+        const commentBody = context.payload.comment.body;
+        if (payload?.comment?.id == null) {
+            core.setFailed('no comment found in payload');
+            return;
+        }
+        if (!(0, util_1.requiresAction)(payload, commentBody)) {
+            core.warning('no action required');
+            return;
+        }
+        const octokit = (0, util_1.getOctokit)();
+        const { addresses } = (0, util_1.generateTokens)(commentBody);
+        const results = await (0, geocode_1.geocode)(addresses, core.getInput('API_KEY'));
+        core.notice('updating comments');
+        await octokit.rest.issues.updateComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            comment_id: payload.comment.id,
+            body: (0, util_1.formatResults)(results),
+        });
+    }
+    catch (e) {
+        core.error(e);
+        core.setFailed(e.message);
+    }
+}
 run();
 
 
@@ -29426,68 +29284,66 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.formatResults = exports.generateTokens = exports.isValidEvent = exports.getOctokit = exports.requiresAction = void 0;
-var core = __importStar(__nccwpck_require__(2186));
-var github = __importStar(__nccwpck_require__(5438));
-var requiresAction = function (payload, commentBody) {
-    if ((payload === null || payload === void 0 ? void 0 : payload.action) !== 'created') {
+exports.requiresAction = void 0;
+exports.getOctokit = getOctokit;
+exports.isValidEvent = isValidEvent;
+exports.generateTokens = generateTokens;
+exports.formatResults = formatResults;
+const core = __importStar(__nccwpck_require__(2186));
+const github = __importStar(__nccwpck_require__(5438));
+const requiresAction = (payload, commentBody) => {
+    if (payload?.action !== 'created') {
         core.error('This action is only supported on comment creation.');
         return false;
     }
     // Check if the first line of the comment is a slash command
-    var firstLine = commentBody.split(/\r?\n/)[0].trim();
+    const firstLine = commentBody.split(/\r?\n/)[0].trim();
     if (firstLine.length < 2 || firstLine.charAt(0) !== '/') {
         core.error('The first line of the comment is not a valid slash command.');
         return false;
     }
-    var command = generateTokens(commentBody).command;
+    const { command } = generateTokens(commentBody);
     return command === 'validate addresses';
 };
 exports.requiresAction = requiresAction;
 function getOctokit() {
-    var token = core.getInput('GITHUB_TOKEN', { required: true });
+    const token = core.getInput('GITHUB_TOKEN', { required: true });
     return github.getOctokit(token);
 }
-exports.getOctokit = getOctokit;
 function isValidEvent(event, action) {
-    var context = github.context;
-    var payload = context.payload;
+    const { context } = github;
+    const { payload } = context;
     if (event === context.eventName) {
         return action == null || action === payload.action;
     }
     return false;
 }
-exports.isValidEvent = isValidEvent;
-var TOKEN_REGEX = /^\/(?<command>.*(?!\S))/gm;
-var markdownToList = function (markdownString) {
-    var regex = /^\s*-\s*(.+)$/gm; // Matches lines starting with '-' and captures the content
-    var listItems = [];
-    var match;
+const TOKEN_REGEX = /^\/(?<command>.*(?!\S))/gm;
+const markdownToList = (markdownString) => {
+    const regex = /^\s*-\s*(.+)$/gm; // Matches lines starting with '-' and captures the content
+    const listItems = [];
+    let match;
     while ((match = regex.exec(markdownString)) !== null) {
         listItems.push(match[1].trim()); // Push the captured content (trimmed)
     }
     return listItems;
 };
 function generateTokens(comment) {
-    var _a;
-    var match = TOKEN_REGEX.exec(comment);
-    var command = ((_a = match === null || match === void 0 ? void 0 : match.groups) === null || _a === void 0 ? void 0 : _a.command) || '';
+    const match = TOKEN_REGEX.exec(comment);
+    const command = match?.groups?.command || '';
     comment = comment.replace(TOKEN_REGEX, '').trim();
     return {
-        command: command,
+        command,
         addresses: markdownToList(comment),
     };
 }
-exports.generateTokens = generateTokens;
 function formatResults(results) {
-    return results.reduce(function (acc, _a) {
-        var status = _a.status, record = _a.record, response = _a.response;
-        var emoji = status ? '✅' : '❌';
-        acc += "- ".concat(emoji, " ").concat(record, "\n  - ").concat(status ? "score: ".concat(response) : response, "\n");
+    return results.reduce((acc, { status, record, response }) => {
+        const emoji = status ? '✅' : '❌';
+        acc += `- ${emoji} ${record}\n  - ${status ? `score: ${response}` : response}\n`;
         return acc;
     }, '## Geocode results\n\n');
 }
-exports.formatResults = formatResults;
 
 
 /***/ }),
@@ -31322,7 +31178,7 @@ class HTTPError extends Error {
         const title = response.statusText || '';
         const status = `${code} ${title}`.trim();
         const reason = status ? `status code ${status}` : 'an unknown error';
-        super(`Request failed with ${reason}`);
+        super(`Request failed with ${reason}: ${request.method} ${request.url}`);
         Object.defineProperty(this, "response", {
             enumerable: true,
             configurable: true,
@@ -31351,7 +31207,7 @@ class HTTPError extends Error {
 ;// CONCATENATED MODULE: ./node_modules/ky/distribution/errors/TimeoutError.js
 class TimeoutError extends Error {
     constructor(request) {
-        super('Request timed out');
+        super(`Request timed out: ${request.method} ${request.url}`);
         Object.defineProperty(this, "request", {
             enumerable: true,
             configurable: true,
@@ -31425,15 +31281,24 @@ const supportsRequestStreams = (() => {
     const supportsReadableStream = typeof globalThis.ReadableStream === 'function';
     const supportsRequest = typeof globalThis.Request === 'function';
     if (supportsReadableStream && supportsRequest) {
-        hasContentType = new globalThis.Request('https://empty.invalid', {
-            body: new globalThis.ReadableStream(),
-            method: 'POST',
-            // @ts-expect-error - Types are outdated.
-            get duplex() {
-                duplexAccessed = true;
-                return 'half';
-            },
-        }).headers.has('Content-Type');
+        try {
+            hasContentType = new globalThis.Request('https://empty.invalid', {
+                body: new globalThis.ReadableStream(),
+                method: 'POST',
+                // @ts-expect-error - Types are outdated.
+                get duplex() {
+                    duplexAccessed = true;
+                    return 'half';
+                },
+            }).headers.has('Content-Type');
+        }
+        catch (error) {
+            // QQBrowser on iOS throws "unsupported BodyInit type" error (see issue #581)
+            if (error instanceof Error && error.message === 'unsupported BodyInit type') {
+                return false;
+            }
+            throw error;
+        }
     }
     return duplexAccessed && !hasContentType;
 })();
@@ -31456,6 +31321,7 @@ const stop = Symbol('stop');
 const kyOptionKeys = {
     json: true,
     parseJson: true,
+    stringifyJson: true,
     searchParams: true,
     prefixUrl: true,
     retry: true,
@@ -31725,6 +31591,10 @@ class Ky {
             // @ts-expect-error - Types are outdated.
             this._options.duplex = 'half';
         }
+        if (this._options.json !== undefined) {
+            this._options.body = this._options.stringifyJson?.(this._options.json) ?? JSON.stringify(this._options.json);
+            this._options.headers.set('content-type', this._options.headers.get('content-type') ?? 'application/json');
+        }
         this.request = new globalThis.Request(this._input, this._options);
         if (this._options.searchParams) {
             // eslint-disable-next-line unicorn/prevent-abbreviations
@@ -31742,11 +31612,6 @@ class Ky {
             // The spread of `this.request` is required as otherwise it misses the `duplex` option for some reason and throws.
             this.request = new globalThis.Request(new globalThis.Request(url, { ...this.request }), this._options);
         }
-        if (this._options.json !== undefined) {
-            this._options.body = JSON.stringify(this._options.json);
-            this.request.headers.set('content-type', this._options.headers.get('content-type') ?? 'application/json');
-            this.request = new globalThis.Request(this.request, { body: this._options.body });
-        }
     }
     _calculateRetryDelay(error) {
         this._retryCount++;
@@ -31757,17 +31622,12 @@ class Ky {
                 }
                 const retryAfter = error.response.headers.get('Retry-After');
                 if (retryAfter && this._options.retry.afterStatusCodes.includes(error.response.status)) {
-                    let after = Number(retryAfter);
+                    let after = Number(retryAfter) * 1000;
                     if (Number.isNaN(after)) {
                         after = Date.parse(retryAfter) - Date.now();
                     }
-                    else {
-                        after *= 1000;
-                    }
-                    if (this._options.retry.maxRetryAfter !== undefined && after > this._options.retry.maxRetryAfter) {
-                        return 0;
-                    }
-                    return after;
+                    const max = this._options.retry.maxRetryAfter ?? after;
+                    return after < max ? after : max;
                 }
                 if (error.response.status === 413) {
                     return 0;
@@ -31823,10 +31683,13 @@ class Ky {
             }
         }
         const nonRequestOptions = findUnknownOptions(this.request, this._options);
+        // Cloning is done here to prepare in advance for retries
+        const mainRequest = this.request;
+        this.request = mainRequest.clone();
         if (this._options.timeout === false) {
-            return this._options.fetch(this.request.clone(), nonRequestOptions);
+            return this._options.fetch(mainRequest, nonRequestOptions);
         }
-        return timeout(this.request.clone(), nonRequestOptions, this.abortController, this._options);
+        return timeout(mainRequest, nonRequestOptions, this.abortController, this._options);
     }
     /* istanbul ignore next */
     _stream(response, onDownloadProgress) {
