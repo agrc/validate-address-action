@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/agrc/validate-address-action/compare/v1.0.3...v1.0.4) (2024-07-10)
+
+
+### Dependencies
+
+* bump the safe-dependencies group across 1 directory with 10 updates ([a724160](https://github.com/agrc/validate-address-action/commit/a7241601475ff406e9b97fedc7ebbe9dbfacc7ba))
+* Q1 package updates ([e3fb5cf](https://github.com/agrc/validate-address-action/commit/e3fb5cf8fd226fb3d98f428ec3e779670763e992))
+
 ## [1.0.3](https://github.com/agrc/validate-address-action/compare/v1.0.2...v1.0.3) (2024-04-04)
 
 
