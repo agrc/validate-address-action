@@ -12,10 +12,10 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "outDir": "lib",
-    "target": "es5",
+    "target": "ES2022",
     "lib": [
       "dom",
-      "es2015"
+      "ES2022"
     ]
   },
   "include": [
