@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/agrc/validate-address-action/compare/v1.0.4...v1.0.5) (2024-08-13)
+
+
+### Dependencies
+
+* update packages ([41b6f5c](https://github.com/agrc/validate-address-action/commit/41b6f5c21c1da34d625bc74bc187b6af89677954))
+
 ## [1.0.4](https://github.com/agrc/validate-address-action/compare/v1.0.3...v1.0.4) (2024-07-10)
 
 
