@@ -29237,8 +29237,10 @@ async function run() {
         }
         const octokit = (0, util_1.getOctokit)();
         const { addresses } = (0, util_1.generateTokens)(commentBody);
+        core.notice(`geocoding ${addresses.length} addresses`);
         const results = await (0, geocode_1.geocode)(addresses, core.getInput('API_KEY'));
-        core.notice('updating comments');
+        core.debug(`results: ${JSON.stringify(results)}`);
+        core.notice('geocoding complete, updating comment');
         await octokit.rest.issues.updateComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
@@ -31173,30 +31175,15 @@ __nccwpck_require__.d(__webpack_exports__, {
 ;// CONCATENATED MODULE: ./node_modules/ky/distribution/errors/HTTPError.js
 // eslint-lint-disable-next-line @typescript-eslint/naming-convention
 class HTTPError extends Error {
+    response;
+    request;
+    options;
     constructor(response, request, options) {
         const code = (response.status || response.status === 0) ? response.status : '';
         const title = response.statusText || '';
         const status = `${code} ${title}`.trim();
         const reason = status ? `status code ${status}` : 'an unknown error';
         super(`Request failed with ${reason}: ${request.method} ${request.url}`);
-        Object.defineProperty(this, "response", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "request", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "options", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.name = 'HTTPError';
         this.response = response;
         this.request = request;
@@ -31206,14 +31193,9 @@ class HTTPError extends Error {
 //# sourceMappingURL=HTTPError.js.map
 ;// CONCATENATED MODULE: ./node_modules/ky/distribution/errors/TimeoutError.js
 class TimeoutError extends Error {
+    request;
     constructor(request) {
         super(`Request timed out: ${request.method} ${request.url}`);
-        Object.defineProperty(this, "request", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this.name = 'TimeoutError';
         this.request = request;
     }
@@ -31247,10 +31229,22 @@ const mergeHeaders = (source1 = {}, source2 = {}) => {
     }
     return result;
 };
+function newHookValue(original, incoming, property) {
+    return (Object.hasOwn(incoming, property) && incoming[property] === undefined)
+        ? []
+        : deepMerge(original[property] ?? [], incoming[property] ?? []);
+}
+const mergeHooks = (original = {}, incoming = {}) => ({
+    beforeRequest: newHookValue(original, incoming, 'beforeRequest'),
+    beforeRetry: newHookValue(original, incoming, 'beforeRetry'),
+    afterResponse: newHookValue(original, incoming, 'afterResponse'),
+    beforeError: newHookValue(original, incoming, 'beforeError'),
+});
 // TODO: Make this strongly-typed (no `any`).
 const deepMerge = (...sources) => {
     let returnValue = {};
     let headers = {};
+    let hooks = {};
     for (const source of sources) {
         if (Array.isArray(source)) {
             if (!Array.isArray(returnValue)) {
@@ -31264,6 +31258,10 @@ const deepMerge = (...sources) => {
                     value = deepMerge(returnValue[key], value);
                 }
                 returnValue = { ...returnValue, [key]: value };
+            }
+            if (isObject(source.hooks)) {
+                hooks = mergeHooks(hooks, source.hooks);
+                returnValue.hooks = hooks;
             }
             if (isObject(source.headers)) {
                 headers = mergeHeaders(headers, source.headers);
@@ -31381,7 +31379,6 @@ const normalizeRetryOptions = (retry = {}) => {
     return {
         ...defaultRetryOptions,
         ...retry,
-        afterStatusCodes: retryAfterStatusCodes,
     };
 };
 //# sourceMappingURL=normalize.js.map
@@ -31511,47 +31508,18 @@ class Ky {
         }
         return result;
     }
+    request;
+    abortController;
+    _retryCount = 0;
+    _input;
+    _options;
     // eslint-disable-next-line complexity
     constructor(input, options = {}) {
-        Object.defineProperty(this, "request", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "abortController", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "_retryCount", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: 0
-        });
-        Object.defineProperty(this, "_input", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "_options", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
         this._input = input;
-        const credentials = this._input instanceof Request && 'credentials' in Request.prototype
-            ? this._input.credentials
-            : undefined;
         this._options = {
-            ...(credentials && { credentials }), // For exactOptionalPropertyTypes
             ...options,
             headers: mergeHeaders(this._input.headers, options.headers),
-            hooks: deepMerge({
+            hooks: mergeHooks({
                 beforeRequest: [],
                 beforeRetry: [],
                 beforeError: [],
@@ -31579,12 +31547,10 @@ class Ky {
         }
         if (supportsAbortController) {
             this.abortController = new globalThis.AbortController();
-            if (this._options.signal) {
-                const originalSignal = this._options.signal;
-                this._options.signal.addEventListener('abort', () => {
-                    this.abortController.abort(originalSignal.reason);
-                });
-            }
+            const originalSignal = this._options.signal ?? this._input.signal;
+            originalSignal?.addEventListener('abort', () => {
+                this.abortController.abort(originalSignal.reason);
+            });
             this._options.signal = this.abortController.signal;
         }
         if (supportsRequestStreams) {
@@ -31615,28 +31581,35 @@ class Ky {
     }
     _calculateRetryDelay(error) {
         this._retryCount++;
-        if (this._retryCount <= this._options.retry.limit && !(error instanceof TimeoutError)) {
-            if (error instanceof HTTPError) {
-                if (!this._options.retry.statusCodes.includes(error.response.status)) {
-                    return 0;
-                }
-                const retryAfter = error.response.headers.get('Retry-After');
-                if (retryAfter && this._options.retry.afterStatusCodes.includes(error.response.status)) {
-                    let after = Number(retryAfter) * 1000;
-                    if (Number.isNaN(after)) {
-                        after = Date.parse(retryAfter) - Date.now();
-                    }
-                    const max = this._options.retry.maxRetryAfter ?? after;
-                    return after < max ? after : max;
-                }
-                if (error.response.status === 413) {
-                    return 0;
-                }
-            }
-            const retryDelay = this._options.retry.delay(this._retryCount);
-            return Math.min(this._options.retry.backoffLimit, retryDelay);
+        if (this._retryCount > this._options.retry.limit || error instanceof TimeoutError) {
+            throw error;
         }
-        return 0;
+        if (error instanceof HTTPError) {
+            if (!this._options.retry.statusCodes.includes(error.response.status)) {
+                throw error;
+            }
+            const retryAfter = error.response.headers.get('Retry-After')
+                ?? error.response.headers.get('RateLimit-Reset')
+                ?? error.response.headers.get('X-RateLimit-Reset') // GitHub
+                ?? error.response.headers.get('X-Rate-Limit-Reset'); // Twitter
+            if (retryAfter && this._options.retry.afterStatusCodes.includes(error.response.status)) {
+                let after = Number(retryAfter) * 1000;
+                if (Number.isNaN(after)) {
+                    after = Date.parse(retryAfter) - Date.now();
+                }
+                else if (after >= Date.parse('2024-01-01')) {
+                    // A large number is treated as a timestamp (fixed threshold protects against clock skew)
+                    after -= Date.now();
+                }
+                const max = this._options.retry.maxRetryAfter ?? after;
+                return after < max ? after : max;
+            }
+            if (error.response.status === 413) {
+                throw error;
+            }
+        }
+        const retryDelay = this._options.retry.delay(this._retryCount);
+        return Math.min(this._options.retry.backoffLimit, retryDelay);
     }
     _decorateResponse(response) {
         if (this._options.parseJson) {
@@ -31650,24 +31623,24 @@ class Ky {
         }
         catch (error) {
             const ms = Math.min(this._calculateRetryDelay(error), maxSafeTimeout);
-            if (ms !== 0 && this._retryCount > 0) {
-                await delay(ms, { signal: this._options.signal });
-                for (const hook of this._options.hooks.beforeRetry) {
-                    // eslint-disable-next-line no-await-in-loop
-                    const hookResult = await hook({
-                        request: this.request,
-                        options: this._options,
-                        error: error,
-                        retryCount: this._retryCount,
-                    });
-                    // If `stop` is returned from the hook, the retry process is stopped
-                    if (hookResult === stop) {
-                        return;
-                    }
-                }
-                return this._retry(function_);
+            if (this._retryCount < 1) {
+                throw error;
             }
-            throw error;
+            await delay(ms, { signal: this._options.signal });
+            for (const hook of this._options.hooks.beforeRetry) {
+                // eslint-disable-next-line no-await-in-loop
+                const hookResult = await hook({
+                    request: this.request,
+                    options: this._options,
+                    error: error,
+                    retryCount: this._retryCount,
+                });
+                // If `stop` is returned from the hook, the retry process is stopped
+                if (hookResult === stop) {
+                    return;
+                }
+            }
+            return this._retry(function_);
         }
     }
     async _fetch() {
@@ -31748,7 +31721,12 @@ const createInstance = (defaults) => {
         ky[method] = (input, options) => Ky.create(input, validateAndMerge(defaults, options, { method }));
     }
     ky.create = (newDefaults) => createInstance(validateAndMerge(newDefaults));
-    ky.extend = (newDefaults) => createInstance(validateAndMerge(defaults, newDefaults));
+    ky.extend = (newDefaults) => {
+        if (typeof newDefaults === 'function') {
+            newDefaults = newDefaults(defaults ?? {});
+        }
+        return createInstance(validateAndMerge(defaults, newDefaults));
+    };
     ky.stop = stop;
     return ky;
 };
