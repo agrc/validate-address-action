@@ -31,9 +31,14 @@ export async function run() {
 
     const { addresses } = generateTokens(commentBody);
 
+    core.notice(`geocoding ${addresses.length} addresses`);
+
     const results = await geocode(addresses, core.getInput('API_KEY'));
 
-    core.notice('updating comments');
+    core.debug(`results: ${JSON.stringify(results)}`);
+
+    core.notice('geocoding complete, updating comment');
+
     await octokit.rest.issues.updateComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
