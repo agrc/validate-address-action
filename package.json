@@ -1,6 +1,6 @@
 {
   "name": "@ugrc/valid-address-action",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "description": "A GitHub action that response to slash commands in comments",
   "type": "module",
