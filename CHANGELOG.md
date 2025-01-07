@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.7](https://github.com/agrc/validate-address-action/compare/v1.0.6...v1.0.7) (2025-01-07)
+
+
+### Dependencies
+
+* fy25 q3 package updates ([f99e622](https://github.com/agrc/validate-address-action/commit/f99e62286ea5a4c06210146992b04f790af61243))
+* update deps ([1d1c31e](https://github.com/agrc/validate-address-action/commit/1d1c31ed8a43043ce635e976f66e47e6bc739954))
+
 ## [1.0.6](https://github.com/agrc/validate-address-action/compare/v1.0.5...v1.0.6) (2024-10-07)
 
 
