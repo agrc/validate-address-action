@@ -29968,7 +29968,7 @@ const github = __importStar(__nccwpck_require__(3228));
 const geocode_1 = __nccwpck_require__(3459);
 const util_1 = __nccwpck_require__(4527);
 async function run() {
-    core.notice('Starting action');
+    core.debug('Starting action');
     try {
         const { context } = github;
         const payload = context.payload;
@@ -29983,16 +29983,31 @@ async function run() {
         }
         const octokit = (0, util_1.getOctokit)();
         const { addresses } = (0, util_1.generateTokens)(commentBody);
-        core.notice(`geocoding ${addresses.length} addresses`);
         const results = await (0, geocode_1.geocode)(addresses, core.getInput('API_KEY'));
-        core.debug(`results: ${JSON.stringify(results)}`);
-        core.notice('geocoding complete, updating comment');
+        core.notice(`geocoding ${addresses.length} addresses
+
+      ### Inputs
+
+      ${addresses.join('\n')}
+
+      ### Results
+
+      ${JSON.stringify(results, null, 2)}`);
+        const body = `${(0, util_1.formatResults)(results)}
+
+      ### Initiated by
+
+      \`\`\`
+      ${commentBody}
+      \`\`\`
+    `;
         await octokit.rest.issues.updateComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
             comment_id: payload.comment.id,
-            body: (0, util_1.formatResults)(results),
+            body,
         });
+        core.info('geocoding complete, updating comment');
     }
     catch (e) {
         core.error(e);
