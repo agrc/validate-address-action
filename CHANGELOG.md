@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.9](https://github.com/agrc/validate-address-action/compare/v1.0.8...v1.0.9) (2025-07-31)
+
+
+### Bug Fixes
+
+* keep run data ([2a01aaf](https://github.com/agrc/validate-address-action/commit/2a01aafab969f872e79e3d56b382a845451881b0)), closes [#28](https://github.com/agrc/validate-address-action/issues/28)
+
 ## [1.0.8](https://github.com/agrc/validate-address-action/compare/v1.0.7...v1.0.8) (2025-07-31)
 
 
