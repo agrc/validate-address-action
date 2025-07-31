@@ -29986,20 +29986,20 @@ async function run() {
         const results = await (0, geocode_1.geocode)(addresses, core.getInput('API_KEY'));
         core.notice(`geocoding ${addresses.length} addresses
 
-      ### Inputs
+### Inputs
 
-      ${addresses.join('\n')}
+${addresses.join('\n')}
 
-      ### Results
+### Results
 
-      ${JSON.stringify(results, null, 2)}`);
+${JSON.stringify(results, null, 2)}`);
         const body = `${(0, util_1.formatResults)(results)}
 
-      ### Initiated by
+### Initiated by
 
-      \`\`\`
-      ${commentBody}
-      \`\`\`
+\`\`\`
+${commentBody}
+\`\`\`
     `;
         await octokit.rest.issues.updateComment({
             owner: context.repo.owner,
