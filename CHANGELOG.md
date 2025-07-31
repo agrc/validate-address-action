@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.8](https://github.com/agrc/validate-address-action/compare/v1.0.7...v1.0.8) (2025-07-31)
+
+
+### Dependencies
+
+* audit fix ([e6e91fb](https://github.com/agrc/validate-address-action/commit/e6e91fbecf73f2f89ad94a24be4ceaa5f043bf44))
+* bump the safe-dependencies group across 1 directory with 16 updates ([752033a](https://github.com/agrc/validate-address-action/commit/752033ae0e07e1472015e2d0ae02d6d4e5e46276))
+* bump the safe-dependencies group with 3 updates ([b657d39](https://github.com/agrc/validate-address-action/commit/b657d393121f2fd80992896965414093e004f38b))
+* **dev:** bump the major-dependencies group with 3 updates ([70abc26](https://github.com/agrc/validate-address-action/commit/70abc269cafbcd47c517414dad9e6ede40335bf0))
+* remove stub type definition ([6407a2d](https://github.com/agrc/validate-address-action/commit/6407a2d251d2c883e0478a65b4f8b1e033493a30))
+
 ## [1.0.7](https://github.com/agrc/validate-address-action/compare/v1.0.6...v1.0.7) (2025-01-07)
 
 
