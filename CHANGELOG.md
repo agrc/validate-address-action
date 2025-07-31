@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.11](https://github.com/agrc/validate-address-action/compare/v1.0.10...v1.0.11) (2025-07-31)
+
+
+### Bug Fixes
+
+* update formatting ([c053da4](https://github.com/agrc/validate-address-action/commit/c053da4c1d3ec1815bab5f377b458c792a29ab48))
+
 ## [1.0.10](https://github.com/agrc/validate-address-action/compare/v1.0.9...v1.0.10) (2025-07-31)
 
 
