@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.12](https://github.com/agrc/validate-address-action/compare/v1.0.11...v1.0.12) (2025-07-31)
+
+
+### Documentation
+
+* update required permissions ([a06497f](https://github.com/agrc/validate-address-action/commit/a06497f26c502e570eafe4c463e60697ecf934cf))
+
 ## [1.0.11](https://github.com/agrc/validate-address-action/compare/v1.0.10...v1.0.11) (2025-07-31)
 
 
