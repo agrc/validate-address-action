@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   test:
+    name: 📍 Geocode addresses
     runs-on: ubuntu-latest
     steps:
       - name: Add emoji to comment
@@ -28,14 +29,18 @@ jobs:
                 comment_id: context.payload.comment.id,
                 content: 'eyes'
               });
+
       - name: ⬇️ Set up code
         uses: actions/checkout@v4
         with:
           show-progress: false
+
       - name: 📥 Download dependencies
         run: npm ci
+
       - name: 🏗 Run build command
         run: npm run build
+
       - name: 🧪 Test action
         uses: ./
         with:

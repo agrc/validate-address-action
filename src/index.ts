@@ -9,7 +9,7 @@ import {
 } from './util';
 
 export async function run() {
-  core.notice('Starting action');
+  core.debug('Starting action');
   try {
     const { context } = github;
     const payload = context.payload;
@@ -31,24 +31,37 @@ export async function run() {
 
     const { addresses } = generateTokens(commentBody);
 
-    core.notice(`geocoding ${addresses.length} addresses`);
-
     const results = await geocode(addresses, core.getInput('API_KEY'));
 
-    core.debug(`results: ${JSON.stringify(results)}`);
+    core.notice(
+      `geocoding ${addresses.length} addresses
 
-    core.notice('geocoding complete, updating comment');
+      ### Inputs
+
+      ${addresses.join('\n')}
+
+      ### Results
+
+      ${JSON.stringify(results, null, 2)}`,
+    );
+
+    const body = `${formatResults(results)}
+
+      ### Initiated by
+
+      \`\`\`
+      ${commentBody}
+      \`\`\`
+    `;
 
     await octokit.rest.issues.updateComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
       comment_id: payload.comment.id,
-      body:
-        formatResults(results) +
-        '\n\n### Initiated by\n\n```' +
-        commentBody +
-        '```',
+      body,
     });
+
+    core.info('geocoding complete, updating comment');
   } catch (e) {
     core.error(e);
     core.setFailed(e.message);
