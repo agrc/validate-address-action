@@ -43,7 +43,11 @@ export async function run() {
       owner: context.repo.owner,
       repo: context.repo.repo,
       comment_id: payload.comment.id,
-      body: formatResults(results),
+      body:
+        formatResults(results) +
+        '\n\n### Initiated by\n\n```' +
+        commentBody +
+        '```',
     });
   } catch (e) {
     core.error(e);
