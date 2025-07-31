@@ -36,22 +36,22 @@ export async function run() {
     core.notice(
       `geocoding ${addresses.length} addresses
 
-      ### Inputs
+### Inputs
 
-      ${addresses.join('\n')}
+${addresses.join('\n')}
 
-      ### Results
+### Results
 
-      ${JSON.stringify(results, null, 2)}`,
+${JSON.stringify(results, null, 2)}`,
     );
 
     const body = `${formatResults(results)}
 
-      ### Initiated by
+### Initiated by
 
-      \`\`\`
-      ${commentBody}
-      \`\`\`
+\`\`\`
+${commentBody}
+\`\`\`
     `;
 
     await octokit.rest.issues.updateComment({
