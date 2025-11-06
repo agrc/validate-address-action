@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.13](https://github.com/agrc/validate-address-action/compare/v1.0.12...v1.0.13) (2025-11-06)
+
+
+### Dependencies
+
+* bump npm dependencies 🌲 ([b79dced](https://github.com/agrc/validate-address-action/commit/b79dced8e24220d40b3d359fae1a68fd25b50e72))
+* node 20 -&gt; 24 ([190db57](https://github.com/agrc/validate-address-action/commit/190db5756c2d5a5aa247640e6761828d93fd67a2))
+
 ## [1.0.12](https://github.com/agrc/validate-address-action/compare/v1.0.11...v1.0.12) (2025-07-31)
 
 
