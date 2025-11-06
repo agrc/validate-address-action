@@ -37,11 +37,22 @@ jobs:
         with:
           show-progress: false
 
-      - name: 📥 Download dependencies
-        run: npm ci
+      - name: � Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: �📥 Download dependencies
+        run: pnpm install
 
       - name: 🏗 Run build command
-        run: npm run build
+        run: pnpm run build
 
       - name: 🧪 Test action
         uses: ./
