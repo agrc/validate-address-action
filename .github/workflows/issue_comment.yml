@@ -48,7 +48,7 @@ jobs:
           node-version: lts/*
           cache: pnpm
 
-      - name: �📥 Download dependencies
+      - name: 📥 Download dependencies
         run: pnpm install
 
       - name: 🏗 Run build command
