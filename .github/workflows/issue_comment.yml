@@ -15,7 +15,7 @@ jobs:
     environment: prod
     steps:
       - name: Add emoji to comment
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const comment = context.payload.comment;
@@ -33,7 +33,7 @@ jobs:
               });
 
       - name: ⬇️ Set up code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           show-progress: false
 
@@ -43,7 +43,7 @@ jobs:
           version: latest
 
       - name: ⎔ Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: lts/*
           cache: pnpm
