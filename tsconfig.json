@@ -1,24 +1,13 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "noImplicitAny": true,
-    "noEmitOnError": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "outDir": "lib",
-    "target": "ES2022",
-    "lib": [
-      "dom",
-      "ES2022"
-    ]
-  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@total-typescript/tsconfig/bundler/no-dom",
+  "exclude": [
+    "test/fixtures",
+    "coverage",
+    "dist",
+    "node_modules"
+  ],
   "include": [
-    "src/**/*.ts"
+    "src"
   ]
 }

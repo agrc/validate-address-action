@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
-import { WebhookPayload } from '@actions/github/lib/interfaces';
+import { type WebhookPayload } from '@actions/github/lib/interfaces';
 
 export type Octokit = ReturnType<typeof getOctokit>;
 
@@ -15,7 +15,7 @@ export const requiresAction = (
   }
 
   // Check if the first line of the comment is a slash command
-  const firstLine = commentBody.split(/\r?\n/)[0].trim();
+  const firstLine = (commentBody ?? '').split(/\r?\n/)[0]?.trim() ?? '';
   if (firstLine.length < 2 || firstLine.charAt(0) !== '/') {
     core.error('The first line of the comment is not a valid slash command.');
 
@@ -51,7 +51,7 @@ const markdownToList = (markdownString: string) => {
   let match;
 
   while ((match = regex.exec(markdownString)) !== null) {
-    listItems.push(match[1].trim()); // Push the captured content (trimmed)
+    listItems.push((match[1] ?? '').trim()); // Push the captured content (trimmed)
   }
 
   return listItems;

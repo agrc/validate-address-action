@@ -31338,13 +31338,10 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.geocode = void 0;
 const core = __importStar(__nccwpck_require__(7153));
-const ky_1 = __importDefault(__nccwpck_require__(3838));
+const ky_1 = __importStar(__nccwpck_require__(3838));
 const SPACES = / +/;
 const INVALID_CHARS = /[^a-zA-Z0-9]/g;
 const cleanseStreet = (data) => {
@@ -31374,46 +31371,56 @@ const geocode = async (addresses, apiKey) => {
         let [street, zone] = record.split(',');
         street = cleanseStreet(street);
         zone = cleanseZone(zone);
-        let response;
         if (!street.length || !zone.length) {
             results.push({ status: false, record, response: 'Invalid address' });
             continue;
         }
-        else {
-            try {
-                response = await (0, ky_1.default)(`geocode/${street}/${zone}`, {
-                    headers: {
-                        'x-agrc-geocode-client': 'github-action',
-                        'x-agrc-geocode-client-version': '1.0.0',
-                        Referer: 'https://api-client.ugrc.utah.gov/',
-                    },
-                    searchParams: {
-                        apiKey: apiKey,
-                        locators: 'roadCenterlines',
-                    },
-                    prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
-                }).json();
+        try {
+            const response = await (0, ky_1.default)(`geocode/${street}/${zone}`, {
+                headers: {
+                    'x-agrc-geocode-client': 'github-action',
+                    'x-agrc-geocode-client-version': '1.0.0',
+                    Referer: 'https://api-client.ugrc.utah.gov/',
+                },
+                searchParams: {
+                    apiKey: apiKey,
+                    locators: 'roadCenterlines',
+                },
+                prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
+            }).json();
+            if (response.status === 200 && response.result) {
+                const { score } = response.result;
+                results.push({ status: true, response: score, record });
             }
-            catch (error) {
-                core.error(`Error geocoding street [${street}] zone [${zone}]: ${error}`);
-                try {
-                    response = JSON.parse(error.response.body);
-                }
-                catch {
-                    response = { error: error.message };
-                }
-                core.debug(`Error response: ${JSON.stringify(response)}`);
+            else {
                 results.push({
                     status: false,
-                    response: response?.error ?? 'unknown error',
+                    response: 'Invalid response from API',
                     record,
                 });
             }
         }
-        if (response.status === 200) {
-            const result = response.result;
-            const { score } = result;
-            results.push({ status: true, response: score, record });
+        catch (error) {
+            core.error(`Error geocoding street [${street}] zone [${zone}]: ${error}`);
+            let errorMessage = 'unknown error';
+            if (error instanceof ky_1.HTTPError) {
+                try {
+                    const errorResponse = (await error.response.json());
+                    errorMessage = errorResponse.error || errorResponse.message || errorMessage;
+                }
+                catch {
+                    errorMessage = error.message || errorMessage;
+                }
+            }
+            else if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+            core.debug(`Error response: ${errorMessage}`);
+            results.push({
+                status: false,
+                response: errorMessage,
+                record,
+            });
         }
         await coolYourJets();
     }
