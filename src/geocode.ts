@@ -33,7 +33,7 @@ const cleanseStreet = (data: string | undefined) => {
   const replacement = ' ';
 
   // & -> and
-  let street = (data || '').replace('&', 'and');
+  let street = (data || '').replace(/&/g, 'and');
   street = street.replace(INVALID_CHARS, replacement);
   street = street.replace(SPACES, replacement);
 
