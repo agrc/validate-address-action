@@ -63,8 +63,17 @@ ${commentBody}
 
     core.info('geocoding complete, updating comment');
   } catch (e) {
-    core.error(e);
-    core.setFailed(e.message);
+    if (e instanceof Error) {
+      core.error(e);
+      core.setFailed(e.message);
+    } else {
+      const errString =
+        typeof e === 'string'
+          ? e
+          : JSON.stringify(e, Object.getOwnPropertyNames(e));
+      core.error(errString);
+      core.setFailed(errString);
+    }
   }
 }
 
