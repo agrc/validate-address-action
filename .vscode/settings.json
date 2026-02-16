@@ -1,4 +1,8 @@
 {
-  "cSpell.words": ["Centerlines", "packagejson", "tseslint"],
-  "editor.formatOnSave": true
+  "cSpell.words": [
+    "Centerlines",
+    "packagejson",
+    "tseslint"
+  ],
+  "editor.formatOnSave": true,
 }
