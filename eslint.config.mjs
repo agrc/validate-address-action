@@ -6,18 +6,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  eslintPluginPrettierRecommended,
   {
-    languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-
-      ecmaVersion: 12,
-      sourceType: 'module',
-    },
     ignores: [
       'node_modules/',
       'dist/',
@@ -31,5 +20,18 @@ export default tseslint.config(
       'firebase-export-*/',
       'public/assets/**',
     ],
+  },
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  eslintPluginPrettierRecommended,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+
+      ecmaVersion: 12,
+      sourceType: 'module',
+    },
   },
 );
