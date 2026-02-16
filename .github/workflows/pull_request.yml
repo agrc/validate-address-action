@@ -59,6 +59,9 @@ jobs:
       - name: 🧪 Run tests
         run: pnpm test
 
+      - name: 🏗 Run build command
+        run: pnpm run build
+
   build:
     name: Commit Release Assets
     runs-on: ubuntu-latest
