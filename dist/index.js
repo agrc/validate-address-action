@@ -2073,6 +2073,17 @@ function getOctokit(token, options, ...additionalPlugins) {
 
 /***/ }),
 
+/***/ 5414:
+/***/ ((__unused_webpack_module, exports) => {
+
+var __webpack_unused_export__;
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+__webpack_unused_export__ = ({ value: true });
+//# sourceMappingURL=interfaces.js.map
+
+/***/ }),
+
 /***/ 1365:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -31301,333 +31312,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 6598:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.geocode = void 0;
-const core = __importStar(__nccwpck_require__(7153));
-const ky_1 = __importStar(__nccwpck_require__(3838));
-const SPACES = / +/;
-const INVALID_CHARS = /[^a-zA-Z0-9]/g;
-const cleanseStreet = (data) => {
-    const replacement = ' ';
-    // & -> and
-    let street = data.replace('&', 'and');
-    street = street.replace(INVALID_CHARS, replacement);
-    street = street.replace(SPACES, replacement);
-    return street.trim();
-};
-const cleanseZone = (data) => {
-    let zone = data.toString().replace(INVALID_CHARS, ' ');
-    zone = zone.replace(SPACES, ' ').trim();
-    if (zone.length > 0 && zone[0] == '8') {
-        zone = zone.slice(0, 5);
-    }
-    return zone;
-};
-const coolYourJets = () => {
-    const min = 150;
-    const max = 300;
-    return new Promise((resolve) => setTimeout(resolve, Math.random() * (max - min) + min));
-};
-const geocode = async (addresses, apiKey) => {
-    const results = [];
-    for await (const record of addresses) {
-        let [street, zone] = record.split(',');
-        street = cleanseStreet(street);
-        zone = cleanseZone(zone);
-        if (!street.length || !zone.length) {
-            results.push({ status: false, record, response: 'Invalid address' });
-            continue;
-        }
-        try {
-            const response = await (0, ky_1.default)(`geocode/${street}/${zone}`, {
-                headers: {
-                    'x-agrc-geocode-client': 'github-action',
-                    'x-agrc-geocode-client-version': '1.0.0',
-                    Referer: 'https://api-client.ugrc.utah.gov/',
-                },
-                searchParams: {
-                    apiKey: apiKey,
-                    locators: 'roadCenterlines',
-                },
-                prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
-            }).json();
-            if (response.status === 200 && response.result) {
-                const { score } = response.result;
-                results.push({ status: true, response: score, record });
-            }
-            else {
-                results.push({
-                    status: false,
-                    response: 'Invalid response from API',
-                    record,
-                });
-            }
-        }
-        catch (error) {
-            core.error(`Error geocoding street [${street}] zone [${zone}]: ${error}`);
-            let errorMessage = 'unknown error';
-            if (error instanceof ky_1.HTTPError) {
-                try {
-                    const errorResponse = (await error.response.json());
-                    errorMessage = errorResponse.error || errorResponse.message || errorMessage;
-                }
-                catch {
-                    errorMessage = error.message || errorMessage;
-                }
-            }
-            else if (error instanceof Error) {
-                errorMessage = error.message;
-            }
-            core.debug(`Error response: ${errorMessage}`);
-            results.push({
-                status: false,
-                response: errorMessage,
-                record,
-            });
-        }
-        await coolYourJets();
-    }
-    return results;
-};
-exports.geocode = geocode;
-
-
-/***/ }),
-
-/***/ 6866:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = run;
-const core = __importStar(__nccwpck_require__(7153));
-const github = __importStar(__nccwpck_require__(6137));
-const geocode_1 = __nccwpck_require__(6598);
-const util_1 = __nccwpck_require__(4352);
-async function run() {
-    core.debug('Starting action');
-    try {
-        const { context } = github;
-        const payload = context.payload;
-        const commentBody = context.payload.comment.body;
-        if (payload?.comment?.id == null) {
-            core.setFailed('no comment found in payload');
-            return;
-        }
-        if (!(0, util_1.requiresAction)(payload, commentBody)) {
-            core.warning('no action required');
-            return;
-        }
-        const octokit = (0, util_1.getOctokit)();
-        const { addresses } = (0, util_1.generateTokens)(commentBody);
-        const results = await (0, geocode_1.geocode)(addresses, core.getInput('API_KEY'));
-        core.notice(`geocoding ${addresses.length} addresses
-
-### Inputs
-
-${addresses.join('\n')}
-
-### Results
-
-${JSON.stringify(results, null, 2)}`);
-        const body = `${(0, util_1.formatResults)(results)}
-
-### Initiated by
-
-\`\`\`
-${commentBody}
-\`\`\`
-    `;
-        await octokit.rest.issues.updateComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            comment_id: payload.comment.id,
-            body,
-        });
-        core.info('geocoding complete, updating comment');
-    }
-    catch (e) {
-        core.error(e);
-        core.setFailed(e.message);
-    }
-}
-run();
-
-
-/***/ }),
-
-/***/ 4352:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.requiresAction = void 0;
-exports.getOctokit = getOctokit;
-exports.isValidEvent = isValidEvent;
-exports.generateTokens = generateTokens;
-exports.formatResults = formatResults;
-const core = __importStar(__nccwpck_require__(7153));
-const github = __importStar(__nccwpck_require__(6137));
-const requiresAction = (payload, commentBody) => {
-    if (payload?.action !== 'created') {
-        core.error('This action is only supported on comment creation.');
-        return false;
-    }
-    // Check if the first line of the comment is a slash command
-    const firstLine = commentBody.split(/\r?\n/)[0].trim();
-    if (firstLine.length < 2 || firstLine.charAt(0) !== '/') {
-        core.error('The first line of the comment is not a valid slash command.');
-        return false;
-    }
-    const { command } = generateTokens(commentBody);
-    return command === 'validate addresses';
-};
-exports.requiresAction = requiresAction;
-function getOctokit() {
-    const token = core.getInput('GITHUB_TOKEN', { required: true });
-    return github.getOctokit(token);
-}
-function isValidEvent(event, action) {
-    const { context } = github;
-    const { payload } = context;
-    if (event === context.eventName) {
-        return action == null || action === payload.action;
-    }
-    return false;
-}
-const TOKEN_REGEX = /^\/(?<command>.*(?!\S))/gm;
-const markdownToList = (markdownString) => {
-    const regex = /^\s*-\s*(.+)$/gm; // Matches lines starting with '-' and captures the content
-    const listItems = [];
-    let match;
-    while ((match = regex.exec(markdownString)) !== null) {
-        listItems.push(match[1].trim()); // Push the captured content (trimmed)
-    }
-    return listItems;
-};
-function generateTokens(comment) {
-    const match = TOKEN_REGEX.exec(comment);
-    const command = match?.groups?.command || '';
-    comment = comment.replace(TOKEN_REGEX, '').trim();
-    return {
-        command,
-        addresses: markdownToList(comment),
-    };
-}
-function formatResults(results) {
-    return results.reduce((acc, { status, record, response }) => {
-        const emoji = status ? '✅' : '❌';
-        acc += `- ${emoji} ${record}\n  - ${status ? `score: ${response}` : response}\n`;
-        return acc;
-    }, '## Geocode results\n\n');
-}
-
-
-/***/ }),
-
 /***/ 2613:
 /***/ ((module) => {
 
@@ -36018,26 +35702,85 @@ legacyRestEndpointMethods.VERSION = VERSION;
 //# sourceMappingURL=index.js.map
 
 
-/***/ }),
+/***/ })
 
-/***/ 3838:
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
-
-// ESM COMPAT FLAG
-__nccwpck_require__.r(__webpack_exports__);
+/******/ });
+/************************************************************************/
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/ 
+/******/ // The require function
+/******/ function __nccwpck_require__(moduleId) {
+/******/ 	// Check if module is in cache
+/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 	if (cachedModule !== undefined) {
+/******/ 		return cachedModule.exports;
+/******/ 	}
+/******/ 	// Create a new module (and put it into the cache)
+/******/ 	var module = __webpack_module_cache__[moduleId] = {
+/******/ 		// no module.id needed
+/******/ 		// no module.loaded needed
+/******/ 		exports: {}
+/******/ 	};
+/******/ 
+/******/ 	// Execute the module function
+/******/ 	var threw = true;
+/******/ 	try {
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 		threw = false;
+/******/ 	} finally {
+/******/ 		if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 	}
+/******/ 
+/******/ 	// Return the exports of the module
+/******/ 	return module.exports;
+/******/ }
+/******/ 
+/************************************************************************/
+/******/ /* webpack/runtime/define property getters */
+/******/ (() => {
+/******/ 	// define getter functions for harmony exports
+/******/ 	__nccwpck_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 			}
+/******/ 		}
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+/******/ 	__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/make namespace object */
+/******/ (() => {
+/******/ 	// define __esModule on exports
+/******/ 	__nccwpck_require__.r = (exports) => {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/compat */
+/******/ 
+/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
+/************************************************************************/
+var __webpack_exports__ = {};
 
 // EXPORTS
 __nccwpck_require__.d(__webpack_exports__, {
-  ForceRetryError: () => (/* reexport */ ForceRetryError),
-  HTTPError: () => (/* reexport */ HTTPError),
-  TimeoutError: () => (/* reexport */ TimeoutError),
-  "default": () => (/* binding */ distribution),
-  isForceRetryError: () => (/* reexport */ isForceRetryError),
-  isHTTPError: () => (/* reexport */ isHTTPError),
-  isKyError: () => (/* reexport */ isKyError),
-  isTimeoutError: () => (/* reexport */ isTimeoutError)
+  e: () => (/* binding */ run)
 });
 
+// EXTERNAL MODULE: ./node_modules/.pnpm/@actions+core@2.0.3/node_modules/@actions/core/lib/core.js
+var core = __nccwpck_require__(7153);
+// EXTERNAL MODULE: ./node_modules/.pnpm/@actions+github@8.0.1/node_modules/@actions/github/lib/github.js
+var lib_github = __nccwpck_require__(6137);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@1.14.3/node_modules/ky/distribution/errors/HTTPError.js
 class HTTPError extends Error {
     response;
@@ -36090,7 +35833,7 @@ class NonError extends Error {
 Internal error used to signal a forced retry from afterResponse hooks.
 This is thrown when a user returns ky.retry() from an afterResponse hook.
 */
-class ForceRetryError extends Error {
+class ForceRetryError_ForceRetryError extends Error {
     name = 'ForceRetryError';
     customDelay;
     code;
@@ -36828,7 +36571,7 @@ class Ky {
                     // Do not await cancellation since hooks can clone the response, leaving extra tee branches that keep cancel promises pending per the Streams spec.
                     ky.#cancelResponseBody(clonedResponse);
                     ky.#cancelResponseBody(response);
-                    throw new ForceRetryError(modifiedResponse.options);
+                    throw new ForceRetryError_ForceRetryError(modifiedResponse.options);
                 }
                 // Determine which response to use going forward
                 const nextResponse = modifiedResponse instanceof globalThis.Response ? modifiedResponse : response;
@@ -37022,7 +36765,7 @@ class Ky {
         // Wrap non-Error throws to ensure consistent error handling
         const errorObject = error instanceof Error ? error : new NonError(error);
         // Handle forced retry from afterResponse hook - skip method check and shouldRetry
-        if (errorObject instanceof ForceRetryError) {
+        if (errorObject instanceof ForceRetryError_ForceRetryError) {
             return errorObject.customDelay ?? this.#calculateDelay();
         }
         // Check if method is retriable for non-forced retries
@@ -37104,7 +36847,7 @@ class Ky {
             await delay(ms, this.#userProvidedAbortSignal ? { signal: this.#userProvidedAbortSignal } : {});
             // Apply custom request from forced retry before beforeRetry hooks
             // Ensure the custom request has the correct managed signal for timeouts and user aborts
-            if (error instanceof ForceRetryError && error.customRequest) {
+            if (error instanceof ForceRetryError_ForceRetryError && error.customRequest) {
                 const managedRequest = this.#options.signal
                     ? new globalThis.Request(error.customRequest, { signal: this.#options.signal })
                     : new globalThis.Request(error.customRequest);
@@ -37213,80 +36956,218 @@ const ky = createInstance();
 // Intentionally not exporting this for now as it's just an implementation detail and we don't want to commit to a certain API yet at least.
 // export {NonError} from './errors/NonError.js';
 //# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./src/geocode.ts
 
-/***/ })
 
-/******/ });
-/************************************************************************/
-/******/ // The module cache
-/******/ var __webpack_module_cache__ = {};
-/******/ 
-/******/ // The require function
-/******/ function __nccwpck_require__(moduleId) {
-/******/ 	// Check if module is in cache
-/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 	if (cachedModule !== undefined) {
-/******/ 		return cachedModule.exports;
-/******/ 	}
-/******/ 	// Create a new module (and put it into the cache)
-/******/ 	var module = __webpack_module_cache__[moduleId] = {
-/******/ 		// no module.id needed
-/******/ 		// no module.loaded needed
-/******/ 		exports: {}
-/******/ 	};
-/******/ 
-/******/ 	// Execute the module function
-/******/ 	var threw = true;
-/******/ 	try {
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
-/******/ 		threw = false;
-/******/ 	} finally {
-/******/ 		if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 	}
-/******/ 
-/******/ 	// Return the exports of the module
-/******/ 	return module.exports;
-/******/ }
-/******/ 
-/************************************************************************/
-/******/ /* webpack/runtime/define property getters */
-/******/ (() => {
-/******/ 	// define getter functions for harmony exports
-/******/ 	__nccwpck_require__.d = (exports, definition) => {
-/******/ 		for(var key in definition) {
-/******/ 			if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 			}
-/******/ 		}
-/******/ 	};
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/hasOwnProperty shorthand */
-/******/ (() => {
-/******/ 	__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/make namespace object */
-/******/ (() => {
-/******/ 	// define __esModule on exports
-/******/ 	__nccwpck_require__.r = (exports) => {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/compat */
-/******/ 
-/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
-/******/ 
-/************************************************************************/
-/******/ 
-/******/ // startup
-/******/ // Load entry module and return exports
-/******/ // This entry module is referenced by other modules so it can't be inlined
-/******/ var __webpack_exports__ = __nccwpck_require__(6866);
-/******/ 
+const SPACES = / +/;
+const INVALID_CHARS = /[^a-zA-Z0-9]/g;
+const cleanseStreet = (data) => {
+    const replacement = ' ';
+    // & -> and
+    let street = (data || '').replace(/&/g, 'and');
+    street = street.replace(INVALID_CHARS, replacement);
+    street = street.replace(SPACES, replacement);
+    return street.trim();
+};
+const cleanseZone = (data) => {
+    let zone = (data || '').toString().replace(INVALID_CHARS, ' ');
+    zone = zone.replace(SPACES, ' ').trim();
+    if (zone.length > 0 && zone[0] == '8') {
+        zone = zone.slice(0, 5);
+    }
+    return zone;
+};
+const coolYourJets = () => {
+    const min = 150;
+    const max = 300;
+    return new Promise((resolve) => setTimeout(resolve, Math.random() * (max - min) + min));
+};
+const geocode = async (addresses, apiKey) => {
+    const results = [];
+    for await (const record of addresses) {
+        let [street, zone] = record.split(',');
+        street = cleanseStreet(street);
+        zone = cleanseZone(zone);
+        if (!street.length || !zone.length) {
+            results.push({ status: false, record, response: 'Invalid address' });
+            continue;
+        }
+        try {
+            const response = await distribution(`geocode/${street}/${zone}`, {
+                headers: {
+                    'x-agrc-geocode-client': 'github-action',
+                    'x-agrc-geocode-client-version': '1.0.0',
+                    Referer: 'https://api-client.ugrc.utah.gov/',
+                },
+                searchParams: {
+                    apiKey: apiKey,
+                    locators: 'roadCenterlines',
+                },
+                prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
+            }).json();
+            if (response.status === 200 && response.result) {
+                const { score } = response.result;
+                results.push({ status: true, response: score, record });
+            }
+            else {
+                results.push({
+                    status: false,
+                    response: 'Invalid response from API',
+                    record,
+                });
+            }
+        }
+        catch (error) {
+            core.error(`Error geocoding street [${street}] zone [${zone}]: ${error}`);
+            let errorMessage = 'unknown error';
+            if (error instanceof HTTPError) {
+                try {
+                    const errorResponse = (await error.response.json());
+                    errorMessage =
+                        errorResponse.error || errorResponse.message || errorMessage;
+                }
+                catch {
+                    errorMessage = error.message || errorMessage;
+                }
+            }
+            else if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+            core.debug(`Error response: ${errorMessage}`);
+            results.push({
+                status: false,
+                response: errorMessage,
+                record,
+            });
+        }
+        await coolYourJets();
+    }
+    return results;
+};
+
+// EXTERNAL MODULE: ./node_modules/.pnpm/@actions+github@8.0.1/node_modules/@actions/github/lib/interfaces.js
+var interfaces = __nccwpck_require__(5414);
+;// CONCATENATED MODULE: ./src/util.ts
+
+
+
+const requiresAction = (payload, commentBody) => {
+    if (payload?.action !== 'created') {
+        core.error('This action is only supported on comment creation.');
+        return false;
+    }
+    // Check if the first line of the comment is a slash command
+    const firstLine = (commentBody ?? '').split(/\r?\n/)[0]?.trim() ?? '';
+    if (firstLine.length < 2 || firstLine.charAt(0) !== '/') {
+        core.error('The first line of the comment is not a valid slash command.');
+        return false;
+    }
+    const { command } = generateTokens(commentBody);
+    return command === 'validate addresses';
+};
+function getOctokit() {
+    const token = core.getInput('GITHUB_TOKEN', { required: true });
+    return lib_github.getOctokit(token);
+}
+function isValidEvent(event, action) {
+    const { context } = github;
+    const { payload } = context;
+    if (event === context.eventName) {
+        return action == null || action === payload.action;
+    }
+    return false;
+}
+const TOKEN_REGEX = /^\/(?<command>.*(?!\S))/gm;
+const markdownToList = (markdownString) => {
+    const regex = /^\s*-\s*(.+)$/gm; // Matches lines starting with '-' and captures the content
+    const listItems = [];
+    let match;
+    while ((match = regex.exec(markdownString)) !== null) {
+        listItems.push((match[1] ?? '').trim()); // Push the captured content (trimmed)
+    }
+    return listItems;
+};
+function generateTokens(comment) {
+    const match = TOKEN_REGEX.exec(comment);
+    const command = match?.groups?.command || '';
+    comment = comment.replace(TOKEN_REGEX, '').trim();
+    return {
+        command,
+        addresses: markdownToList(comment),
+    };
+}
+function formatResults(results) {
+    return results.reduce((acc, { status, record, response }) => {
+        const emoji = status ? '✅' : '❌';
+        acc += `- ${emoji} ${record}\n  - ${status ? `score: ${response}` : response}\n`;
+        return acc;
+    }, '## Geocode results\n\n');
+}
+
+;// CONCATENATED MODULE: ./src/index.ts
+
+
+
+
+async function run() {
+    core.debug('Starting action');
+    try {
+        const { context } = lib_github;
+        const payload = context.payload;
+        const commentBody = context.payload.comment.body;
+        if (payload?.comment?.id == null) {
+            core.setFailed('no comment found in payload');
+            return;
+        }
+        if (!requiresAction(payload, commentBody)) {
+            core.warning('no action required');
+            return;
+        }
+        const octokit = getOctokit();
+        const { addresses } = generateTokens(commentBody);
+        const results = await geocode(addresses, core.getInput('API_KEY'));
+        core.notice(`geocoding ${addresses.length} addresses
+
+### Inputs
+
+${addresses.join('\n')}
+
+### Results
+
+${JSON.stringify(results, null, 2)}`);
+        const body = `${formatResults(results)}
+
+### Initiated by
+
+\`\`\`
+${commentBody}
+\`\`\`
+    `;
+        await octokit.rest.issues.updateComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            comment_id: payload.comment.id,
+            body,
+        });
+        core.info('geocoding complete, updating comment');
+    }
+    catch (e) {
+        if (e instanceof Error) {
+            core.error(e);
+            core.setFailed(e.message);
+        }
+        else {
+            const errString = typeof e === 'string'
+                ? e
+                : JSON.stringify(e, Object.getOwnPropertyNames(e));
+            core.error(errString);
+            core.setFailed(errString);
+        }
+    }
+}
+run();
+
+var __webpack_exports__run = __webpack_exports__.e;
+export { __webpack_exports__run as run };
 
 //# sourceMappingURL=index.js.map
