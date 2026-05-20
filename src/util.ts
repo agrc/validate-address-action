@@ -1,6 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
-import { type WebhookPayload } from '@actions/github/lib/interfaces';
+
+type WebhookPayload = typeof github.context.payload;
 
 export type Octokit = ReturnType<typeof getOctokit>;
 

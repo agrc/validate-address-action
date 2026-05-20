@@ -87,7 +87,7 @@ export const geocode = async (addresses: string[], apiKey: string) => {
           apiKey: apiKey,
           locators: 'roadCenterlines',
         },
-        prefixUrl: 'https://api.mapserv.utah.gov/api/v1/',
+        prefix: 'https://api.mapserv.utah.gov/api/v1/',
       }).json();
 
       if (response.status === 200 && response.result) {
@@ -106,13 +106,9 @@ export const geocode = async (addresses: string[], apiKey: string) => {
       let errorMessage = 'unknown error';
 
       if (error instanceof HTTPError) {
-        try {
-          const errorResponse = (await error.response.json()) as ApiError;
-          errorMessage =
-            errorResponse.error || errorResponse.message || errorMessage;
-        } catch {
-          errorMessage = error.message || errorMessage;
-        }
+        const errorResponse = error.data as ApiError | undefined;
+        errorMessage =
+          errorResponse?.error || errorResponse?.message || error.message;
       } else if (error instanceof Error) {
         errorMessage = error.message;
       }
