@@ -17,7 +17,7 @@ jobs:
           show-progress: false
 
       - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 11
 
@@ -43,7 +43,7 @@ jobs:
           show-progress: false
 
       - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 11
 
@@ -70,11 +70,11 @@ jobs:
       contents: write
     steps:
       - name: 🪙 Convert token
-        uses: tibdex/github-app-token@v2
+        uses: actions/create-github-app-token@v3
         id: generate_token
         with:
-          app_id: ${{ secrets.UGRC_RELEASE_BOT_APP_ID }}
-          private_key: ${{ secrets.UGRC_RELEASE_BOT_APP_KEY }}
+          client-id: ${{ secrets.UGRC_RELEASE_BOT_APP_ID }}
+          private-key: ${{ secrets.UGRC_RELEASE_BOT_APP_KEY }}
 
       - name: ⬇️ Set up code
         uses: actions/checkout@v6
@@ -84,7 +84,7 @@ jobs:
           token: ${{ steps.generate_token.outputs.token }}
 
       - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 11
 
