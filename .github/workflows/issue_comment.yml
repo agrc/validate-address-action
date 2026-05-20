@@ -15,7 +15,7 @@ jobs:
     environment: prod
     steps:
       - name: Add emoji to comment
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const comment = context.payload.comment;
@@ -38,7 +38,7 @@ jobs:
           show-progress: false
 
       - name: 📦 Setup PNPM
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6.0.6
         with:
           version: latest
 
