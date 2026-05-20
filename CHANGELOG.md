@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.15](https://github.com/agrc/validate-address-action/compare/v1.0.14...v1.0.15) (2026-05-20)
+
+
+### Features
+
+* update pnpm workspace configuration to allow builds for esbuild and set minimum release age ([f9712c4](https://github.com/agrc/validate-address-action/commit/f9712c40e0258ae67bfe18202c18770556bc8e6a))
+
+
+### Dependencies
+
+* bump NPM dependencies 🌲 ([9620d2e](https://github.com/agrc/validate-address-action/commit/9620d2e41b2f14ef89ebe88a5a85f8eeb9184c95))
+
 ## [1.0.14](https://github.com/agrc/validate-address-action/compare/v1.0.13...v1.0.14) (2026-02-17)
 
 
