@@ -5,6 +5,11 @@ minimumReleaseAge: 10080
 minimumReleaseAgeStrict: true
 minimumReleaseAgeExclude:
   - '@ugrc/*'
+  - vite@8.0.16
+  - undici@6.27.0 || 6.28.0
+  - brace-expansion@1.1.16 || 1.1.17 || 1.1.18 || 5.0.7 || 5.0.8 || 5.0.9
+  - postcss@8.5.18 || 8.5.23
+  - nanoid@3.3.16 || 3.3.17
 
 overrides:
   undici@<6.23.0: '>=6.23.0'
