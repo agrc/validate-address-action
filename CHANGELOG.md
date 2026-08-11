@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.16](https://github.com/agrc/validate-address-action/compare/v1.0.15...v1.0.16) (2026-08-11)
+
+
+### Dependencies
+
+* bump NPM dependencies 🌲 ([57df79c](https://github.com/agrc/validate-address-action/commit/57df79c2adad675fe9ced1ba538cc7cf797f44e6))
+* **dev:** bump the safe-dependencies group across 1 directory with 2 updates ([fafb07b](https://github.com/agrc/validate-address-action/commit/fafb07bf8e92f094c58f228ed86569674489d3d3))
+* TypeScript v5 -&gt; v6 ([e95586a](https://github.com/agrc/validate-address-action/commit/e95586a30f696d0c86c98bc0c71879c4ce109fd6))
+
 ## [1.0.15](https://github.com/agrc/validate-address-action/compare/v1.0.14...v1.0.15) (2026-05-20)
 
 
