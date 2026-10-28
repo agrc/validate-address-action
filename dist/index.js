@@ -38557,11 +38557,12 @@ async function run() {
     try {
         const { /* context */ "_": context } = github_namespaceObject;
         const payload = context.payload;
-        const commentBody = context.payload.comment.body;
-        if (payload?.comment?.id == null) {
+        const comment = payload?.comment;
+        if (comment?.id == null) {
             setFailed('no comment found in payload');
             return;
         }
+        const commentBody = comment.body;
         if (!requiresAction(payload, commentBody)) {
             warning('no action required');
             return;
@@ -38589,7 +38590,7 @@ ${commentBody}
         await octokit.rest.issues.updateComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            comment_id: payload.comment.id,
+            comment_id: comment.id,
             body,
         });
         info('geocoding complete, updating comment');
