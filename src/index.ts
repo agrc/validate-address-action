@@ -13,13 +13,15 @@ export async function run() {
   try {
     const { context } = github;
     const payload = context.payload;
-    const commentBody = context.payload.comment!.body as string;
+    const comment = payload?.comment;
 
-    if (payload?.comment?.id == null) {
+    if (comment?.id == null) {
       core.setFailed('no comment found in payload');
 
       return;
     }
+
+    const commentBody = comment.body as string;
 
     if (!requiresAction(payload, commentBody)) {
       core.warning('no action required');
@@ -57,7 +59,7 @@ ${commentBody}
     await octokit.rest.issues.updateComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
-      comment_id: payload.comment.id,
+      comment_id: comment.id,
       body,
     });
 
