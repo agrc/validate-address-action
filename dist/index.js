@@ -1,7 +1,7 @@
 import './sourcemap-register.cjs';import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
 /******/ var __webpack_modules__ = ({
 
-/***/ 1212:
+/***/ 2504:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -54,9 +54,9 @@ exports.getProxyUrl = getProxyUrl;
 exports.isHttps = isHttps;
 const http = __importStar(__nccwpck_require__(8611));
 const https = __importStar(__nccwpck_require__(5692));
-const pm = __importStar(__nccwpck_require__(5836));
-const tunnel = __importStar(__nccwpck_require__(2345));
-const undici_1 = __nccwpck_require__(9001);
+const pm = __importStar(__nccwpck_require__(568));
+const tunnel = __importStar(__nccwpck_require__(7013));
+const undici_1 = __nccwpck_require__(9309);
 var HttpCodes;
 (function (HttpCodes) {
     HttpCodes[HttpCodes["OK"] = 200] = "OK";
@@ -744,7 +744,7 @@ const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => ((c[k.toLowerCa
 
 /***/ }),
 
-/***/ 5836:
+/***/ 568:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -844,15 +844,15 @@ class DecodedURL extends URL {
 
 /***/ }),
 
-/***/ 2345:
+/***/ 7013:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-module.exports = __nccwpck_require__(6979);
+module.exports = __nccwpck_require__(8479);
 
 
 /***/ }),
 
-/***/ 6979:
+/***/ 8479:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
@@ -1123,33 +1123,33 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 9001:
+/***/ 9309:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const Client = __nccwpck_require__(4408)
-const Dispatcher = __nccwpck_require__(9330)
-const Pool = __nccwpck_require__(8981)
-const BalancedPool = __nccwpck_require__(4378)
-const Agent = __nccwpck_require__(4454)
-const ProxyAgent = __nccwpck_require__(1439)
-const EnvHttpProxyAgent = __nccwpck_require__(132)
-const RetryAgent = __nccwpck_require__(885)
-const errors = __nccwpck_require__(5434)
-const util = __nccwpck_require__(837)
+const Client = __nccwpck_require__(7140)
+const Dispatcher = __nccwpck_require__(5030)
+const Pool = __nccwpck_require__(2921)
+const BalancedPool = __nccwpck_require__(9390)
+const Agent = __nccwpck_require__(4586)
+const ProxyAgent = __nccwpck_require__(3747)
+const EnvHttpProxyAgent = __nccwpck_require__(6920)
+const RetryAgent = __nccwpck_require__(9089)
+const errors = __nccwpck_require__(9934)
+const util = __nccwpck_require__(8529)
 const { InvalidArgumentError } = errors
-const api = __nccwpck_require__(2050)
-const buildConnector = __nccwpck_require__(3283)
-const MockClient = __nccwpck_require__(9862)
-const MockAgent = __nccwpck_require__(6816)
-const MockPool = __nccwpck_require__(3867)
-const mockErrors = __nccwpck_require__(6402)
-const RetryHandler = __nccwpck_require__(6953)
-const { getGlobalDispatcher, setGlobalDispatcher } = __nccwpck_require__(9054)
-const DecoratorHandler = __nccwpck_require__(9194)
-const RedirectHandler = __nccwpck_require__(3377)
-const createRedirectInterceptor = __nccwpck_require__(6491)
+const api = __nccwpck_require__(7998)
+const buildConnector = __nccwpck_require__(951)
+const MockClient = __nccwpck_require__(8570)
+const MockAgent = __nccwpck_require__(8444)
+const MockPool = __nccwpck_require__(3927)
+const mockErrors = __nccwpck_require__(9654)
+const RetryHandler = __nccwpck_require__(7877)
+const { getGlobalDispatcher, setGlobalDispatcher } = __nccwpck_require__(4498)
+const DecoratorHandler = __nccwpck_require__(4606)
+const RedirectHandler = __nccwpck_require__(3669)
+const createRedirectInterceptor = __nccwpck_require__(7327)
 
 Object.assign(Dispatcher.prototype, api)
 
@@ -1167,10 +1167,10 @@ module.exports.DecoratorHandler = DecoratorHandler
 module.exports.RedirectHandler = RedirectHandler
 module.exports.createRedirectInterceptor = createRedirectInterceptor
 module.exports.interceptors = {
-  redirect: __nccwpck_require__(9845),
-  retry: __nccwpck_require__(8339),
-  dump: __nccwpck_require__(2475),
-  dns: __nccwpck_require__(8426)
+  redirect: __nccwpck_require__(910),
+  retry: __nccwpck_require__(2503),
+  dump: __nccwpck_require__(7407),
+  dns: __nccwpck_require__(6814)
 }
 
 module.exports.buildConnector = buildConnector
@@ -1232,7 +1232,7 @@ function makeDispatcher (fn) {
 module.exports.setGlobalDispatcher = setGlobalDispatcher
 module.exports.getGlobalDispatcher = getGlobalDispatcher
 
-const fetchImpl = (__nccwpck_require__(1851).fetch)
+const fetchImpl = (__nccwpck_require__(8263).fetch)
 module.exports.fetch = async function fetch (init, options = undefined) {
   try {
     return await fetchImpl(init, options)
@@ -1244,39 +1244,39 @@ module.exports.fetch = async function fetch (init, options = undefined) {
     throw err
   }
 }
-module.exports.Headers = __nccwpck_require__(9373).Headers
-module.exports.Response = __nccwpck_require__(452).Response
-module.exports.Request = __nccwpck_require__(2522).Request
-module.exports.FormData = __nccwpck_require__(1377).FormData
+module.exports.Headers = __nccwpck_require__(3257).Headers
+module.exports.Response = __nccwpck_require__(1328).Response
+module.exports.Request = __nccwpck_require__(6398).Request
+module.exports.FormData = __nccwpck_require__(7653).FormData
 module.exports.File = globalThis.File ?? (__nccwpck_require__(4573).File)
-module.exports.FileReader = __nccwpck_require__(1696).FileReader
+module.exports.FileReader = __nccwpck_require__(5660).FileReader
 
-const { setGlobalOrigin, getGlobalOrigin } = __nccwpck_require__(6956)
+const { setGlobalOrigin, getGlobalOrigin } = __nccwpck_require__(8712)
 
 module.exports.setGlobalOrigin = setGlobalOrigin
 module.exports.getGlobalOrigin = getGlobalOrigin
 
-const { CacheStorage } = __nccwpck_require__(8690)
-const { kConstruct } = __nccwpck_require__(184)
+const { CacheStorage } = __nccwpck_require__(2118)
+const { kConstruct } = __nccwpck_require__(8404)
 
 // Cache & CacheStorage are tightly coupled with fetch. Even if it may run
 // in an older version of Node, it doesn't have any use without fetch.
 module.exports.caches = new CacheStorage(kConstruct)
 
-const { deleteCookie, getCookies, getSetCookies, setCookie } = __nccwpck_require__(240)
+const { deleteCookie, getCookies, getSetCookies, setCookie } = __nccwpck_require__(6748)
 
 module.exports.deleteCookie = deleteCookie
 module.exports.getCookies = getCookies
 module.exports.getSetCookies = getSetCookies
 module.exports.setCookie = setCookie
 
-const { parseMIMEType, serializeAMimeType } = __nccwpck_require__(4423)
+const { parseMIMEType, serializeAMimeType } = __nccwpck_require__(5192)
 
 module.exports.parseMIMEType = parseMIMEType
 module.exports.serializeAMimeType = serializeAMimeType
 
-const { CloseEvent, ErrorEvent, MessageEvent } = __nccwpck_require__(9551)
-module.exports.WebSocket = __nccwpck_require__(4067).WebSocket
+const { CloseEvent, ErrorEvent, MessageEvent } = __nccwpck_require__(659)
+module.exports.WebSocket = __nccwpck_require__(9708).WebSocket
 module.exports.CloseEvent = CloseEvent
 module.exports.ErrorEvent = ErrorEvent
 module.exports.MessageEvent = MessageEvent
@@ -1292,18 +1292,18 @@ module.exports.MockPool = MockPool
 module.exports.MockAgent = MockAgent
 module.exports.mockErrors = mockErrors
 
-const { EventSource } = __nccwpck_require__(7803)
+const { EventSource } = __nccwpck_require__(9207)
 
 module.exports.EventSource = EventSource
 
 
 /***/ }),
 
-/***/ 5689:
+/***/ 2917:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { addAbortListener } = __nccwpck_require__(837)
-const { RequestAbortedError } = __nccwpck_require__(5434)
+const { addAbortListener } = __nccwpck_require__(8529)
+const { RequestAbortedError } = __nccwpck_require__(9934)
 
 const kListener = Symbol('kListener')
 const kSignal = Symbol('kSignal')
@@ -1363,16 +1363,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5893:
+/***/ 4505:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const assert = __nccwpck_require__(4589)
 const { AsyncResource } = __nccwpck_require__(6698)
-const { InvalidArgumentError, SocketError } = __nccwpck_require__(5434)
-const util = __nccwpck_require__(837)
-const { addSignal, removeSignal } = __nccwpck_require__(5689)
+const { InvalidArgumentError, SocketError } = __nccwpck_require__(9934)
+const util = __nccwpck_require__(8529)
+const { addSignal, removeSignal } = __nccwpck_require__(2917)
 
 class ConnectHandler extends AsyncResource {
   constructor (opts, callback) {
@@ -1478,7 +1478,7 @@ module.exports = connect
 
 /***/ }),
 
-/***/ 9133:
+/***/ 7329:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -1492,10 +1492,10 @@ const {
   InvalidArgumentError,
   InvalidReturnValueError,
   RequestAbortedError
-} = __nccwpck_require__(5434)
-const util = __nccwpck_require__(837)
+} = __nccwpck_require__(9934)
+const util = __nccwpck_require__(8529)
 const { AsyncResource } = __nccwpck_require__(6698)
-const { addSignal, removeSignal } = __nccwpck_require__(5689)
+const { addSignal, removeSignal } = __nccwpck_require__(2917)
 const assert = __nccwpck_require__(4589)
 
 const kResume = Symbol('resume')
@@ -1736,16 +1736,16 @@ module.exports = pipeline
 
 /***/ }),
 
-/***/ 2414:
+/***/ 3850:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const assert = __nccwpck_require__(4589)
-const { Readable } = __nccwpck_require__(2984)
-const { InvalidArgumentError, RequestAbortedError } = __nccwpck_require__(5434)
-const util = __nccwpck_require__(837)
-const { getResolveErrorBodyCallback } = __nccwpck_require__(3308)
+const { Readable } = __nccwpck_require__(2036)
+const { InvalidArgumentError, RequestAbortedError } = __nccwpck_require__(9934)
+const util = __nccwpck_require__(8529)
+const { getResolveErrorBodyCallback } = __nccwpck_require__(8352)
 const { AsyncResource } = __nccwpck_require__(6698)
 
 class RequestHandler extends AsyncResource {
@@ -1957,18 +1957,18 @@ module.exports.RequestHandler = RequestHandler
 
 /***/ }),
 
-/***/ 7859:
+/***/ 2159:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const assert = __nccwpck_require__(4589)
 const { finished, PassThrough } = __nccwpck_require__(7075)
-const { InvalidArgumentError, InvalidReturnValueError } = __nccwpck_require__(5434)
-const util = __nccwpck_require__(837)
-const { getResolveErrorBodyCallback } = __nccwpck_require__(3308)
+const { InvalidArgumentError, InvalidReturnValueError } = __nccwpck_require__(9934)
+const util = __nccwpck_require__(8529)
+const { getResolveErrorBodyCallback } = __nccwpck_require__(8352)
 const { AsyncResource } = __nccwpck_require__(6698)
-const { addSignal, removeSignal } = __nccwpck_require__(5689)
+const { addSignal, removeSignal } = __nccwpck_require__(2917)
 
 class StreamHandler extends AsyncResource {
   constructor (opts, factory, callback) {
@@ -2184,15 +2184,15 @@ module.exports = stream
 
 /***/ }),
 
-/***/ 7613:
+/***/ 3827:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { InvalidArgumentError, SocketError } = __nccwpck_require__(5434)
+const { InvalidArgumentError, SocketError } = __nccwpck_require__(9934)
 const { AsyncResource } = __nccwpck_require__(6698)
-const util = __nccwpck_require__(837)
-const { addSignal, removeSignal } = __nccwpck_require__(5689)
+const util = __nccwpck_require__(8529)
+const { addSignal, removeSignal } = __nccwpck_require__(2917)
 const assert = __nccwpck_require__(4589)
 
 class UpgradeHandler extends AsyncResource {
@@ -2299,21 +2299,21 @@ module.exports = upgrade
 
 /***/ }),
 
-/***/ 2050:
+/***/ 7998:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-module.exports.request = __nccwpck_require__(2414)
-module.exports.stream = __nccwpck_require__(7859)
-module.exports.pipeline = __nccwpck_require__(9133)
-module.exports.upgrade = __nccwpck_require__(7613)
-module.exports.connect = __nccwpck_require__(5893)
+module.exports.request = __nccwpck_require__(3850)
+module.exports.stream = __nccwpck_require__(2159)
+module.exports.pipeline = __nccwpck_require__(7329)
+module.exports.upgrade = __nccwpck_require__(3827)
+module.exports.connect = __nccwpck_require__(4505)
 
 
 /***/ }),
 
-/***/ 2984:
+/***/ 2036:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // Ported from https://github.com/nodejs/undici/pull/907
@@ -2322,9 +2322,9 @@ module.exports.connect = __nccwpck_require__(5893)
 
 const assert = __nccwpck_require__(4589)
 const { Readable } = __nccwpck_require__(7075)
-const { RequestAbortedError, NotSupportedError, InvalidArgumentError, AbortError } = __nccwpck_require__(5434)
-const util = __nccwpck_require__(837)
-const { ReadableStreamFrom } = __nccwpck_require__(837)
+const { RequestAbortedError, NotSupportedError, InvalidArgumentError, AbortError } = __nccwpck_require__(9934)
+const util = __nccwpck_require__(8529)
+const { ReadableStreamFrom } = __nccwpck_require__(8529)
 
 const kConsume = Symbol('kConsume')
 const kReading = Symbol('kReading')
@@ -2705,15 +2705,15 @@ module.exports = { Readable: BodyReadable, chunksDecode }
 
 /***/ }),
 
-/***/ 3308:
+/***/ 8352:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const assert = __nccwpck_require__(4589)
 const {
   ResponseStatusCodeError
-} = __nccwpck_require__(5434)
+} = __nccwpck_require__(9934)
 
-const { chunksDecode } = __nccwpck_require__(2984)
+const { chunksDecode } = __nccwpck_require__(2036)
 const CHUNK_LIMIT = 128 * 1024
 
 async function getResolveErrorBodyCallback ({ callback, body, contentType, statusCode, statusMessage, headers }) {
@@ -2805,16 +2805,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3283:
+/***/ 951:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const net = __nccwpck_require__(7030)
 const assert = __nccwpck_require__(4589)
-const util = __nccwpck_require__(837)
-const { InvalidArgumentError, ConnectTimeoutError } = __nccwpck_require__(5434)
-const timers = __nccwpck_require__(4578)
+const util = __nccwpck_require__(8529)
+const { InvalidArgumentError, ConnectTimeoutError } = __nccwpck_require__(9934)
+const timers = __nccwpck_require__(4486)
 
 function noop () {}
 
@@ -3052,7 +3052,7 @@ module.exports = buildConnector
 
 /***/ }),
 
-/***/ 2396:
+/***/ 4448:
 /***/ ((module) => {
 
 
@@ -3177,7 +3177,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2417:
+/***/ 1509:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3386,7 +3386,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5434:
+/***/ 9934:
 /***/ ((module) => {
 
 
@@ -3818,7 +3818,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2528:
+/***/ 6540:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3826,7 +3826,7 @@ module.exports = {
 const {
   InvalidArgumentError,
   NotSupportedError
-} = __nccwpck_require__(5434)
+} = __nccwpck_require__(9934)
 const assert = __nccwpck_require__(4589)
 const {
   isValidHTTPToken,
@@ -3841,9 +3841,9 @@ const {
   validateHandler,
   getServerName,
   normalizedMethodRecords
-} = __nccwpck_require__(837)
-const { channels } = __nccwpck_require__(2417)
-const { headerNameLowerCasedRecord } = __nccwpck_require__(2396)
+} = __nccwpck_require__(8529)
+const { channels } = __nccwpck_require__(1509)
+const { headerNameLowerCasedRecord } = __nccwpck_require__(4448)
 
 // Verifies that a given path is valid does not contain control chars \x00 to \x20
 const invalidPathRegex = /[^\u0021-\u00ff]/
@@ -4307,7 +4307,7 @@ module.exports = Request
 
 /***/ }),
 
-/***/ 2892:
+/***/ 5424:
 /***/ ((module) => {
 
 module.exports = {
@@ -4381,7 +4381,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2429:
+/***/ 8313:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -4389,7 +4389,7 @@ module.exports = {
 const {
   wellknownHeaderNames,
   headerNameLowerCasedRecord
-} = __nccwpck_require__(2396)
+} = __nccwpck_require__(4448)
 
 class TstNode {
   /** @type {any} */
@@ -4540,13 +4540,13 @@ module.exports = {
 
 /***/ }),
 
-/***/ 837:
+/***/ 8529:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const assert = __nccwpck_require__(4589)
-const { kDestroyed, kBodyUsed, kListeners, kBody } = __nccwpck_require__(2892)
+const { kDestroyed, kBodyUsed, kListeners, kBody } = __nccwpck_require__(5424)
 const { IncomingMessage } = __nccwpck_require__(7067)
 const stream = __nccwpck_require__(7075)
 const net = __nccwpck_require__(7030)
@@ -4554,9 +4554,9 @@ const { Blob } = __nccwpck_require__(4573)
 const nodeUtil = __nccwpck_require__(7975)
 const { stringify } = __nccwpck_require__(1792)
 const { EventEmitter: EE } = __nccwpck_require__(8474)
-const { InvalidArgumentError } = __nccwpck_require__(5434)
-const { headerNameLowerCasedRecord } = __nccwpck_require__(2396)
-const { tree } = __nccwpck_require__(2429)
+const { InvalidArgumentError } = __nccwpck_require__(9934)
+const { headerNameLowerCasedRecord } = __nccwpck_require__(4448)
+const { tree } = __nccwpck_require__(8313)
 
 const [nodeMajor, nodeMinor] = process.versions.node.split('.').map(v => Number(v))
 
@@ -5266,18 +5266,18 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4454:
+/***/ 4586:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { InvalidArgumentError } = __nccwpck_require__(5434)
-const { kClients, kRunning, kClose, kDestroy, kDispatch, kInterceptors } = __nccwpck_require__(2892)
-const DispatcherBase = __nccwpck_require__(1354)
-const Pool = __nccwpck_require__(8981)
-const Client = __nccwpck_require__(4408)
-const util = __nccwpck_require__(837)
-const createRedirectInterceptor = __nccwpck_require__(6491)
+const { InvalidArgumentError } = __nccwpck_require__(9934)
+const { kClients, kRunning, kClose, kDestroy, kDispatch, kInterceptors } = __nccwpck_require__(5424)
+const DispatcherBase = __nccwpck_require__(6870)
+const Pool = __nccwpck_require__(2921)
+const Client = __nccwpck_require__(7140)
+const util = __nccwpck_require__(8529)
+const createRedirectInterceptor = __nccwpck_require__(7327)
 
 const kOnConnect = Symbol('onConnect')
 const kOnDisconnect = Symbol('onDisconnect')
@@ -5406,7 +5406,7 @@ module.exports = Agent
 
 /***/ }),
 
-/***/ 4378:
+/***/ 9390:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -5414,7 +5414,7 @@ module.exports = Agent
 const {
   BalancedPoolMissingUpstreamError,
   InvalidArgumentError
-} = __nccwpck_require__(5434)
+} = __nccwpck_require__(9934)
 const {
   PoolBase,
   kClients,
@@ -5422,10 +5422,10 @@ const {
   kAddClient,
   kRemoveClient,
   kGetDispatcher
-} = __nccwpck_require__(2375)
-const Pool = __nccwpck_require__(8981)
-const { kUrl, kInterceptors } = __nccwpck_require__(2892)
-const { parseOrigin } = __nccwpck_require__(837)
+} = __nccwpck_require__(627)
+const Pool = __nccwpck_require__(2921)
+const { kUrl, kInterceptors } = __nccwpck_require__(5424)
+const { parseOrigin } = __nccwpck_require__(8529)
 const kFactory = Symbol('factory')
 
 const kOptions = Symbol('options')
@@ -5622,7 +5622,7 @@ module.exports = BalancedPool
 
 /***/ }),
 
-/***/ 7606:
+/***/ 3010:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -5630,9 +5630,9 @@ module.exports = BalancedPool
 /* global WebAssembly */
 
 const assert = __nccwpck_require__(4589)
-const util = __nccwpck_require__(837)
-const { channels } = __nccwpck_require__(2417)
-const timers = __nccwpck_require__(4578)
+const util = __nccwpck_require__(8529)
+const { channels } = __nccwpck_require__(1509)
+const timers = __nccwpck_require__(4486)
 const {
   RequestContentLengthMismatchError,
   ResponseContentLengthMismatchError,
@@ -5645,7 +5645,7 @@ const {
   BodyTimeoutError,
   HTTPParserError,
   ResponseExceededMaxSizeError
-} = __nccwpck_require__(5434)
+} = __nccwpck_require__(9934)
 const {
   kUrl,
   kReset,
@@ -5678,9 +5678,9 @@ const {
   kOnError,
   kResume,
   kHTTPContext
-} = __nccwpck_require__(2892)
+} = __nccwpck_require__(5424)
 
-const constants = __nccwpck_require__(9207)
+const constants = __nccwpck_require__(2811)
 const EMPTY_BUF = Buffer.alloc(0)
 const FastBuffer = Buffer[Symbol.species]
 const addListener = util.addListener
@@ -5692,11 +5692,11 @@ const kSocketUsed = Symbol('kSocketUsed')
 let extractBody
 
 async function lazyllhttp () {
-  const llhttpWasmData = process.env.JEST_WORKER_ID ? __nccwpck_require__(625) : undefined
+  const llhttpWasmData = process.env.JEST_WORKER_ID ? __nccwpck_require__(5381) : undefined
 
   let mod
   try {
-    mod = await WebAssembly.compile(__nccwpck_require__(3507))
+    mod = await WebAssembly.compile(__nccwpck_require__(4823))
   } catch (e) {
     /* istanbul ignore next */
 
@@ -5704,7 +5704,7 @@ async function lazyllhttp () {
     // being enabled, but the occurring of this other error
     // * https://github.com/emscripten-core/emscripten/issues/11495
     // got me to remove that check to avoid breaking Node 12.
-    mod = await WebAssembly.compile(llhttpWasmData || __nccwpck_require__(625))
+    mod = await WebAssembly.compile(llhttpWasmData || __nccwpck_require__(5381))
   }
 
   return await WebAssembly.instantiate(mod, {
@@ -6619,7 +6619,7 @@ function writeH1 (client, request) {
 
   if (util.isFormDataLike(body)) {
     if (!extractBody) {
-      extractBody = (__nccwpck_require__(1371).extractBody)
+      extractBody = (__nccwpck_require__(6455).extractBody)
     }
 
     const [bodyStream, contentType] = extractBody(body)
@@ -7142,7 +7142,7 @@ module.exports = connectH1
 
 /***/ }),
 
-/***/ 1075:
+/***/ 1967:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -7150,13 +7150,13 @@ module.exports = connectH1
 const assert = __nccwpck_require__(4589)
 const { errorMonitor } = __nccwpck_require__(8474)
 const { pipeline } = __nccwpck_require__(7075)
-const util = __nccwpck_require__(837)
+const util = __nccwpck_require__(8529)
 const {
   RequestContentLengthMismatchError,
   RequestAbortedError,
   SocketError,
   InformationalError
-} = __nccwpck_require__(5434)
+} = __nccwpck_require__(9934)
 const {
   kUrl,
   kReset,
@@ -7175,7 +7175,7 @@ const {
   kResume,
   kSize,
   kHTTPContext
-} = __nccwpck_require__(2892)
+} = __nccwpck_require__(5424)
 
 const kOpenStreams = Symbol('open streams')
 
@@ -7581,7 +7581,7 @@ function writeH2 (client, request) {
   let contentLength = util.bodyLength(body)
 
   if (util.isFormDataLike(body)) {
-    extractBody ??= (__nccwpck_require__(1371).extractBody)
+    extractBody ??= (__nccwpck_require__(6455).extractBody)
 
     const [bodyStream, contentType] = extractBody(body)
     headers['content-type'] = contentType
@@ -7941,7 +7941,7 @@ module.exports = connectH2
 
 /***/ }),
 
-/***/ 4408:
+/***/ 7140:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // @ts-check
@@ -7951,16 +7951,16 @@ module.exports = connectH2
 const assert = __nccwpck_require__(4589)
 const net = __nccwpck_require__(7030)
 const http = __nccwpck_require__(7067)
-const util = __nccwpck_require__(837)
-const { channels } = __nccwpck_require__(2417)
-const Request = __nccwpck_require__(2528)
-const DispatcherBase = __nccwpck_require__(1354)
+const util = __nccwpck_require__(8529)
+const { channels } = __nccwpck_require__(1509)
+const Request = __nccwpck_require__(6540)
+const DispatcherBase = __nccwpck_require__(6870)
 const {
   InvalidArgumentError,
   InformationalError,
   ClientDestroyedError
-} = __nccwpck_require__(5434)
-const buildConnector = __nccwpck_require__(3283)
+} = __nccwpck_require__(9934)
+const buildConnector = __nccwpck_require__(951)
 const {
   kUrl,
   kServerName,
@@ -8002,9 +8002,9 @@ const {
   kHTTPContext,
   kMaxConcurrentStreams,
   kResume
-} = __nccwpck_require__(2892)
-const connectH1 = __nccwpck_require__(7606)
-const connectH2 = __nccwpck_require__(1075)
+} = __nccwpck_require__(5424)
+const connectH1 = __nccwpck_require__(3010)
+const connectH2 = __nccwpck_require__(1967)
 let deprecatedInterceptorWarned = false
 
 const kClosedResolve = Symbol('kClosedResolve')
@@ -8312,7 +8312,7 @@ class Client extends DispatcherBase {
   }
 }
 
-const createRedirectInterceptor = __nccwpck_require__(6491)
+const createRedirectInterceptor = __nccwpck_require__(7327)
 
 function onError (client, err) {
   if (
@@ -8572,19 +8572,19 @@ module.exports = Client
 
 /***/ }),
 
-/***/ 1354:
+/***/ 6870:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const buffer = __nccwpck_require__(4573)
-const Dispatcher = __nccwpck_require__(9330)
+const Dispatcher = __nccwpck_require__(5030)
 const {
   ClientDestroyedError,
   ClientClosedError,
   InvalidArgumentError
-} = __nccwpck_require__(5434)
-const { kDestroy, kClose, kClosed, kDestroyed, kDispatch, kInterceptors } = __nccwpck_require__(2892)
+} = __nccwpck_require__(9934)
+const { kDestroy, kClose, kClosed, kDestroyed, kDispatch, kInterceptors } = __nccwpck_require__(5424)
 
 const kOnDestroyed = Symbol('onDestroyed')
 const kOnClosed = Symbol('onClosed')
@@ -8787,7 +8787,7 @@ module.exports = DispatcherBase
 
 /***/ }),
 
-/***/ 9330:
+/***/ 5030:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -8859,15 +8859,15 @@ module.exports = Dispatcher
 
 /***/ }),
 
-/***/ 132:
+/***/ 6920:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const DispatcherBase = __nccwpck_require__(1354)
-const { kClose, kDestroy, kClosed, kDestroyed, kDispatch, kNoProxyAgent, kHttpProxyAgent, kHttpsProxyAgent } = __nccwpck_require__(2892)
-const ProxyAgent = __nccwpck_require__(1439)
-const Agent = __nccwpck_require__(4454)
+const DispatcherBase = __nccwpck_require__(6870)
+const { kClose, kDestroy, kClosed, kDestroyed, kDispatch, kNoProxyAgent, kHttpProxyAgent, kHttpsProxyAgent } = __nccwpck_require__(5424)
+const ProxyAgent = __nccwpck_require__(3747)
+const Agent = __nccwpck_require__(4586)
 
 const DEFAULT_PORTS = {
   'http:': 80,
@@ -9026,7 +9026,7 @@ module.exports = EnvHttpProxyAgent
 
 /***/ }),
 
-/***/ 867:
+/***/ 4007:
 /***/ ((module) => {
 
 /* eslint-disable */
@@ -9150,15 +9150,15 @@ module.exports = class FixedQueue {
 
 /***/ }),
 
-/***/ 2375:
+/***/ 627:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const DispatcherBase = __nccwpck_require__(1354)
-const FixedQueue = __nccwpck_require__(867)
-const { kConnected, kSize, kRunning, kPending, kQueued, kBusy, kFree, kUrl, kClose, kDestroy, kDispatch } = __nccwpck_require__(2892)
-const PoolStats = __nccwpck_require__(4883)
+const DispatcherBase = __nccwpck_require__(6870)
+const FixedQueue = __nccwpck_require__(4007)
+const { kConnected, kSize, kRunning, kPending, kQueued, kBusy, kFree, kUrl, kClose, kDestroy, kDispatch } = __nccwpck_require__(5424)
+const PoolStats = __nccwpck_require__(5871)
 
 const kClients = Symbol('clients')
 const kNeedDrain = Symbol('needDrain')
@@ -9351,10 +9351,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4883:
+/***/ 5871:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { kFree, kConnected, kPending, kQueued, kRunning, kSize } = __nccwpck_require__(2892)
+const { kFree, kConnected, kPending, kQueued, kRunning, kSize } = __nccwpck_require__(5424)
 const kPool = Symbol('pool')
 
 class PoolStats {
@@ -9392,7 +9392,7 @@ module.exports = PoolStats
 
 /***/ }),
 
-/***/ 8981:
+/***/ 2921:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9403,14 +9403,14 @@ const {
   kNeedDrain,
   kAddClient,
   kGetDispatcher
-} = __nccwpck_require__(2375)
-const Client = __nccwpck_require__(4408)
+} = __nccwpck_require__(627)
+const Client = __nccwpck_require__(7140)
 const {
   InvalidArgumentError
-} = __nccwpck_require__(5434)
-const util = __nccwpck_require__(837)
-const { kUrl, kInterceptors } = __nccwpck_require__(2892)
-const buildConnector = __nccwpck_require__(3283)
+} = __nccwpck_require__(9934)
+const util = __nccwpck_require__(8529)
+const { kUrl, kInterceptors } = __nccwpck_require__(5424)
+const buildConnector = __nccwpck_require__(951)
 
 const kOptions = Symbol('options')
 const kConnections = Symbol('connections')
@@ -9506,19 +9506,19 @@ module.exports = Pool
 
 /***/ }),
 
-/***/ 1439:
+/***/ 3747:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { kProxy, kClose, kDestroy, kDispatch, kInterceptors } = __nccwpck_require__(2892)
+const { kProxy, kClose, kDestroy, kDispatch, kInterceptors } = __nccwpck_require__(5424)
 const { URL } = __nccwpck_require__(3136)
-const Agent = __nccwpck_require__(4454)
-const Pool = __nccwpck_require__(8981)
-const DispatcherBase = __nccwpck_require__(1354)
-const { InvalidArgumentError, RequestAbortedError, SecureProxyConnectionError } = __nccwpck_require__(5434)
-const buildConnector = __nccwpck_require__(3283)
-const Client = __nccwpck_require__(4408)
+const Agent = __nccwpck_require__(4586)
+const Pool = __nccwpck_require__(2921)
+const DispatcherBase = __nccwpck_require__(6870)
+const { InvalidArgumentError, RequestAbortedError, SecureProxyConnectionError } = __nccwpck_require__(9934)
+const buildConnector = __nccwpck_require__(951)
+const Client = __nccwpck_require__(7140)
 
 const kAgent = Symbol('proxy agent')
 const kClient = Symbol('proxy client')
@@ -9787,13 +9787,13 @@ module.exports = ProxyAgent
 
 /***/ }),
 
-/***/ 885:
+/***/ 9089:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const Dispatcher = __nccwpck_require__(9330)
-const RetryHandler = __nccwpck_require__(6953)
+const Dispatcher = __nccwpck_require__(5030)
+const RetryHandler = __nccwpck_require__(7877)
 
 class RetryAgent extends Dispatcher {
   #agent = null
@@ -9829,7 +9829,7 @@ module.exports = RetryAgent
 
 /***/ }),
 
-/***/ 9054:
+/***/ 4498:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9837,8 +9837,8 @@ module.exports = RetryAgent
 // We include a version number for the Dispatcher API. In case of breaking changes,
 // this version number must be increased to avoid conflicts.
 const globalDispatcher = Symbol.for('undici.globalDispatcher.1')
-const { InvalidArgumentError } = __nccwpck_require__(5434)
-const Agent = __nccwpck_require__(4454)
+const { InvalidArgumentError } = __nccwpck_require__(9934)
+const Agent = __nccwpck_require__(4586)
 
 if (getGlobalDispatcher() === undefined) {
   setGlobalDispatcher(new Agent())
@@ -9868,7 +9868,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9194:
+/***/ 4606:
 /***/ ((module) => {
 
 
@@ -9919,15 +9919,15 @@ module.exports = class DecoratorHandler {
 
 /***/ }),
 
-/***/ 3377:
+/***/ 3669:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const util = __nccwpck_require__(837)
-const { kBodyUsed } = __nccwpck_require__(2892)
+const util = __nccwpck_require__(8529)
+const { kBodyUsed } = __nccwpck_require__(5424)
 const assert = __nccwpck_require__(4589)
-const { InvalidArgumentError } = __nccwpck_require__(5434)
+const { InvalidArgumentError } = __nccwpck_require__(9934)
 const EE = __nccwpck_require__(8474)
 
 const redirectableStatusCodes = [300, 301, 302, 303, 307, 308]
@@ -10158,20 +10158,20 @@ module.exports = RedirectHandler
 
 /***/ }),
 
-/***/ 6953:
+/***/ 7877:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 const assert = __nccwpck_require__(4589)
 
-const { kRetryHandlerDefaultRetry } = __nccwpck_require__(2892)
-const { RequestRetryError } = __nccwpck_require__(5434)
+const { kRetryHandlerDefaultRetry } = __nccwpck_require__(5424)
+const { RequestRetryError } = __nccwpck_require__(9934)
 const {
   isDisturbed,
   parseHeaders,
   parseRangeHeader,
   wrapRequestBody
-} = __nccwpck_require__(837)
+} = __nccwpck_require__(8529)
 
 function calculateRetryAfterHeader (retryAfter) {
   const current = Date.now()
@@ -10602,14 +10602,14 @@ module.exports = RetryHandler
 
 /***/ }),
 
-/***/ 8426:
+/***/ 6814:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 const { isIP } = __nccwpck_require__(7030)
 const { lookup } = __nccwpck_require__(610)
-const DecoratorHandler = __nccwpck_require__(9194)
-const { InvalidArgumentError, InformationalError } = __nccwpck_require__(5434)
+const DecoratorHandler = __nccwpck_require__(4606)
+const { InvalidArgumentError, InformationalError } = __nccwpck_require__(9934)
 const maxInt = Math.pow(2, 31) - 1
 
 class DNSInstance {
@@ -10984,14 +10984,14 @@ module.exports = interceptorOpts => {
 
 /***/ }),
 
-/***/ 2475:
+/***/ 7407:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const util = __nccwpck_require__(837)
-const { InvalidArgumentError, RequestAbortedError } = __nccwpck_require__(5434)
-const DecoratorHandler = __nccwpck_require__(9194)
+const util = __nccwpck_require__(8529)
+const { InvalidArgumentError, RequestAbortedError } = __nccwpck_require__(9934)
+const DecoratorHandler = __nccwpck_require__(4606)
 
 class DumpHandler extends DecoratorHandler {
   #maxSize = 1024 * 1024
@@ -11114,12 +11114,12 @@ module.exports = createDumpInterceptor
 
 /***/ }),
 
-/***/ 6491:
+/***/ 7327:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const RedirectHandler = __nccwpck_require__(3377)
+const RedirectHandler = __nccwpck_require__(3669)
 
 function createRedirectInterceptor ({ maxRedirections: defaultMaxRedirections }) {
   return (dispatch) => {
@@ -11142,11 +11142,11 @@ module.exports = createRedirectInterceptor
 
 /***/ }),
 
-/***/ 9845:
+/***/ 910:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
-const RedirectHandler = __nccwpck_require__(3377)
+const RedirectHandler = __nccwpck_require__(3669)
 
 module.exports = opts => {
   const globalMaxRedirections = opts?.maxRedirections
@@ -11173,11 +11173,11 @@ module.exports = opts => {
 
 /***/ }),
 
-/***/ 8339:
+/***/ 2503:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
-const RetryHandler = __nccwpck_require__(6953)
+const RetryHandler = __nccwpck_require__(7877)
 
 module.exports = globalOpts => {
   return dispatch => {
@@ -11199,13 +11199,13 @@ module.exports = globalOpts => {
 
 /***/ }),
 
-/***/ 9207:
+/***/ 2811:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SPECIAL_HEADERS = exports.HEADER_STATE = exports.MINOR = exports.MAJOR = exports.CONNECTION_TOKEN_CHARS = exports.HEADER_CHARS = exports.TOKEN = exports.STRICT_TOKEN = exports.HEX = exports.URL_CHAR = exports.STRICT_URL_CHAR = exports.USERINFO_CHARS = exports.MARK = exports.ALPHANUM = exports.NUM = exports.HEX_MAP = exports.NUM_MAP = exports.ALPHA = exports.FINISH = exports.H_METHOD_MAP = exports.METHOD_MAP = exports.METHODS_RTSP = exports.METHODS_ICE = exports.METHODS_HTTP = exports.METHODS = exports.LENIENT_FLAGS = exports.FLAGS = exports.TYPE = exports.ERROR = void 0;
-const utils_1 = __nccwpck_require__(6839);
+const utils_1 = __nccwpck_require__(6683);
 // C headers
 var ERROR;
 (function (ERROR) {
@@ -11483,7 +11483,7 @@ exports.SPECIAL_HEADERS = {
 
 /***/ }),
 
-/***/ 625:
+/***/ 5381:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -11495,7 +11495,7 @@ module.exports = Buffer.from('AGFzbQEAAAABJwdgAX8Bf2ADf39/AX9gAX8AYAJ/fwBgBH9/f3
 
 /***/ }),
 
-/***/ 3507:
+/***/ 4823:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -11507,7 +11507,7 @@ module.exports = Buffer.from('AGFzbQEAAAABJwdgAX8Bf2ADf39/AX9gAX8AYAJ/fwBgBH9/f3
 
 /***/ }),
 
-/***/ 6839:
+/***/ 6683:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -11528,13 +11528,13 @@ exports.enumToMap = enumToMap;
 
 /***/ }),
 
-/***/ 6816:
+/***/ 8444:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { kClients } = __nccwpck_require__(2892)
-const Agent = __nccwpck_require__(4454)
+const { kClients } = __nccwpck_require__(5424)
+const Agent = __nccwpck_require__(4586)
 const {
   kAgent,
   kMockAgentSet,
@@ -11545,14 +11545,14 @@ const {
   kGetNetConnect,
   kOptions,
   kFactory
-} = __nccwpck_require__(2660)
-const MockClient = __nccwpck_require__(9862)
-const MockPool = __nccwpck_require__(3867)
-const { matchValue, buildMockOptions } = __nccwpck_require__(1848)
-const { InvalidArgumentError, UndiciError } = __nccwpck_require__(5434)
-const Dispatcher = __nccwpck_require__(9330)
-const Pluralizer = __nccwpck_require__(2280)
-const PendingInterceptorsFormatter = __nccwpck_require__(4959)
+} = __nccwpck_require__(2104)
+const MockClient = __nccwpck_require__(8570)
+const MockPool = __nccwpck_require__(3927)
+const { matchValue, buildMockOptions } = __nccwpck_require__(7532)
+const { InvalidArgumentError, UndiciError } = __nccwpck_require__(9934)
+const Dispatcher = __nccwpck_require__(5030)
+const Pluralizer = __nccwpck_require__(2492)
+const PendingInterceptorsFormatter = __nccwpck_require__(4955)
 
 class MockAgent extends Dispatcher {
   constructor (opts) {
@@ -11695,14 +11695,14 @@ module.exports = MockAgent
 
 /***/ }),
 
-/***/ 9862:
+/***/ 8570:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { promisify } = __nccwpck_require__(7975)
-const Client = __nccwpck_require__(4408)
-const { buildMockDispatch } = __nccwpck_require__(1848)
+const Client = __nccwpck_require__(7140)
+const { buildMockDispatch } = __nccwpck_require__(7532)
 const {
   kDispatches,
   kMockAgent,
@@ -11711,10 +11711,10 @@ const {
   kOrigin,
   kOriginalDispatch,
   kConnected
-} = __nccwpck_require__(2660)
-const { MockInterceptor } = __nccwpck_require__(5834)
-const Symbols = __nccwpck_require__(2892)
-const { InvalidArgumentError } = __nccwpck_require__(5434)
+} = __nccwpck_require__(2104)
+const { MockInterceptor } = __nccwpck_require__(9478)
+const Symbols = __nccwpck_require__(5424)
+const { InvalidArgumentError } = __nccwpck_require__(9934)
 
 /**
  * MockClient provides an API that extends the Client to influence the mockDispatches.
@@ -11761,12 +11761,12 @@ module.exports = MockClient
 
 /***/ }),
 
-/***/ 6402:
+/***/ 9654:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { UndiciError } = __nccwpck_require__(5434)
+const { UndiciError } = __nccwpck_require__(9934)
 
 const kMockNotMatchedError = Symbol.for('undici.error.UND_MOCK_ERR_MOCK_NOT_MATCHED')
 
@@ -11796,12 +11796,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5834:
+/***/ 9478:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { getResponseData, buildKey, addMockDispatch } = __nccwpck_require__(1848)
+const { getResponseData, buildKey, addMockDispatch } = __nccwpck_require__(7532)
 const {
   kDispatches,
   kDispatchKey,
@@ -11809,9 +11809,9 @@ const {
   kDefaultTrailers,
   kContentLength,
   kMockDispatch
-} = __nccwpck_require__(2660)
-const { InvalidArgumentError } = __nccwpck_require__(5434)
-const { buildURL } = __nccwpck_require__(837)
+} = __nccwpck_require__(2104)
+const { InvalidArgumentError } = __nccwpck_require__(9934)
+const { buildURL } = __nccwpck_require__(8529)
 
 /**
  * Defines the scope API for an interceptor reply
@@ -12010,14 +12010,14 @@ module.exports.MockScope = MockScope
 
 /***/ }),
 
-/***/ 3867:
+/***/ 3927:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { promisify } = __nccwpck_require__(7975)
-const Pool = __nccwpck_require__(8981)
-const { buildMockDispatch } = __nccwpck_require__(1848)
+const Pool = __nccwpck_require__(2921)
+const { buildMockDispatch } = __nccwpck_require__(7532)
 const {
   kDispatches,
   kMockAgent,
@@ -12026,10 +12026,10 @@ const {
   kOrigin,
   kOriginalDispatch,
   kConnected
-} = __nccwpck_require__(2660)
-const { MockInterceptor } = __nccwpck_require__(5834)
-const Symbols = __nccwpck_require__(2892)
-const { InvalidArgumentError } = __nccwpck_require__(5434)
+} = __nccwpck_require__(2104)
+const { MockInterceptor } = __nccwpck_require__(9478)
+const Symbols = __nccwpck_require__(5424)
+const { InvalidArgumentError } = __nccwpck_require__(9934)
 
 /**
  * MockPool provides an API that extends the Pool to influence the mockDispatches.
@@ -12076,7 +12076,7 @@ module.exports = MockPool
 
 /***/ }),
 
-/***/ 2660:
+/***/ 2104:
 /***/ ((module) => {
 
 
@@ -12106,20 +12106,20 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1848:
+/***/ 7532:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { MockNotMatchedError } = __nccwpck_require__(6402)
+const { MockNotMatchedError } = __nccwpck_require__(9654)
 const {
   kDispatches,
   kMockAgent,
   kOriginalDispatch,
   kOrigin,
   kGetNetConnect
-} = __nccwpck_require__(2660)
-const { buildURL } = __nccwpck_require__(837)
+} = __nccwpck_require__(2104)
+const { buildURL } = __nccwpck_require__(8529)
 const { STATUS_CODES } = __nccwpck_require__(7067)
 const {
   types: {
@@ -12480,7 +12480,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4959:
+/***/ 4955:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -12530,7 +12530,7 @@ module.exports = class PendingInterceptorsFormatter {
 
 /***/ }),
 
-/***/ 2280:
+/***/ 2492:
 /***/ ((module) => {
 
 
@@ -12566,7 +12566,7 @@ module.exports = class Pluralizer {
 
 /***/ }),
 
-/***/ 4578:
+/***/ 4486:
 /***/ ((module) => {
 
 
@@ -12996,20 +12996,20 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3263:
+/***/ 9419:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { kConstruct } = __nccwpck_require__(184)
-const { urlEquals, getFieldValues } = __nccwpck_require__(5337)
-const { kEnumerableProperty, isDisturbed } = __nccwpck_require__(837)
-const { webidl } = __nccwpck_require__(3598)
-const { Response, cloneResponse, fromInnerResponse } = __nccwpck_require__(452)
-const { Request, fromInnerRequest } = __nccwpck_require__(2522)
-const { kState } = __nccwpck_require__(766)
-const { fetching } = __nccwpck_require__(1851)
-const { urlIsHttpHttpsScheme, createDeferredPromise, readAllBytes } = __nccwpck_require__(9907)
+const { kConstruct } = __nccwpck_require__(8404)
+const { urlEquals, getFieldValues } = __nccwpck_require__(6893)
+const { kEnumerableProperty, isDisturbed } = __nccwpck_require__(8529)
+const { webidl } = __nccwpck_require__(5162)
+const { Response, cloneResponse, fromInnerResponse } = __nccwpck_require__(1328)
+const { Request, fromInnerRequest } = __nccwpck_require__(6398)
+const { kState } = __nccwpck_require__(6602)
+const { fetching } = __nccwpck_require__(8263)
+const { urlIsHttpHttpsScheme, createDeferredPromise, readAllBytes } = __nccwpck_require__(3095)
 const assert = __nccwpck_require__(4589)
 
 /**
@@ -13862,15 +13862,15 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8690:
+/***/ 2118:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { kConstruct } = __nccwpck_require__(184)
-const { Cache } = __nccwpck_require__(3263)
-const { webidl } = __nccwpck_require__(3598)
-const { kEnumerableProperty } = __nccwpck_require__(837)
+const { kConstruct } = __nccwpck_require__(8404)
+const { Cache } = __nccwpck_require__(9419)
+const { webidl } = __nccwpck_require__(5162)
+const { kEnumerableProperty } = __nccwpck_require__(8529)
 
 class CacheStorage {
   /**
@@ -14021,26 +14021,26 @@ module.exports = {
 
 /***/ }),
 
-/***/ 184:
+/***/ 8404:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 module.exports = {
-  kConstruct: (__nccwpck_require__(2892).kConstruct)
+  kConstruct: (__nccwpck_require__(5424).kConstruct)
 }
 
 
 /***/ }),
 
-/***/ 5337:
+/***/ 6893:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const assert = __nccwpck_require__(4589)
-const { URLSerializer } = __nccwpck_require__(4423)
-const { isValidHeaderName } = __nccwpck_require__(9907)
+const { URLSerializer } = __nccwpck_require__(5192)
+const { isValidHeaderName } = __nccwpck_require__(3095)
 
 /**
  * @see https://url.spec.whatwg.org/#concept-url-equals
@@ -14085,7 +14085,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1493:
+/***/ 9265:
 /***/ ((module) => {
 
 
@@ -14104,15 +14104,15 @@ module.exports = {
 
 /***/ }),
 
-/***/ 240:
+/***/ 6748:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { parseSetCookie } = __nccwpck_require__(4131)
-const { stringify } = __nccwpck_require__(7978)
-const { webidl } = __nccwpck_require__(3598)
-const { Headers } = __nccwpck_require__(9373)
+const { parseSetCookie } = __nccwpck_require__(2351)
+const { stringify } = __nccwpck_require__(190)
+const { webidl } = __nccwpck_require__(5162)
+const { Headers } = __nccwpck_require__(3257)
 
 /**
  * @typedef {Object} Cookie
@@ -14295,14 +14295,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4131:
+/***/ 2351:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { maxNameValuePairSize, maxAttributeValueSize } = __nccwpck_require__(1493)
-const { isCTLExcludingHtab } = __nccwpck_require__(7978)
-const { collectASequenceOfCodePointsFast } = __nccwpck_require__(4423)
+const { maxNameValuePairSize, maxAttributeValueSize } = __nccwpck_require__(9265)
+const { isCTLExcludingHtab } = __nccwpck_require__(190)
+const { collectASequenceOfCodePointsFast } = __nccwpck_require__(5192)
 const assert = __nccwpck_require__(4589)
 
 /**
@@ -14612,7 +14612,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7978:
+/***/ 190:
 /***/ ((module) => {
 
 
@@ -14971,13 +14971,13 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2704:
+/***/ 2900:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 const buffer = __nccwpck_require__(4573)
 const { Transform } = __nccwpck_require__(7075)
-const { isASCIINumber, isValidLastEventId } = __nccwpck_require__(8940)
+const { isASCIINumber, isValidLastEventId } = __nccwpck_require__(1048)
 
 /**
  * @type {number[]} BOM
@@ -15552,23 +15552,23 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7803:
+/***/ 9207:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { pipeline } = __nccwpck_require__(7075)
-const { fetching } = __nccwpck_require__(1851)
-const { makeRequest } = __nccwpck_require__(2522)
-const { webidl } = __nccwpck_require__(3598)
-const { EventSourceStream } = __nccwpck_require__(2704)
-const { parseMIMEType } = __nccwpck_require__(4423)
-const { createFastMessageEvent } = __nccwpck_require__(9551)
-const { isNetworkError } = __nccwpck_require__(452)
-const { delay } = __nccwpck_require__(8940)
-const { kEnumerableProperty } = __nccwpck_require__(837)
-const { environmentSettingsObject } = __nccwpck_require__(9907)
-const { getGlobalDispatcher } = __nccwpck_require__(9054)
+const { fetching } = __nccwpck_require__(8263)
+const { makeRequest } = __nccwpck_require__(6398)
+const { webidl } = __nccwpck_require__(5162)
+const { EventSourceStream } = __nccwpck_require__(2900)
+const { parseMIMEType } = __nccwpck_require__(5192)
+const { createFastMessageEvent } = __nccwpck_require__(659)
+const { isNetworkError } = __nccwpck_require__(1328)
+const { delay } = __nccwpck_require__(1048)
+const { kEnumerableProperty } = __nccwpck_require__(8529)
+const { environmentSettingsObject } = __nccwpck_require__(3095)
+const { getGlobalDispatcher } = __nccwpck_require__(4498)
 
 let experimentalWarned = false
 
@@ -16042,7 +16042,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8940:
+/***/ 1048:
 /***/ ((module) => {
 
 
@@ -16086,12 +16086,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1371:
+/***/ 6455:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const util = __nccwpck_require__(837)
+const util = __nccwpck_require__(8529)
 const {
   ReadableStreamFrom,
   isBlobLike,
@@ -16101,16 +16101,16 @@ const {
   fullyReadBody,
   extractMimeType,
   utf8DecodeBytes
-} = __nccwpck_require__(9907)
-const { FormData } = __nccwpck_require__(1377)
-const { kState } = __nccwpck_require__(766)
-const { webidl } = __nccwpck_require__(3598)
+} = __nccwpck_require__(3095)
+const { FormData } = __nccwpck_require__(7653)
+const { kState } = __nccwpck_require__(6602)
+const { webidl } = __nccwpck_require__(5162)
 const { Blob } = __nccwpck_require__(4573)
 const assert = __nccwpck_require__(4589)
 const { isErrored, isDisturbed } = __nccwpck_require__(7075)
 const { isArrayBuffer } = __nccwpck_require__(3429)
-const { serializeAMimeType } = __nccwpck_require__(4423)
-const { multipartFormDataParser } = __nccwpck_require__(1713)
+const { serializeAMimeType } = __nccwpck_require__(5192)
+const { multipartFormDataParser } = __nccwpck_require__(6701)
 let random
 
 try {
@@ -16622,7 +16622,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 5982:
+/***/ 5706:
 /***/ ((module) => {
 
 
@@ -16753,7 +16753,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4423:
+/***/ 5192:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -17504,12 +17504,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9222:
+/***/ 3090:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { kConnected, kSize } = __nccwpck_require__(2892)
+const { kConnected, kSize } = __nccwpck_require__(5424)
 
 class CompatWeakRef {
   constructor (value) {
@@ -17557,14 +17557,14 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 465:
+/***/ 5733:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { Blob, File } = __nccwpck_require__(4573)
-const { kState } = __nccwpck_require__(766)
-const { webidl } = __nccwpck_require__(3598)
+const { kState } = __nccwpck_require__(6602)
+const { webidl } = __nccwpck_require__(5162)
 
 // TODO(@KhafraDev): remove
 class FileLike {
@@ -17690,16 +17690,16 @@ module.exports = { FileLike, isFileLike }
 
 /***/ }),
 
-/***/ 1713:
+/***/ 6701:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { isUSVString, bufferToLowerCasedHeaderName } = __nccwpck_require__(837)
-const { utf8DecodeBytes } = __nccwpck_require__(9907)
-const { HTTP_TOKEN_CODEPOINTS, isomorphicDecode } = __nccwpck_require__(4423)
-const { isFileLike } = __nccwpck_require__(465)
-const { makeEntry } = __nccwpck_require__(1377)
+const { isUSVString, bufferToLowerCasedHeaderName } = __nccwpck_require__(8529)
+const { utf8DecodeBytes } = __nccwpck_require__(3095)
+const { HTTP_TOKEN_CODEPOINTS, isomorphicDecode } = __nccwpck_require__(5192)
+const { isFileLike } = __nccwpck_require__(5733)
+const { makeEntry } = __nccwpck_require__(7653)
 const assert = __nccwpck_require__(4589)
 const { File: NodeFile } = __nccwpck_require__(4573)
 
@@ -18171,16 +18171,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1377:
+/***/ 7653:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { isBlobLike, iteratorMixin } = __nccwpck_require__(9907)
-const { kState } = __nccwpck_require__(766)
-const { kEnumerableProperty } = __nccwpck_require__(837)
-const { FileLike, isFileLike } = __nccwpck_require__(465)
-const { webidl } = __nccwpck_require__(3598)
+const { isBlobLike, iteratorMixin } = __nccwpck_require__(3095)
+const { kState } = __nccwpck_require__(6602)
+const { kEnumerableProperty } = __nccwpck_require__(8529)
+const { FileLike, isFileLike } = __nccwpck_require__(5733)
+const { webidl } = __nccwpck_require__(5162)
 const { File: NativeFile } = __nccwpck_require__(4573)
 const nodeUtil = __nccwpck_require__(7975)
 
@@ -18430,7 +18430,7 @@ module.exports = { FormData, makeEntry }
 
 /***/ }),
 
-/***/ 6956:
+/***/ 8712:
 /***/ ((module) => {
 
 
@@ -18477,21 +18477,21 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9373:
+/***/ 3257:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // https://github.com/Ethan-Arrowood/undici-fetch
 
 
 
-const { kConstruct } = __nccwpck_require__(2892)
-const { kEnumerableProperty } = __nccwpck_require__(837)
+const { kConstruct } = __nccwpck_require__(5424)
+const { kEnumerableProperty } = __nccwpck_require__(8529)
 const {
   iteratorMixin,
   isValidHeaderName,
   isValidHeaderValue
-} = __nccwpck_require__(9907)
-const { webidl } = __nccwpck_require__(3598)
+} = __nccwpck_require__(3095)
+const { webidl } = __nccwpck_require__(5162)
 const assert = __nccwpck_require__(4589)
 const util = __nccwpck_require__(7975)
 
@@ -19171,7 +19171,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1851:
+/***/ 8263:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // https://github.com/Ethan-Arrowood/undici-fetch
@@ -19184,9 +19184,9 @@ const {
   filterResponse,
   makeResponse,
   fromInnerResponse
-} = __nccwpck_require__(452)
-const { HeadersList } = __nccwpck_require__(9373)
-const { Request, cloneRequest } = __nccwpck_require__(2522)
+} = __nccwpck_require__(1328)
+const { HeadersList } = __nccwpck_require__(3257)
+const { Request, cloneRequest } = __nccwpck_require__(6398)
 const zlib = __nccwpck_require__(8522)
 const {
   bytesMatch,
@@ -19222,23 +19222,23 @@ const {
   buildContentRange,
   createInflate,
   extractMimeType
-} = __nccwpck_require__(9907)
-const { kState, kDispatcher } = __nccwpck_require__(766)
+} = __nccwpck_require__(3095)
+const { kState, kDispatcher } = __nccwpck_require__(6602)
 const assert = __nccwpck_require__(4589)
-const { safelyExtractBody, extractBody } = __nccwpck_require__(1371)
+const { safelyExtractBody, extractBody } = __nccwpck_require__(6455)
 const {
   redirectStatusSet,
   nullBodyStatus,
   safeMethodsSet,
   requestBodyHeader,
   subresourceSet
-} = __nccwpck_require__(5982)
+} = __nccwpck_require__(5706)
 const EE = __nccwpck_require__(8474)
 const { Readable, pipeline, finished } = __nccwpck_require__(7075)
-const { addAbortListener, isErrored, isReadable, bufferToLowerCasedHeaderName } = __nccwpck_require__(837)
-const { dataURLProcessor, serializeAMimeType, minimizeSupportedMimeType } = __nccwpck_require__(4423)
-const { getGlobalDispatcher } = __nccwpck_require__(9054)
-const { webidl } = __nccwpck_require__(3598)
+const { addAbortListener, isErrored, isReadable, bufferToLowerCasedHeaderName } = __nccwpck_require__(8529)
+const { dataURLProcessor, serializeAMimeType, minimizeSupportedMimeType } = __nccwpck_require__(5192)
+const { getGlobalDispatcher } = __nccwpck_require__(4498)
+const { webidl } = __nccwpck_require__(5162)
 const { STATUS_CODES } = __nccwpck_require__(7067)
 const GET_OR_HEAD = ['GET', 'HEAD']
 
@@ -21448,23 +21448,23 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2522:
+/***/ 6398:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /* globals AbortController */
 
 
 
-const { extractBody, mixinBody, cloneBody, bodyUnusable } = __nccwpck_require__(1371)
-const { Headers, fill: fillHeaders, HeadersList, setHeadersGuard, getHeadersGuard, setHeadersList, getHeadersList } = __nccwpck_require__(9373)
-const { FinalizationRegistry } = __nccwpck_require__(9222)()
-const util = __nccwpck_require__(837)
+const { extractBody, mixinBody, cloneBody, bodyUnusable } = __nccwpck_require__(6455)
+const { Headers, fill: fillHeaders, HeadersList, setHeadersGuard, getHeadersGuard, setHeadersList, getHeadersList } = __nccwpck_require__(3257)
+const { FinalizationRegistry } = __nccwpck_require__(3090)()
+const util = __nccwpck_require__(8529)
 const nodeUtil = __nccwpck_require__(7975)
 const {
   isValidHTTPToken,
   sameOrigin,
   environmentSettingsObject
-} = __nccwpck_require__(9907)
+} = __nccwpck_require__(3095)
 const {
   forbiddenMethodsSet,
   corsSafeListedMethodsSet,
@@ -21474,12 +21474,12 @@ const {
   requestCredentials,
   requestCache,
   requestDuplex
-} = __nccwpck_require__(5982)
+} = __nccwpck_require__(5706)
 const { kEnumerableProperty, normalizedMethodRecordsBase, normalizedMethodRecords } = util
-const { kHeaders, kSignal, kState, kDispatcher } = __nccwpck_require__(766)
-const { webidl } = __nccwpck_require__(3598)
-const { URLSerializer } = __nccwpck_require__(4423)
-const { kConstruct } = __nccwpck_require__(2892)
+const { kHeaders, kSignal, kState, kDispatcher } = __nccwpck_require__(6602)
+const { webidl } = __nccwpck_require__(5162)
+const { URLSerializer } = __nccwpck_require__(5192)
+const { kConstruct } = __nccwpck_require__(5424)
 const assert = __nccwpck_require__(4589)
 const { getMaxListeners, setMaxListeners, getEventListeners, defaultMaxListeners } = __nccwpck_require__(8474)
 
@@ -22492,14 +22492,14 @@ module.exports = { Request, makeRequest, fromInnerRequest, cloneRequest }
 
 /***/ }),
 
-/***/ 452:
+/***/ 1328:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { Headers, HeadersList, fill, getHeadersGuard, setHeadersGuard, setHeadersList } = __nccwpck_require__(9373)
-const { extractBody, cloneBody, mixinBody, hasFinalizationRegistry, streamRegistry, bodyUnusable } = __nccwpck_require__(1371)
-const util = __nccwpck_require__(837)
+const { Headers, HeadersList, fill, getHeadersGuard, setHeadersGuard, setHeadersList } = __nccwpck_require__(3257)
+const { extractBody, cloneBody, mixinBody, hasFinalizationRegistry, streamRegistry, bodyUnusable } = __nccwpck_require__(6455)
+const util = __nccwpck_require__(8529)
 const nodeUtil = __nccwpck_require__(7975)
 const { kEnumerableProperty } = util
 const {
@@ -22511,16 +22511,16 @@ const {
   isErrorLike,
   isomorphicEncode,
   environmentSettingsObject: relevantRealm
-} = __nccwpck_require__(9907)
+} = __nccwpck_require__(3095)
 const {
   redirectStatusSet,
   nullBodyStatus
-} = __nccwpck_require__(5982)
-const { kState, kHeaders } = __nccwpck_require__(766)
-const { webidl } = __nccwpck_require__(3598)
-const { FormData } = __nccwpck_require__(1377)
-const { URLSerializer } = __nccwpck_require__(4423)
-const { kConstruct } = __nccwpck_require__(2892)
+} = __nccwpck_require__(5706)
+const { kState, kHeaders } = __nccwpck_require__(6602)
+const { webidl } = __nccwpck_require__(5162)
+const { FormData } = __nccwpck_require__(7653)
+const { URLSerializer } = __nccwpck_require__(5192)
+const { kConstruct } = __nccwpck_require__(5424)
 const assert = __nccwpck_require__(4589)
 const { types } = __nccwpck_require__(7975)
 
@@ -23109,7 +23109,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 766:
+/***/ 6602:
 /***/ ((module) => {
 
 
@@ -23125,21 +23125,21 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9907:
+/***/ 3095:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { Transform } = __nccwpck_require__(7075)
 const zlib = __nccwpck_require__(8522)
-const { redirectStatusSet, referrerPolicySet: referrerPolicyTokens, badPortsSet } = __nccwpck_require__(5982)
-const { getGlobalOrigin } = __nccwpck_require__(6956)
-const { collectASequenceOfCodePoints, collectAnHTTPQuotedString, removeChars, parseMIMEType } = __nccwpck_require__(4423)
+const { redirectStatusSet, referrerPolicySet: referrerPolicyTokens, badPortsSet } = __nccwpck_require__(5706)
+const { getGlobalOrigin } = __nccwpck_require__(8712)
+const { collectASequenceOfCodePoints, collectAnHTTPQuotedString, removeChars, parseMIMEType } = __nccwpck_require__(5192)
 const { performance } = __nccwpck_require__(643)
-const { isBlobLike, ReadableStreamFrom, isValidHTTPToken, normalizedMethodRecordsBase } = __nccwpck_require__(837)
+const { isBlobLike, ReadableStreamFrom, isValidHTTPToken, normalizedMethodRecordsBase } = __nccwpck_require__(8529)
 const assert = __nccwpck_require__(4589)
 const { isUint8Array } = __nccwpck_require__(3429)
-const { webidl } = __nccwpck_require__(3598)
+const { webidl } = __nccwpck_require__(5162)
 
 let supportedHashes = []
 
@@ -24764,14 +24764,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3598:
+/***/ 5162:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { types, inspect } = __nccwpck_require__(7975)
 const { markAsUncloneable } = __nccwpck_require__(5919)
-const { toUSVString } = __nccwpck_require__(837)
+const { toUSVString } = __nccwpck_require__(8529)
 
 /** @type {import('../../../types/webidl').Webidl} */
 const webidl = {}
@@ -25466,7 +25466,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2924:
+/***/ 9944:
 /***/ ((module) => {
 
 
@@ -25763,7 +25763,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1696:
+/***/ 5660:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -25772,16 +25772,16 @@ const {
   staticPropertyDescriptors,
   readOperation,
   fireAProgressEvent
-} = __nccwpck_require__(1237)
+} = __nccwpck_require__(857)
 const {
   kState,
   kError,
   kResult,
   kEvents,
   kAborted
-} = __nccwpck_require__(668)
-const { webidl } = __nccwpck_require__(3598)
-const { kEnumerableProperty } = __nccwpck_require__(837)
+} = __nccwpck_require__(7192)
+const { webidl } = __nccwpck_require__(5162)
+const { kEnumerableProperty } = __nccwpck_require__(8529)
 
 class FileReader extends EventTarget {
   constructor () {
@@ -26114,12 +26114,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2856:
+/***/ 4732:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { webidl } = __nccwpck_require__(3598)
+const { webidl } = __nccwpck_require__(5162)
 
 const kState = Symbol('ProgressEvent state')
 
@@ -26199,7 +26199,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 668:
+/***/ 7192:
 /***/ ((module) => {
 
 
@@ -26216,7 +26216,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 1237:
+/***/ 857:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -26227,10 +26227,10 @@ const {
   kResult,
   kAborted,
   kLastProgressEventFired
-} = __nccwpck_require__(668)
-const { ProgressEvent } = __nccwpck_require__(2856)
-const { getEncoding } = __nccwpck_require__(2924)
-const { serializeAMimeType, parseMIMEType } = __nccwpck_require__(4423)
+} = __nccwpck_require__(7192)
+const { ProgressEvent } = __nccwpck_require__(4732)
+const { getEncoding } = __nccwpck_require__(9944)
+const { serializeAMimeType, parseMIMEType } = __nccwpck_require__(5192)
 const { types } = __nccwpck_require__(7975)
 const { StringDecoder } = __nccwpck_require__(3193)
 const { btoa } = __nccwpck_require__(4573)
@@ -26614,27 +26614,27 @@ module.exports = {
 
 /***/ }),
 
-/***/ 3526:
+/***/ 6890:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { uid, states, sentCloseFrameState, emptyBuffer, opcodes } = __nccwpck_require__(6841)
+const { uid, states, sentCloseFrameState, emptyBuffer, opcodes } = __nccwpck_require__(6869)
 const {
   kReadyState,
   kSentClose,
   kByteParser,
   kReceivedClose,
   kResponse
-} = __nccwpck_require__(1461)
-const { fireEvent, failWebsocketConnection, isClosing, isClosed, isEstablished, parseExtensions } = __nccwpck_require__(4838)
-const { channels } = __nccwpck_require__(2417)
-const { CloseEvent } = __nccwpck_require__(9551)
-const { makeRequest } = __nccwpck_require__(2522)
-const { fetching } = __nccwpck_require__(1851)
-const { Headers, getHeadersList } = __nccwpck_require__(9373)
-const { getDecodeSplit } = __nccwpck_require__(9907)
-const { WebsocketFrameSend } = __nccwpck_require__(4261)
+} = __nccwpck_require__(5457)
+const { fireEvent, failWebsocketConnection, isClosing, isClosed, isEstablished, parseExtensions } = __nccwpck_require__(1226)
+const { channels } = __nccwpck_require__(1509)
+const { CloseEvent } = __nccwpck_require__(659)
+const { makeRequest } = __nccwpck_require__(6398)
+const { fetching } = __nccwpck_require__(8263)
+const { Headers, getHeadersList } = __nccwpck_require__(3257)
+const { getDecodeSplit } = __nccwpck_require__(3095)
+const { WebsocketFrameSend } = __nccwpck_require__(2129)
 
 /** @type {import('crypto')} */
 let crypto
@@ -26992,7 +26992,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 6841:
+/***/ 6869:
 /***/ ((module) => {
 
 
@@ -27065,14 +27065,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9551:
+/***/ 659:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { webidl } = __nccwpck_require__(3598)
-const { kEnumerableProperty } = __nccwpck_require__(837)
-const { kConstruct } = __nccwpck_require__(2892)
+const { webidl } = __nccwpck_require__(5162)
+const { kEnumerableProperty } = __nccwpck_require__(8529)
+const { kConstruct } = __nccwpck_require__(5424)
 const { MessagePort } = __nccwpck_require__(5919)
 
 /**
@@ -27401,12 +27401,12 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4261:
+/***/ 2129:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { maxUnsigned16Bit } = __nccwpck_require__(6841)
+const { maxUnsigned16Bit } = __nccwpck_require__(6869)
 
 const BUFFER_SIZE = 16386
 
@@ -27504,14 +27504,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2170:
+/***/ 7350:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { createInflateRaw, Z_DEFAULT_WINDOWBITS } = __nccwpck_require__(8522)
-const { isValidClientWindowBits } = __nccwpck_require__(4838)
-const { MessageSizeExceededError } = __nccwpck_require__(5434)
+const { isValidClientWindowBits } = __nccwpck_require__(1226)
+const { MessageSizeExceededError } = __nccwpck_require__(9934)
 
 const tail = Buffer.from([0x00, 0x00, 0xff, 0xff])
 const kBuffer = Symbol('kBuffer')
@@ -27616,16 +27616,16 @@ module.exports = { PerMessageDeflate }
 
 /***/ }),
 
-/***/ 2867:
+/***/ 5183:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
 const { Writable } = __nccwpck_require__(7075)
 const assert = __nccwpck_require__(4589)
-const { parserStates, opcodes, states, emptyBuffer, sentCloseFrameState } = __nccwpck_require__(6841)
-const { kReadyState, kSentClose, kResponse, kReceivedClose } = __nccwpck_require__(1461)
-const { channels } = __nccwpck_require__(2417)
+const { parserStates, opcodes, states, emptyBuffer, sentCloseFrameState } = __nccwpck_require__(6869)
+const { kReadyState, kSentClose, kResponse, kReceivedClose } = __nccwpck_require__(5457)
+const { channels } = __nccwpck_require__(1509)
 const {
   isValidStatusCode,
   isValidOpcode,
@@ -27635,11 +27635,11 @@ const {
   isControlFrame,
   isTextBinaryFrame,
   isContinuationFrame
-} = __nccwpck_require__(4838)
-const { WebsocketFrameSend } = __nccwpck_require__(4261)
-const { closeWebSocketConnection } = __nccwpck_require__(3526)
-const { PerMessageDeflate } = __nccwpck_require__(2170)
-const { MessageSizeExceededError } = __nccwpck_require__(5434)
+} = __nccwpck_require__(1226)
+const { WebsocketFrameSend } = __nccwpck_require__(2129)
+const { closeWebSocketConnection } = __nccwpck_require__(6890)
+const { PerMessageDeflate } = __nccwpck_require__(7350)
+const { MessageSizeExceededError } = __nccwpck_require__(9934)
 
 function failWebsocketConnectionWithCode (ws, code, reason) {
   closeWebSocketConnection(ws, code, reason, Buffer.byteLength(reason))
@@ -28150,14 +28150,14 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4127:
+/***/ 9051:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { WebsocketFrameSend } = __nccwpck_require__(4261)
-const { opcodes, sendHints } = __nccwpck_require__(6841)
-const FixedQueue = __nccwpck_require__(867)
+const { WebsocketFrameSend } = __nccwpck_require__(2129)
+const { opcodes, sendHints } = __nccwpck_require__(6869)
+const FixedQueue = __nccwpck_require__(4007)
 
 /** @type {typeof Uint8Array} */
 const FastBuffer = Buffer[Symbol.species]
@@ -28261,7 +28261,7 @@ module.exports = { SendQueue }
 
 /***/ }),
 
-/***/ 1461:
+/***/ 5457:
 /***/ ((module) => {
 
 
@@ -28280,16 +28280,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4838:
+/***/ 1226:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { kReadyState, kController, kResponse, kBinaryType, kWebSocketURL } = __nccwpck_require__(1461)
-const { states, opcodes } = __nccwpck_require__(6841)
-const { ErrorEvent, createFastMessageEvent } = __nccwpck_require__(9551)
+const { kReadyState, kController, kResponse, kBinaryType, kWebSocketURL } = __nccwpck_require__(5457)
+const { states, opcodes } = __nccwpck_require__(6869)
+const { ErrorEvent, createFastMessageEvent } = __nccwpck_require__(659)
 const { isUtf8 } = __nccwpck_require__(4573)
-const { collectASequenceOfCodePointsFast, removeHTTPWhitespace } = __nccwpck_require__(4423)
+const { collectASequenceOfCodePointsFast, removeHTTPWhitespace } = __nccwpck_require__(5192)
 
 /* globals Blob */
 
@@ -28609,15 +28609,15 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4067:
+/***/ 9708:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
 
-const { webidl } = __nccwpck_require__(3598)
-const { URLSerializer } = __nccwpck_require__(4423)
-const { environmentSettingsObject } = __nccwpck_require__(9907)
-const { staticPropertyDescriptors, states, sentCloseFrameState, sendHints } = __nccwpck_require__(6841)
+const { webidl } = __nccwpck_require__(5162)
+const { URLSerializer } = __nccwpck_require__(5192)
+const { environmentSettingsObject } = __nccwpck_require__(3095)
+const { staticPropertyDescriptors, states, sentCloseFrameState, sendHints } = __nccwpck_require__(6869)
 const {
   kWebSocketURL,
   kReadyState,
@@ -28626,21 +28626,21 @@ const {
   kResponse,
   kSentClose,
   kByteParser
-} = __nccwpck_require__(1461)
+} = __nccwpck_require__(5457)
 const {
   isConnecting,
   isEstablished,
   isClosing,
   isValidSubprotocol,
   fireEvent
-} = __nccwpck_require__(4838)
-const { establishWebSocketConnection, closeWebSocketConnection } = __nccwpck_require__(3526)
-const { ByteParser } = __nccwpck_require__(2867)
-const { kEnumerableProperty, isBlobLike } = __nccwpck_require__(837)
-const { getGlobalDispatcher } = __nccwpck_require__(9054)
+} = __nccwpck_require__(1226)
+const { establishWebSocketConnection, closeWebSocketConnection } = __nccwpck_require__(6890)
+const { ByteParser } = __nccwpck_require__(5183)
+const { kEnumerableProperty, isBlobLike } = __nccwpck_require__(8529)
+const { getGlobalDispatcher } = __nccwpck_require__(4498)
 const { types } = __nccwpck_require__(7975)
-const { ErrorEvent, CloseEvent } = __nccwpck_require__(9551)
-const { SendQueue } = __nccwpck_require__(4127)
+const { ErrorEvent, CloseEvent } = __nccwpck_require__(659)
+const { SendQueue } = __nccwpck_require__(9051)
 
 // https://websockets.spec.whatwg.org/#interface-definition
 class WebSocket extends EventTarget {
@@ -29407,7 +29407,7 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("util");
 
 /***/ }),
 
-/***/ 2097:
+/***/ 7997:
 /***/ ((__unused_webpack_module, exports) => {
 
 var __webpack_unused_export__;
@@ -29617,6 +29617,9 @@ function qstring(str) {
 /******/ }
 /******/ 
 /************************************************************************/
+/******/ /* webpack/runtime/asset-relocator-loader */
+/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = decodeURIComponent(new URL('.', import.meta.url).pathname).slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
 /******/ /* webpack/runtime/define property getters */
 /******/ (() => {
 /******/ 	// define getter functions for harmony exports
@@ -29644,10 +29647,6 @@ function qstring(str) {
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 	};
 /******/ })();
-/******/ 
-/******/ /* webpack/runtime/compat */
-/******/ 
-/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
@@ -29932,9 +29931,9 @@ class DecodedURL extends URL {
 }
 //# sourceMappingURL=proxy.js.map
 // EXTERNAL MODULE: ./node_modules/.pnpm/tunnel@0.0.6/node_modules/tunnel/index.js
-var node_modules_tunnel = __nccwpck_require__(2345);
+var node_modules_tunnel = __nccwpck_require__(7013);
 // EXTERNAL MODULE: ./node_modules/.pnpm/undici@6.29.1/node_modules/undici/index.js
-var undici = __nccwpck_require__(9001);
+var undici = __nccwpck_require__(9309);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+http-client@4.0.1/node_modules/@actions/http-client/lib/index.js
 /* eslint-disable @typescript-eslint/no-explicit-any */
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -32664,7 +32663,7 @@ class Context {
 }
 //# sourceMappingURL=context.js.map
 // EXTERNAL MODULE: ./node_modules/.pnpm/@actions+http-client@3.0.2/node_modules/@actions/http-client/lib/index.js
-var lib = __nccwpck_require__(1212);
+var lib = __nccwpck_require__(2504);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/@actions+github@9.1.1/node_modules/@actions/github/lib/internal/utils.js
 var utils_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -33225,7 +33224,7 @@ var endpoint = withDefaults(null, DEFAULTS);
 
 
 // EXTERNAL MODULE: ./node_modules/.pnpm/content-type@2.0.0/node_modules/content-type/dist/index.js
-var dist = __nccwpck_require__(2097);
+var dist = __nccwpck_require__(7997);
 ;// CONCATENATED MODULE: ./node_modules/.pnpm/json-with-bigint@3.5.8/node_modules/json-with-bigint/json-with-bigint.js
 const intRegex = /^-?\d+$/;
 const noiseValue = /^-?\d+n+$/; // Noise - strings that match the custom format before being converted to it
@@ -36926,9 +36925,9 @@ function getOctokit(token, options, ...additionalPlugins) {
     return new GitHubWithPlugins(getOctokitOptions(token, options));
 }
 //# sourceMappingURL=github.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/errors/KyError.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/KyError.js
 /**
-Base class for all Ky-specific errors. `HTTPError`, `NetworkError`, `TimeoutError`, and `ForceRetryError` extend this class.
+Base class for all Ky-specific errors. `HTTPError`, `NetworkError`, `TimeoutError`, `ResponseSizeError`, and `ForceRetryError` extend this class.
 
 You can use `instanceof KyError` to check if an error originated from Ky, or use the `isKyError()` type guard for cross-realm compatibility and TypeScript type narrowing.
 
@@ -36941,12 +36940,12 @@ class KyError extends Error {
     }
 }
 //# sourceMappingURL=KyError.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/errors/HTTPError.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/HTTPError.js
 
 /**
 Error thrown when the response has a non-2xx status code and `throwHttpErrors` is enabled.
 
-The error has a `response` property with the `Response` object, a `request` property with the `Request` object, an `options` property with the normalized options (either passed to `ky` when creating an instance with `ky.create()` or directly when performing the request), and a `data` property with the pre-parsed response body. For JSON responses (based on `Content-Type`), the body is parsed using the `parseJson` option if set, or `JSON.parse` by default. For other content types, it is set as plain text. If the body is empty or parsing fails, `data` will be `undefined`. To avoid hanging or excessive buffering, `error.data` population is bounded by the request timeout and a 10 MiB response body size limit. The `data` property is populated before `beforeError` hooks run, so hooks can access it.
+The error has a `response` property with the `Response` object, a `request` property with the `Request` object, an `options` property with the normalized options (either passed to `ky` when creating an instance with `ky.create()` or directly when performing the request), and a `data` property with the pre-parsed response body. For JSON responses (based on `Content-Type`), the body is parsed using the `parseJson` option if set, or `JSON.parse` by default. For other content types, it is set as plain text. If the body is empty, unreadable, too large, parsing fails, or the error-data read/parse timeout is reached, `data` will be `undefined`. To avoid hanging or excessive buffering, `error.data` body reads and async JSON parsing are bounded by the request timeout (or 10 seconds when `timeout` is disabled), any remaining `totalTimeout` budget, and a 10 MiB response body size limit. If `maxResponseSize` is exceeded while populating `error.data`, Ky throws `ResponseSizeError` instead of `HTTPError`. If `totalTimeout` expires while populating `error.data`, Ky throws `TimeoutError` instead of `HTTPError`. The `data` property is populated before `beforeError` hooks run, so hooks can access it.
 
 The response body is automatically consumed when populating `error.data`, so `error.response.json()` and other body methods will not work. Use `error.data` instead. The `error.response` object is still available for headers, status, etc.
 
@@ -36970,12 +36969,12 @@ class HTTPError extends KyError {
     }
 }
 //# sourceMappingURL=HTTPError.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/errors/NetworkError.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/NetworkError.js
 
 /**
 Error thrown when a network error occurs during the request (e.g., DNS failure, connection refused, offline). It has a `request` property with the `Request` object. The original error is available via the standard `cause` property.
 
-Network errors are automatically retried (for retriable methods).
+Network errors are automatically retried (for retriable methods). A connection that drops while a Ky shortcut method like `.json()` is reading the response body is also wrapped in `NetworkError`, but it is not retried because the response has already been received.
 
 Note: Network errors are detected using runtime-specific heuristics. Unrecognized runtimes may produce errors that are not wrapped in `NetworkError`. Use the `shouldRetry` option to handle such cases.
 */
@@ -36988,13 +36987,37 @@ class NetworkError extends KyError {
     }
 }
 //# sourceMappingURL=NetworkError.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/errors/NonError.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/is.js
+// eslint-disable-next-line @typescript-eslint/no-restricted-types
+const isObject = (value) => value !== null && typeof value === 'object';
+// eslint-disable-next-line @typescript-eslint/no-restricted-types
+const isNonArrayObject = (value) => isObject(value) && !Array.isArray(value);
+// `NaN` fails the comparison, so it is rejected too.
+const isNonNegativeNumber = (value) => typeof value === 'number' && value >= 0;
+const objectToString = Object.prototype.toString;
+// An `Error` from another realm (an iframe, a worker, a `vm` context, or a duplicated dependency) fails `instanceof`, so the internal brand is checked as well, the same way the request and response checks do. `instanceof` stays first because it also accepts `DOMException`, which an `AbortSignal` reason is, and that does not carry the `[object Error]` brand.
+const isError = (value) => value instanceof Error || objectToString.call(value) === '[object Error]';
+// A `Request` from another realm, such as one a hook built in an iframe, is accepted through its internal brand.
+const isRequest = (value) => value instanceof globalThis.Request || objectToString.call(value) === '[object Request]';
+// Accepted custom responses are treated as full Responses throughout Ky.
+// If a custom fetch returns one, it must behave like a Response for cloning,
+// body consumption, `json()` decoration, and any enabled stream features.
+const isResponse = (value) => value instanceof globalThis.Response || objectToString.call(value) === '[object Response]';
+//# sourceMappingURL=is.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/NonError.js
+
 /**
 Wrapper for non-Error values that were thrown.
 
 In JavaScript, any value can be thrown (not just Error instances). This class wraps such values to ensure consistent error handling.
 */
 class NonError extends Error {
+    /**
+    Returns the value as-is when it is an `Error`, including one from another realm, and otherwise wraps it in a `NonError`.
+    */
+    static wrap(value) {
+        return isError(value) ? value : new NonError(value);
+    }
     name = 'NonError';
     value;
     constructor(value) {
@@ -37016,7 +37039,8 @@ class NonError extends Error {
     }
 }
 //# sourceMappingURL=NonError.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/errors/ForceRetryError.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/ForceRetryError.js
+
 
 
 /**
@@ -37024,25 +37048,41 @@ Error used to signal a forced retry from `afterResponse` hooks.
 
 This is thrown when `ky.retry()` is returned from an `afterResponse` hook. It is observable in `beforeRetry` and `beforeError` hooks via the `isForceRetryError()` type guard.
 */
-class ForceRetryError_ForceRetryError extends KyError {
+class ForceRetryError extends KyError {
     name = 'ForceRetryError';
     customDelay;
     code;
     customRequest;
     constructor(options) {
+        // `null` is not accepted anywhere in Ky, so it is reported rather than treated like no options.
+        if (options === null) {
+            throw new TypeError('The `ky.retry()` options must be an object');
+        }
+        // The custom delay flows straight into `setTimeout`, so a negative or `NaN` value would be clamped to 1ms and silently collapse the backoff, the same failure mode validated away for `retry.delay`.
+        const delay = options?.delay;
+        if (delay !== undefined && !isNonNegativeNumber(delay)) {
+            throw new TypeError('The `ky.retry()` `delay` option must be a non-negative number or `Infinity`');
+        }
+        if (options?.code !== undefined && typeof options.code !== 'string') {
+            throw new TypeError('The `ky.retry()` `code` option must be a string');
+        }
+        // The request is only read when it is truthy, so `null` would otherwise silently retry with the original request. A `Request` from another realm is accepted, the same way a hook's returned request is.
+        if (options?.request !== undefined && !isRequest(options.request)) {
+            throw new TypeError('The `ky.retry()` `request` option must be a `Request`');
+        }
         // Runtime protection: wrap non-Error causes in NonError
         // TypeScript type is Error for guidance, but JS users can pass anything
-        const cause = options?.cause
-            ? (options.cause instanceof Error ? options.cause : new NonError(options.cause))
-            : undefined;
-        super(options?.code ? `Forced retry: ${options.code}` : 'Forced retry', cause ? { cause } : undefined);
+        const cause = options?.cause === undefined ? undefined : NonError.wrap(options.cause);
+        super(
+        // `code` is documented as always reaching the message, so only an absent code falls back.
+        options?.code === undefined ? 'Forced retry' : `Forced retry: ${options.code}`, cause ? { cause } : undefined);
         this.customDelay = options?.delay;
         this.code = options?.code;
         this.customRequest = options?.request;
     }
 }
 //# sourceMappingURL=ForceRetryError.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/errors/SchemaValidationError.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/SchemaValidationError.js
 /**
 The error thrown when [Standard Schema](https://github.com/standard-schema/standard-schema) validation fails in `.json(schema)`. It has an `issues` property with the validation issues from the schema.
 
@@ -37074,7 +37114,7 @@ class SchemaValidationError extends Error {
     }
 }
 //# sourceMappingURL=SchemaValidationError.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/errors/TimeoutError.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/TimeoutError.js
 
 /**
 Error thrown when the request times out. It has a `request` property with the `Request` object.
@@ -37088,7 +37128,7 @@ class TimeoutError extends KyError {
     }
 }
 //# sourceMappingURL=TimeoutError.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/core/constants.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/core/constants.js
 const supportsRequestStreams = (() => {
     let duplexAccessed = false;
     let hasContentType = false;
@@ -37106,23 +37146,23 @@ const supportsRequestStreams = (() => {
                 },
             }).headers.has('Content-Type');
         }
-        catch (error) {
-            // QQBrowser on iOS throws "unsupported BodyInit type" error (see issue #581)
-            if (error instanceof Error && error.message === 'unsupported BodyInit type') {
-                return false;
-            }
-            throw error;
+        catch {
+            // Unsupported implementations throw different errors, such as QQBrowser on iOS throwing "unsupported BodyInit type" (see issue #581).
+            return false;
         }
     }
-    return duplexAccessed && !hasContentType;
+    // Bun and Deno support streaming request bodies but never read the `duplex` option, which the check relies on to tell streaming support apart from WebKit, where the `Request` constructor accepts a stream body that `fetch()` then rejects.
+    const isBunOrDeno = 'Bun' in globalThis || 'Deno' in globalThis;
+    return (duplexAccessed || isBunOrDeno) && !hasContentType;
 })();
 const supportsAbortController = typeof globalThis.AbortController === 'function';
 const supportsAbortSignal = typeof globalThis.AbortSignal === 'function' && typeof globalThis.AbortSignal.any === 'function';
 const supportsResponseStreams = typeof globalThis.ReadableStream === 'function';
 const supportsFormData = typeof globalThis.FormData === 'function';
-const requestMethods = ['get', 'post', 'put', 'patch', 'head', 'delete'];
+const requestMethods = ['get', 'post', 'put', 'patch', 'head', 'delete', 'query'];
 const validate = () => undefined;
 validate();
+// The media type each shortcut advertises. Deliberately narrow: `.text()` asks for text and `.formData()` for multipart, so a server can serve a different representation of the same resource when the caller wants one.
 const responseTypes = {
     json: 'application/json',
     text: 'text/*',
@@ -37133,27 +37173,38 @@ const responseTypes = {
     // We still feature-check at runtime before exposing the shortcut.
     bytes: '*/*',
 };
+// Only expose `.bytes()` when the environment implements it. Checked on each call, so a polyfill added after Ky is imported still counts.
+const getSupportedResponseTypes = () => Object.keys(responseTypes).filter(type => type !== 'bytes' || typeof globalThis.Response?.prototype?.bytes === 'function');
 // The maximum value of a 32bit int (see issue #117)
 const maxSafeTimeout = 2_147_483_647;
-// Size in bytes of a typical form boundary (e.g., '------WebKitFormBoundaryaxpyiPgbbPti10Rw'), used to help estimate upload size
+// Size in bytes of a typical form boundary (e.g., '------WebKitFormBoundaryaxpyiPgbbPti10Rw'), used to help estimate upload size. Bun's boundary is 54 bytes, so there the estimate runs 14 bytes low for each part and once more for the closing boundary. That is negligible next to a file, but for a body of many small fields `percent` can reach its ceiling before the upload ends. The final event always reports the real total.
 const usualFormBoundarySize = 40;
 /**
 Symbol that can be returned by a `beforeRetry` hook to stop retrying without throwing an error.
+
+Registered globally so that a hook written against a second copy of Ky, which happens with a duplicated dependency, still stops the retries. A plain `Symbol` is per module, so the copies would not recognise each other's symbol.
 */
-const stop = Symbol('stop');
+const stop = Symbol.for('ky.stop');
 /**
 Marker returned by `ky.retry()` to signal a forced retry from `afterResponse` hooks.
 */
 class RetryMarker {
+    // Branded so a marker created by a second copy of Ky, which happens with a duplicated dependency, is still recognised. A plain `instanceof` check fails across module instances, and the hook's intent would then vanish silently: no retry and no error.
+    get isRetryMarker() {
+        return true;
+    }
     options;
     constructor(options) {
         this.options = options;
     }
 }
+const isRetryMarker = (value) => value instanceof RetryMarker || value?.isRetryMarker === true;
 /**
 Force a retry from an `afterResponse` hook.
 
 This allows you to retry a request based on the response content, even if the response has a successful status code. The retry will respect the `retry.limit` option and skip the `shouldRetry` check. The forced retry is observable in `beforeRetry` hooks, where the error will be a `ForceRetryError`.
+
+A marker returned by a second copy of Ky, which happens with a duplicated dependency, is still recognised, the same way the Ky error guards accept branded errors.
 
 @param options - Optional configuration for the retry.
 
@@ -37234,6 +37285,8 @@ const response = await api.get('https://example.com/api');
 ```
 */
 const retry = (options) => new RetryMarker(options);
+// Ky reads these again for every attempt, so a `beforeRetry` hook can change them without rebuilding the request.
+const beforeRetryOptionKeys = ['onUploadProgress', 'onDownloadProgress', 'timeout', 'fetch', 'throwHttpErrors'];
 const kyOptionKeys = {
     json: true,
     parseJson: true,
@@ -37244,6 +37297,7 @@ const kyOptionKeys = {
     retry: true,
     timeout: true,
     totalTimeout: true,
+    maxResponseSize: true,
     hooks: true,
     throwHttpErrors: true,
     onDownloadProgress: true,
@@ -37273,25 +37327,81 @@ const requestOptionsRegistry = {
     duplex: true,
 };
 //# sourceMappingURL=constants.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/body.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/errors/ResponseSizeError.js
+
+/**
+Error thrown when the response body exceeds `maxResponseSize`. It has a `request` property with the `Request` object and a `maxResponseSize` property with the configured limit in bytes.
+
+@example
+```
+import ky, {isResponseSizeError} from 'ky';
+
+try {
+    await ky('https://example.com/data', {maxResponseSize: 1024}).json();
+} catch (error) {
+    if (isResponseSizeError(error)) {
+        console.log(`Response exceeded ${error.maxResponseSize} bytes`);
+    }
+}
+```
+*/
+class ResponseSizeError extends KyError {
+    name = 'ResponseSizeError';
+    request;
+    maxResponseSize;
+    constructor(request, maxResponseSize) {
+        super(`Response body exceeded ${maxResponseSize} bytes: ${request.method} ${request.url}`);
+        this.request = request;
+        this.maxResponseSize = maxResponseSize;
+    }
+}
+//# sourceMappingURL=ResponseSizeError.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/body.js
+
 
 const encoder = new TextEncoder();
+const responseSizeErrors = new WeakMap();
+// The `Response` constructor rejects a body for these statuses, but some browsers (for example, Chromium and WebKit) still expose a body stream on such responses, so they must not be wrapped. A runtime that exposes a non-empty body for one of them, such as WebKit for 205, is therefore left unlimited and without progress events.
+const nullBodyStatuses = new Set([101, 103, 204, 205, 304]);
+/**
+Cancels the body of a request or response that is no longer used, unless `keep` still reads the same stream.
+
+Fire-and-forget: cancellation failures from already-locked or already-consumed streams are ignored, and the cancellation is not awaited since a clone leaves extra tee branches that keep the cancel promise pending per the Streams spec.
+*/
+const cancelBody = (value, keep) => {
+    const body = value?.body;
+    if (body && body !== keep?.body) {
+        void body.cancel().catch(() => undefined);
+    }
+};
+const getContentLength = (headers) => Math.max(0, Number(headers.get('content-length')) || 0);
+// A multipart body sends every line break in a field name or string value as CRLF, and escapes line breaks and quotes in a field name or filename.
+const normalizeLineBreaks = (value) => value.replaceAll(/\r\n|\r|\n/g, '\r\n');
+const escapeFormDataName = (name) => name.replaceAll('\n', '%0A').replaceAll('\r', '%0D').replaceAll('"', '%22');
 // eslint-disable-next-line @typescript-eslint/no-restricted-types
 const getBodySize = (body) => {
     if (!body) {
         return 0;
     }
     if (body instanceof FormData) {
-        // This is an approximation, as FormData size calculation is not straightforward
+        // This is an approximation, as FormData size calculation is not straightforward. The boundary length is a stand-in for the runtime's own, and every other byte is counted so the estimate errs high (except in Bun, see `usualFormBoundarySize`): an estimate below the real size makes `percent` reach its ceiling part way through the upload.
         let size = 0;
         for (const [key, value] of body) {
-            size += usualFormBoundarySize;
-            size += encoder.encode(`Content-Disposition: form-data; name="${key}"`).byteLength;
+            size += usualFormBoundarySize + 4; // `--<boundary>\r\n`
+            size += encoder.encode(`Content-Disposition: form-data; name="${escapeFormDataName(normalizeLineBreaks(key))}"`).byteLength;
+            if (value instanceof Blob) {
+                // Most runtimes turn an appended `Blob` into a `File` named `blob`, but Bun keeps a `Blob` with an `undefined` name and sends an empty filename.
+                size += encoder.encode(`; filename="${escapeFormDataName(value.name ?? '')}"`).byteLength;
+                size += encoder.encode(`\r\nContent-Type: ${value.type || 'application/octet-stream'}`).byteLength;
+            }
+            size += 4; // The CRLF that ends the headers, plus the blank line.
             size += typeof value === 'string'
-                ? encoder.encode(value).byteLength
+                ? encoder.encode(normalizeLineBreaks(value)).byteLength
                 : value.size;
+            size += 2; // The CRLF that ends the part.
         }
-        return size;
+        // The closing `--<boundary>--\r\n`. An empty `FormData` still sends it, but reports `0`, the documented total for an empty transfer.
+        return size === 0 ? 0 : size + usualFormBoundarySize + 6;
     }
     if (body instanceof Blob) {
         return body.size;
@@ -37322,55 +37432,138 @@ const withProgress = (stream, totalBytes, onProgress) => {
                     // If we were to use 0.99 here, percent could potentially go backwards.
                     percent = 1 - Number.EPSILON;
                 }
-                onProgress?.({ percent, totalBytes: Math.max(totalBytes, transferredBytes), transferredBytes }, previousChunk);
+                // An unknown total stays `0`, matching the `percent` computed from the same estimate and the documented progress shape.
+                const reportedTotalBytes = totalBytes === 0 ? 0 : Math.max(totalBytes, transferredBytes);
+                onProgress?.({ percent, totalBytes: reportedTotalBytes, transferredBytes }, previousChunk);
             }
             previousChunk = currentChunk;
         },
         flush() {
-            if (previousChunk) {
-                transferredBytes += previousChunk.byteLength;
-                onProgress?.({ percent: 1, totalBytes: Math.max(totalBytes, transferredBytes), transferredBytes }, previousChunk);
-            }
+            const finalChunk = previousChunk ?? new Uint8Array();
+            transferredBytes += finalChunk.byteLength;
+            onProgress?.({ percent: 1, totalBytes: transferredBytes, transferredBytes }, finalChunk);
         },
     }));
 };
-const streamResponse = (response, onDownloadProgress) => {
-    if (!response.body) {
+const copyResponseMetadata = (response, originalResponse, getError = originalResponse.body ? responseSizeErrors.get(originalResponse.body) : undefined) => {
+    const nativeClone = response.clone.bind(response);
+    if (response.body && getError) {
+        responseSizeErrors.set(response.body, getError);
+        // Chromium replaces stream errors with a generic TypeError in native body methods.
+        // Restore the size error, including on clones and download-progress wrappers.
+        for (const type of Object.keys(responseTypes)) {
+            if (typeof response[type] !== 'function') {
+                continue;
+            }
+            const nativeMethod = response[type].bind(response);
+            Object.defineProperty(response, type, {
+                async value() {
+                    try {
+                        return await nativeMethod();
+                    }
+                    catch (error) {
+                        throw getError() ?? error;
+                    }
+                },
+                writable: true,
+                configurable: true,
+            });
+        }
+    }
+    Object.defineProperties(response, {
+        // The `Response` constructor cannot set these, so copy them over from the original response.
+        url: { value: originalResponse.url },
+        redirected: { value: originalResponse.redirected },
+        type: { value: originalResponse.type },
+        // The constructor also rebuilds the header list under the mutable "response" guard, so a network response that arrived immutable would silently become mutable. Reusing the original's headers keeps the guard; a clone shares that same object, which the spec would have copied, but copying it would drop the guard again.
+        headers: { value: originalResponse.headers },
+        // Native `clone()` creates a new `Response`, which would drop them again.
+        // Keep the shim replaceable like `Response.prototype.clone` for instrumentation and mocks.
+        clone: {
+            value() {
+                const clone = nativeClone();
+                // Cloning replaces the original body too, so retain the error accessor on both branches.
+                if (response.body && getError) {
+                    responseSizeErrors.set(response.body, getError);
+                }
+                return copyResponseMetadata(clone, response);
+            },
+            writable: true,
+            configurable: true,
+        },
+    });
+    return response;
+};
+// The body of a response the two wrappers below can pipe through, or `undefined` when they must leave it alone. A body an `afterResponse` hook already read, or locked with a reader, would otherwise fail with "The ReadableStream is locked" instead of the native "Body is unusable" error that names the actual mistake. A null body status cannot be given a replacement body at all, and there is nothing left to report once the body is gone.
+const wrappableBody = (response) => {
+    const { body } = response;
+    if (!body || response.bodyUsed || body.locked || nullBodyStatuses.has(response.status)) {
+        return undefined;
+    }
+    return body;
+};
+const limitResponseSize = (response, request, maxResponseSize) => {
+    const originalBody = wrappableBody(response);
+    if (!originalBody || maxResponseSize === Number.POSITIVE_INFINITY) {
         return response;
     }
-    const responseInit = {
-        status: response.status,
-        statusText: response.statusText,
-        headers: response.headers,
-    };
-    if (response.status === 204) {
-        return new Response(null, responseInit);
+    let transferredBytes = 0;
+    let sizeError;
+    const getOriginalSizeError = responseSizeErrors.get(originalBody);
+    const body = originalBody.pipeThrough(new TransformStream({
+        transform(chunk, controller) {
+            transferredBytes += chunk.byteLength;
+            if (transferredBytes > maxResponseSize) {
+                sizeError = new ResponseSizeError(request, maxResponseSize);
+                throw sizeError;
+            }
+            controller.enqueue(chunk);
+        },
+    }));
+    return copyResponseMetadata(new Response(body, response), response, () => sizeError ?? getOriginalSizeError?.());
+};
+const streamResponse = (response, onDownloadProgress) => {
+    // A response with no wrappable body is not streamed, so it reports no progress. That covers a null body status, and a `HEAD` response in runtimes that give it no body.
+    const originalBody = wrappableBody(response);
+    if (!originalBody) {
+        return response;
     }
-    const totalBytes = Math.max(0, Number(response.headers.get('content-length')) || 0);
-    return new Response(withProgress(response.body, totalBytes, onDownloadProgress), responseInit);
+    // `content-length` counts encoded bytes on the wire, while the progress stream counts the bytes after decompression. Using it for a content-coded response would report a total below what actually arrives, so every event would sit at ~100%. The total is then unknown, which `Progress` already models with `0`. `identity` is a registered no-op coding (RFC 9110 §8.4.2), so it leaves the length valid.
+    const contentEncoding = response.headers.get('content-encoding')?.toLowerCase();
+    const isContentCoded = Boolean(contentEncoding) && contentEncoding !== 'identity';
+    const totalBytes = isContentCoded ? 0 : getContentLength(response.headers);
+    const body = withProgress(originalBody, totalBytes, onDownloadProgress);
+    return copyResponseMetadata(new Response(body, response), response);
 };
 // eslint-disable-next-line @typescript-eslint/no-restricted-types
 const streamRequest = (request, onUploadProgress, originalBody) => {
-    if (!request.body) {
+    // A Request-like object from a hook is used as-is, because the `Request` constructor cannot copy it. It would stringify the object as a URL here, so progress reporting is skipped for it. A body a hook already read, or locked with a reader, is left alone for the same reason as a response body: the runtime's own error names the actual mistake, where piping it would fail with "The ReadableStream is locked".
+    if (!request.body
+        || request.bodyUsed
+        || request.body.locked
+        || request.keepalive
+        || request.mode === 'no-cors'
+        || !(request instanceof globalThis.Request)) {
         return request;
     }
-    // Use original body for size calculation since request.body is already a stream
-    const totalBytes = getBodySize(originalBody ?? request.body);
+    // Use original body for size calculation since request.body is already a stream. A `ReadableStream` measures 0, so fall back to a `content-length` the caller declared. Browsers drop that header from a request, so this only helps outside browsers.
+    const totalBytes = getBodySize(originalBody ?? request.body) || getContentLength(request.headers);
     return new Request(request, {
         // @ts-expect-error - Types are outdated.
         duplex: 'half',
         body: withProgress(request.body, totalBytes, onUploadProgress),
+        // Bun drops the content type derived from a `FormData` body when the body is replaced, unless the headers are passed explicitly.
+        headers: request.headers,
+        referrer: request.referrer,
+        referrerPolicy: request.referrerPolicy,
     });
 };
 //# sourceMappingURL=body.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/is.js
-// eslint-disable-next-line @typescript-eslint/no-restricted-types
-const isObject = (value) => value !== null && typeof value === 'object';
-//# sourceMappingURL=is.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/merge.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/merge.js
 
 
-const replaceSymbol = Symbol('replaceOption');
+// Registered globally so that a wrapper created by a second copy of Ky, which happens with a duplicated dependency, is still recognised.
+const replaceSymbol = Symbol.for('ky.replaceOption');
 const getReplaceState = (value) => isObject(value) && value[replaceSymbol] === true
     ? {
         isReplace: true,
@@ -37382,6 +37575,8 @@ const getReplaceState = (value) => isObject(value) && value[replaceSymbol] === t
     };
 /**
 Wraps a value so that `ky.extend()` will replace the parent value instead of merging with it. Works with hooks, headers, search parameters, context, and any other deep-merged option.
+
+Inside the `json` option, which holds your own data, use it only where it replaces an inherited value. Ky does not look for it anywhere else there. The `context` option is merged shallowly, so only a wrapper around the whole `context` is supported.
 
 By default, `.extend()` deep-merges options with the parent instance: hooks get appended, headers get merged, and search parameters get accumulated. Use `replaceOption` when you want to fully replace a merged property instead.
 
@@ -37401,23 +37596,27 @@ const extended = base.extend({
 ```
 */
 const replaceOption = (value) => {
-    const markedValue = { [replaceSymbol]: true, value };
+    const markedValue = {
+        [replaceSymbol]: true,
+        value,
+        // The leftover pass below skips `json`, so a wrapper there with nothing to replace is unwrapped when the body is serialized.
+        toJSON: () => value,
+    };
     return markedValue;
 };
 const validateAndMerge = (...sources) => {
     for (const source of sources) {
-        if ((!isObject(source) || Array.isArray(source)) && source !== undefined) {
+        if (source !== undefined && !isNonArrayObject(source)) {
             throw new TypeError('The `options` argument must be an object');
         }
     }
     return deepMerge({}, ...sources);
 };
 const mergeHeaders = (source1 = {}, source2 = {}) => {
+    // The base source is copied as-is. Only the second source carries deletion markers: `undefined` in a plain object (for example, from `init` hooks or merged options), or the string `'undefined'` in a `Headers` instance.
     const result = new globalThis.Headers(source1);
-    const isHeadersInstance = source2 instanceof globalThis.Headers;
-    const source = new globalThis.Headers(source2);
-    for (const [key, value] of source.entries()) {
-        if ((isHeadersInstance && value === 'undefined') || value === undefined) {
+    for (const [key, value] of Object.entries(toHeaderObject(source2))) {
+        if (value === undefined) {
             result.delete(key);
         }
         else {
@@ -37427,12 +37626,14 @@ const mergeHeaders = (source1 = {}, source2 = {}) => {
     return result;
 };
 const merge_isPlainObject = (value) => {
-    if (!isObject(value) || Array.isArray(value)) {
+    if (!isNonArrayObject(value)) {
         return false;
     }
     const prototype = Object.getPrototypeOf(value);
     return prototype === Object.prototype || prototype === null;
 };
+// Only plain objects and arrays are merged. Class instances (for example, a `Date` in `json` or an undici `Agent` in `dispatcher`) are replaced as a whole, since merging their own properties into a plain object would strip their prototype.
+const isMergeable = (value) => merge_isPlainObject(value) || Array.isArray(value);
 const cloneShallow = (value) => {
     if (value instanceof URLSearchParams) {
         const copy = new URLSearchParams(value);
@@ -37443,9 +37644,6 @@ const cloneShallow = (value) => {
         }
         return copy;
     }
-    if (value instanceof globalThis.Headers) {
-        return new globalThis.Headers(value);
-    }
     if (Array.isArray(value)) {
         return [...value];
     }
@@ -37455,38 +37653,131 @@ const cloneShallow = (value) => {
     }
     return value;
 };
-const normalizeHeaderObject = (headers) => Object.fromEntries(Object.entries(headers).filter((entry) => entry[1] !== undefined));
-const mergeHeaderContainers = (source1, source2) => {
-    if (merge_isPlainObject(source1) && merge_isPlainObject(source2)) {
-        return normalizeHeaderObject({ ...source1, ...source2 });
+// A tuple array is copied pair by pair, so changing a pair of the copy does not change the caller's `searchParams`.
+const cloneSearchParameters = (value) => Array.isArray(value) ? value.map(parameter => cloneShallow(parameter)) : cloneShallow(value);
+// Recursively clone plain objects and arrays so that `init`-hook mutations to nested `json` or `context` values do not leak into the next request. Non-plain values (functions, class instances, `Date`, `URLSearchParams`, …) are kept by reference, matching how option merging treats them as whole values. The `seen` map keeps shared and cyclic references intact.
+const cloneDeep = (value, seen = new WeakMap()) => {
+    if (!isMergeable(value)) {
+        return value;
     }
-    return mergeHeaders(source1, source2);
-};
-function newHookValue(original, incoming, property) {
-    return (Object.hasOwn(incoming, property) && incoming[property] === undefined)
-        ? []
-        : deepMerge(original[property] ?? [], incoming[property] ?? []);
-}
-const mergeHooks = (original = {}, incoming = {}) => ({
-    init: newHookValue(original, incoming, 'init'),
-    beforeRequest: newHookValue(original, incoming, 'beforeRequest'),
-    beforeRetry: newHookValue(original, incoming, 'beforeRetry'),
-    beforeError: newHookValue(original, incoming, 'beforeError'),
-    afterResponse: newHookValue(original, incoming, 'afterResponse'),
-});
-const deletedParametersSymbol = Symbol('deletedParameters');
-const appendSearchParameters = (target, source) => {
-    const result = new URLSearchParams();
-    const deleted = new Set();
-    for (const input of [target, source]) {
-        if (input === undefined) {
+    const existingCopy = seen.get(value);
+    if (existingCopy) {
+        return existingCopy;
+    }
+    if (Array.isArray(value)) {
+        const copy = [];
+        seen.set(value, copy);
+        for (const item of value) {
+            copy.push(cloneDeep(item, seen));
+        }
+        return copy;
+    }
+    // Preserve a null prototype, which callers use to avoid inheriting from `Object.prototype`.
+    const copy = Object.getPrototypeOf(value) === null ? Object.create(null) : {};
+    seen.set(value, copy);
+    for (const key of Reflect.ownKeys(value)) {
+        if (!Object.prototype.propertyIsEnumerable.call(value, key)) {
             continue;
         }
+        // Define instead of assign so a `__proto__` key becomes an own property rather than changing the prototype.
+        Object.defineProperty(copy, key, {
+            value: cloneDeep(value[key], seen),
+            writable: true,
+            enumerable: true,
+            configurable: true,
+        });
+    }
+    return copy;
+};
+// Every header source is merged as a plain object so deletion markers survive no matter how the headers were provided. A `Headers` instance cannot hold `undefined`, so its string `'undefined'` counts as a deletion. A plain object is returned as-is, so callers must not mutate the result.
+const toHeaderObject = (source) => {
+    if (merge_isPlainObject(source)) {
+        return source;
+    }
+    const isHeadersInstance = source instanceof globalThis.Headers;
+    const result = {};
+    // A header named `__proto__` is dropped here, because assigning it sets the prototype instead of an own property. This is too much of an edge case to be worth supporting.
+    for (const [key, value] of new globalThis.Headers(source).entries()) {
+        result[key] = isHeadersInstance && value === 'undefined' ? undefined : value;
+    }
+    return result;
+};
+// Header names are case-insensitive, so they are normalized to lowercase (like `Headers` does) so that overrides and `undefined` deletions match regardless of how the name was spelled and `init` hooks can rely on lowercase keys.
+// An `undefined` value is kept as a deletion marker so it can still remove a header inherited from a `Request` input when the request is created.
+const mergeHeaderContainers = (source1, source2) => {
+    const result = new Map();
+    for (const [key, value] of [...Object.entries(toHeaderObject(source1)), ...Object.entries(toHeaderObject(source2))]) {
+        result.set(key.toLowerCase(), value);
+    }
+    return Object.fromEntries(result);
+};
+function newHookValue(original, incoming, property) {
+    // An absent key must keep the parent's hooks, which is why this check needs `Object.hasOwn`.
+    if (Object.hasOwn(incoming, property) && incoming[property] === undefined) {
+        return [];
+    }
+    // A single hook type can be wrapped in `replaceOption()` to replace only that array instead of the whole `hooks` object.
+    const { isReplace, value } = getReplaceState(incoming[property]);
+    // Merging ignores anything that is neither an array nor an object, so a single function or a string used to be dropped without a word and the hook simply never ran. `null` is rejected here too, rather than treated as absent: use `undefined` to clear a hook list.
+    if (value !== undefined && (!Array.isArray(value) || !value.every(hook => typeof hook === 'function'))) {
+        throw new TypeError(`\`hooks.${property}\` must be an array of functions`);
+    }
+    if (isReplace) {
+        return [...(value ?? [])];
+    }
+    return deepMerge(original[property] ?? [], value ?? []);
+}
+const mergeHooks = (original = {}, incoming = {}) => {
+    // `undefined` selects the default through the parameter default. `null` is not accepted, so it reaches this check and is reported like any other bad shape.
+    if (!isNonArrayObject(incoming)) {
+        throw new TypeError('The `hooks` option must be an object');
+    }
+    return {
+        init: newHookValue(original, incoming, 'init'),
+        beforeRequest: newHookValue(original, incoming, 'beforeRequest'),
+        beforeRetry: newHookValue(original, incoming, 'beforeRetry'),
+        beforeError: newHookValue(original, incoming, 'beforeError'),
+        afterResponse: newHookValue(original, incoming, 'afterResponse'),
+    };
+};
+const deletedParametersSymbol = Symbol('deletedParameters');
+// Copies the array or object only when an item actually changes, so an untouched value keeps its identity. A hole in a sparse array is skipped, which is fine since it holds no wrapper.
+const resolveItemMarkers = (value, resolveItem) => {
+    let resolved;
+    for (const [key, item] of Object.entries(value)) {
+        const replacement = resolveItem(item);
+        if (replacement !== item) {
+            resolved ??= Array.isArray(value) ? [...value] : { ...value };
+            // An array index is written through its string key, the same way `Object.entries()` gave it.
+            resolved[key] = replacement;
+        }
+    }
+    return resolved ?? value;
+};
+// `json` and `context` are user data, which can be large, so they are not walked on every request.
+const userDataOptions = new Set(['json', 'context']);
+// `replaceOption()` can wrap a value at any depth of a deep-merged option, but a wrapper is only unwrapped where a merge actually runs, so a wrapper on a key with no parent value kept its `{value}` envelope. This resolves the leftovers in one pass, copying only the branches that actually contained a wrapper so every other value keeps its identity. `resolved` maps each visited value to its result, so a value shared by two branches is walked once and stays shared, and a cyclic option cannot recurse forever: a value still being resolved maps to itself.
+const resolveReplaceMarkers = (value, resolved) => {
+    if (!isMergeable(value)) {
+        return value;
+    }
+    if (resolved.has(value)) {
+        return resolved.get(value);
+    }
+    resolved.set(value, value);
+    const resolveItem = (item) => resolveReplaceMarkers(getReplaceState(item).value, resolved);
+    const result = resolveItemMarkers(value, resolveItem);
+    resolved.set(value, result);
+    return result;
+};
+const appendSearchParameters = (target, source) => {
+    const result = new URLSearchParams();
+    // Deleted keys stay marked even when a later layer re-adds the key, so the key is still removed from the input URL before the re-added value is appended.
+    const deleted = new Set();
+    // Both are defined, since an `undefined` layer clears the search parameters instead of being merged.
+    for (const input of [target, source]) {
         if (input instanceof URLSearchParams) {
-            for (const [key, value] of input.entries()) {
-                result.append(key, value);
-                deleted.delete(key);
-            }
+            // A merged `URLSearchParams` already applied its own deletions before any re-added entries, so its deletions only apply to what was merged before it.
             const inputDeleted = input[deletedParametersSymbol];
             if (inputDeleted) {
                 for (const key of inputDeleted) {
@@ -37494,25 +37785,37 @@ const appendSearchParameters = (target, source) => {
                     deleted.add(key);
                 }
             }
+            for (const [key, value] of input.entries()) {
+                result.append(key, value);
+            }
         }
         else if (Array.isArray(input)) {
             for (const pair of input) {
                 if (!Array.isArray(pair) || pair.length !== 2) {
                     throw new TypeError('Array search parameters must be provided in [[key, value], ...] format');
                 }
-                result.append(String(pair[0]), String(pair[1]));
-                deleted.delete(String(pair[0]));
+                // Unwrapped for the same reason as in the object branch below.
+                const key = String(pair[0]);
+                const { isReplace, value } = getReplaceState(pair[1]);
+                if (isReplace) {
+                    result.delete(key);
+                }
+                result.append(key, String(value));
             }
         }
         else if (isObject(input)) {
             for (const [key, value] of Object.entries(input)) {
-                if (value === undefined) {
+                // A `replaceOption()` wrapper is unwrapped here, because this branch stringifies every value, so a wrapper that reached it would land in the URL as `[object Object]`. A wrapped value replaces the inherited values of its key instead of being added to them.
+                const { isReplace, value: entry } = getReplaceState(value);
+                if (entry === undefined) {
                     result.delete(key);
                     deleted.add(key);
                 }
                 else {
-                    result.append(key, String(value));
-                    deleted.delete(key);
+                    if (isReplace) {
+                        result.delete(key);
+                    }
+                    result.append(key, String(entry));
                 }
             }
         }
@@ -37521,7 +37824,6 @@ const appendSearchParameters = (target, source) => {
             const parameters = new URLSearchParams(input);
             for (const [key, value] of parameters.entries()) {
                 result.append(key, value);
-                deleted.delete(key);
             }
         }
     }
@@ -37531,7 +37833,7 @@ const appendSearchParameters = (target, source) => {
     return result;
 };
 // TODO: Make this strongly-typed (no `any`).
-const deepMerge = (...sources) => {
+const deepMergeInternal = (isRoot, ...sources) => {
     let returnValue = {};
     let headers = {};
     let hooks = {};
@@ -37546,23 +37848,34 @@ const deepMerge = (...sources) => {
         }
         else if (isObject(source)) {
             for (let [key, value] of Object.entries(source)) {
-                // Special handling for AbortSignal instances
-                if (key === 'signal' && value instanceof globalThis.AbortSignal) {
-                    signals.push(value);
-                    continue;
-                }
                 const replaceState = getReplaceState(value);
                 const { isReplace } = replaceState;
                 value = replaceState.value;
-                // Special handling for context - shallow merge only
-                if (key === 'context') {
-                    if (value !== undefined && value !== null && (!isObject(value) || Array.isArray(value))) {
+                const isRootSignal = isRoot && key === 'signal';
+                if (isRootSignal && (isReplace || value === undefined)) {
+                    signals.length = 0;
+                }
+                // Special handling for AbortSignal instances at the root options level
+                if (isRootSignal && value instanceof globalThis.AbortSignal) {
+                    signals.push(value);
+                    continue;
+                }
+                // Option merging would otherwise let a `null` silently replace the inherited headers.
+                if (isRoot && key === 'headers' && value === null) {
+                    throw new TypeError('The `headers` option must not be `null`. Use `undefined` to clear it.');
+                }
+                // Special handling for context - shallow merge only.
+                // Scoped to the root options level so it never rewrites nested user data that
+                // happens to contain a `context` key (e.g. a `json` request body).
+                if (isRoot && key === 'context') {
+                    // `null` is not accepted, so it is reported here rather than treated as absent.
+                    if (value !== undefined && !isNonArrayObject(value)) {
                         throw new TypeError('The `context` option must be an object');
                     }
                     // Shallow merge: always create a new object to prevent mutation bugs
                     returnValue = {
                         ...returnValue,
-                        context: (value === undefined || value === null)
+                        context: value === undefined
                             ? {}
                             : (isReplace
                                 ? { ...value }
@@ -37570,39 +37883,70 @@ const deepMerge = (...sources) => {
                     };
                     continue;
                 }
-                // Special handling for searchParams
-                if (key === 'searchParams') {
-                    if (value === undefined || value === null) {
-                        // Explicit undefined or null removes searchParams
+                // Special handling for searchParams.
+                // Scoped to the root options level so it never rewrites nested user data that
+                // happens to contain a `searchParams` key (e.g. a `json` request body).
+                if (isRoot && key === 'searchParams') {
+                    if (value === null) {
+                        throw new TypeError('The `searchParams` option must not be `null`. Use `undefined` to clear it.');
+                    }
+                    if (value === undefined) {
+                        // Explicit undefined removes searchParams
                         searchParameters = undefined;
                     }
-                    else if (isReplace) {
-                        searchParameters = value;
+                    else if (isReplace || searchParameters === undefined) {
+                        // First or replacement source: shallow-clone to preserve type (string/object/URLSearchParams/tuples) without sharing the caller's object
+                        searchParameters = cloneSearchParameters(value);
                     }
                     else {
-                        // First source: keep as-is to preserve type (string/object/URLSearchParams)
                         // Subsequent sources: merge and convert to URLSearchParams
-                        searchParameters = searchParameters === undefined ? value : appendSearchParameters(searchParameters, value);
+                        searchParameters = appendSearchParameters(searchParameters, value);
                     }
                     continue;
                 }
-                if (isObject(value) && !isReplace && key in returnValue) {
-                    value = deepMerge(returnValue[key], value);
+                // Checked here as well as when the request is built, because a later layer would otherwise replace an invalid value, `null` included, before anything reports it.
+                if (isRoot && key === 'retry' && value !== undefined && typeof value !== 'number' && !isNonArrayObject(value)) {
+                    throw new TypeError('`retry` must be a number or an object');
+                }
+                // `retry` accepts a number as shorthand for `{limit: number}`. Expand it before
+                // merging so extending a numeric `retry` with an object keeps the limit instead
+                // of dropping it (e.g. `ky.create({retry: 3}).extend({retry: {methods: ['get']}})`),
+                // and extending an object `retry` with a number keeps the other options
+                // (e.g. `ky.create({retry: {methods: ['post']}}).extend({retry: 3})`).
+                // Scoped to the root options level so it never rewrites nested user data that
+                // happens to contain a `retry` key (e.g. a `json` request body).
+                if (isRoot && key === 'retry' && !isReplace) {
+                    if (isObject(value) && typeof returnValue[key] === 'number') {
+                        returnValue = { ...returnValue, [key]: { limit: returnValue[key] } };
+                    }
+                    else if (typeof value === 'number' && isObject(returnValue[key])) {
+                        value = { limit: value };
+                    }
+                }
+                if (isRoot && key === 'retry' && merge_isPlainObject(value) && (isReplace || !isMergeable(returnValue[key]))) {
+                    // Resolve nested replacement markers even when there is no parent retry configuration to merge.
+                    value = deepMergeInternal(false, {}, value);
+                }
+                else if (!isReplace && isMergeable(returnValue[key]) && isMergeable(value) && Array.isArray(returnValue[key]) === Array.isArray(value)) {
+                    value = deepMergeInternal(false, returnValue[key], value);
                 }
                 returnValue = { ...returnValue, [key]: value };
             }
-            if (isObject(source.hooks)) {
+            // Scoped to the root options level so it never rewrites nested user data that
+            // happens to contain a `hooks` key (e.g. a `json` request body).
+            // Every value but `undefined` goes through `mergeHooks`, which rejects a bad shape, `null` included, so a later layer cannot hide it.
+            if (isRoot && source.hooks !== undefined) {
                 const { value: hookValue, isReplace } = getReplaceState(source.hooks);
                 hooks = isReplace
                     ? mergeHooks({}, hookValue)
                     : mergeHooks(hooks, hookValue);
                 returnValue.hooks = hooks;
             }
-            if (isObject(source.headers)) {
+            // Scoped to the root options level so it never rewrites nested user data that
+            // happens to contain a `headers` key (e.g. a `json` request body).
+            if (isRoot && isObject(source.headers)) {
                 const { value: headerValue, isReplace } = getReplaceState(source.headers);
-                headers = isReplace
-                    ? cloneShallow(headerValue)
-                    : mergeHeaderContainers(headers, headerValue);
+                headers = mergeHeaderContainers(isReplace ? {} : headers, headerValue);
                 returnValue.headers = headers;
             }
         }
@@ -37620,17 +37964,31 @@ const deepMerge = (...sources) => {
         else {
             // When AbortSignal.any is not available, use the last signal
             // This maintains the previous behavior before signal merging was added
-            // This can be remove when the `supportsAbortSignal` check is removed.`
+            // This can be removed when the `supportsAbortSignal` check is removed.
             returnValue.signal = signals.at(-1);
+        }
+    }
+    if (isRoot) {
+        for (const [key, value] of Object.entries(returnValue)) {
+            if (!userDataOptions.has(key)) {
+                returnValue[key] = resolveReplaceMarkers(value, new Map());
+            }
         }
     }
     return returnValue;
 };
+const deepMerge = (...sources) => deepMergeInternal(true, ...sources);
 //# sourceMappingURL=merge.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/normalize.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/normalize.js
 
-const normalizeRequestMethod = (input) => requestMethods.includes(input) ? input.toUpperCase() : input;
-const retryMethods = ['get', 'put', 'head', 'delete', 'options', 'trace'];
+
+const normalizeRequestMethod = (input) => requestMethods.includes(input.toLowerCase()) ? input.toUpperCase() : input;
+const caseInsensitiveMethods = new Set([...requestMethods, 'options', 'trace']);
+/**
+Normalizes common methods for retry matching while preserving case-sensitive custom methods.
+*/
+const normalizeRetryMethod = (method) => caseInsensitiveMethods.has(method.toLowerCase()) ? method.toLowerCase() : method;
+const retryMethods = ['get', 'put', 'head', 'delete', 'options', 'trace', 'query'];
 const retryStatusCodes = [408, 413, 429, 500, 502, 503, 504];
 const retryAfterStatusCodes = [413, 429, 503];
 const defaultRetryOptions = {
@@ -37646,49 +38004,92 @@ const defaultRetryOptions = {
 };
 const normalizeRetryOptions = (retry = {}) => {
     if (typeof retry === 'number') {
-        return {
-            ...defaultRetryOptions,
-            limit: retry,
-        };
+        retry = { limit: retry };
     }
-    if (retry.methods && !Array.isArray(retry.methods)) {
-        throw new Error('retry.methods must be an array');
+    if (!isNonArrayObject(retry)) {
+        throw new TypeError('`retry` must be a number or an object');
     }
-    if (retry.statusCodes && !Array.isArray(retry.statusCodes)) {
-        throw new Error('retry.statusCodes must be an array');
-    }
-    const normalizedRetry = Object.fromEntries(Object.entries({
-        ...retry,
-        methods: retry.methods?.map(method => method.toLowerCase()),
-    }).filter(([, value]) => value !== undefined));
-    return {
+    const normalizedRetry = {
         ...defaultRetryOptions,
-        ...normalizedRetry,
+        ...Object.fromEntries(Object.entries(retry).filter(([, value]) => value !== undefined)),
     };
+    // Validates the retry limit. An omitted one already got the default above, since `undefined` values are filtered out.
+    if (!Number.isInteger(normalizedRetry.limit) || normalizedRetry.limit < 0) {
+        throw new TypeError('`retry.limit` must be a finite, non-negative integer');
+    }
+    for (const key of ['methods', 'statusCodes', 'afterStatusCodes']) {
+        if (!Array.isArray(normalizedRetry[key])) {
+            // eslint-disable-next-line unicorn/prefer-type-error -- Preserve the existing error type.
+            throw new Error(`retry.${key} must be an array`);
+        }
+    }
+    // A mistyped entry only ever fails to match, so `statusCodes: ['429']` quietly disabled retrying instead of reporting the typo.
+    for (const [key, isValid] of [
+        ['methods', (value) => typeof value === 'string'],
+        ['statusCodes', (value) => Number.isInteger(value)],
+        ['afterStatusCodes', (value) => Number.isInteger(value)],
+    ]) {
+        if (normalizedRetry[key].some(value => !isValid(value))) {
+            throw new TypeError(`\`retry.${key}\` must only contain ${key === 'methods' ? 'strings' : 'numbers'}`);
+        }
+    }
+    // Both limits are passed to `Math.min()`, so a non-number silently turns every delay into `NaN`, which `setTimeout()` clamps to 1ms. That defeats the whole point of the limits.
+    for (const key of ['maxRetryAfter', 'backoffLimit']) {
+        if (!isNonNegativeNumber(normalizedRetry[key])) {
+            throw new TypeError(`\`retry.${key}\` must be a non-negative number or \`Infinity\``);
+        }
+    }
+    // These run while deciding what to do with the original failure, so an invalid shape would replace the `HTTPError`/`NetworkError` that caused the retry with a `TypeError` from deep inside Ky.
+    for (const key of ['delay', 'shouldRetry']) {
+        if (normalizedRetry[key] !== undefined && typeof normalizedRetry[key] !== 'function') {
+            throw new TypeError(`\`retry.${key}\` must be a function`);
+        }
+    }
+    if (normalizedRetry.jitter !== undefined && typeof normalizedRetry.jitter !== 'boolean' && typeof normalizedRetry.jitter !== 'function') {
+        throw new TypeError('`retry.jitter` must be a boolean or a function');
+    }
+    if (typeof normalizedRetry.retryOnTimeout !== 'boolean') {
+        throw new TypeError('`retry.retryOnTimeout` must be a boolean');
+    }
+    normalizedRetry.methods = normalizedRetry.methods.map(method => normalizeRetryMethod(method));
+    normalizedRetry.statusCodes = [...normalizedRetry.statusCodes];
+    normalizedRetry.afterStatusCodes = [...normalizedRetry.afterStatusCodes];
+    return normalizedRetry;
 };
 //# sourceMappingURL=normalize.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/timeout.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/timeout.js
+
 
 // `Promise.race()` workaround (#91)
 async function timeout(request, init, abortController, options) {
-    return new Promise((resolve, reject) => {
-        const timeoutId = setTimeout(() => {
-            if (abortController) {
-                abortController.abort();
-            }
-            reject(new TimeoutError(request));
-        }, options.timeout);
-        void options
-            .fetch(request, init)
-            .then(resolve)
-            .catch(reject)
-            .then(() => {
-            clearTimeout(timeoutId);
+    let timeoutId;
+    let timedOut = false;
+    try {
+        return await new Promise((resolve, reject) => {
+            timeoutId = setTimeout(() => {
+                timedOut = true;
+                abortController?.abort();
+                reject(new TimeoutError(request));
+            }, options.timeout);
+            // Called unbound so a native `window.fetch` is not invoked with `options` as `this`, which throws "Illegal invocation" in browsers.
+            // A synchronous throw rejects the promise, and `finally` still clears the timer so it cannot abort a later retry attempt.
+            const { fetch } = options;
+            fetch(request, init).then(response => {
+                // A response arriving after the timeout already won is discarded, so its unused body is cancelled. Fire-and-forget: cancellation failures are ignored and never delay the rejection.
+                if (timedOut) {
+                    cancelBody(response);
+                    return;
+                }
+                resolve(response);
+            }).catch(reject);
         });
-    });
+    }
+    finally {
+        clearTimeout(timeoutId);
+    }
 }
 //# sourceMappingURL=timeout.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/delay.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/delay.js
 // https://github.com/sindresorhus/delay/tree/ab98ae8dfcb38e1593286c94d934e70d14a4e111
 async function delay(ms, { signal }) {
     return new Promise((resolve, reject) => {
@@ -37707,23 +38108,27 @@ async function delay(ms, { signal }) {
     });
 }
 //# sourceMappingURL=delay.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/options.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/options.js
 
 
 const findUnknownOptions = (options) => {
     const unknownOptions = {};
-    for (const key in options) {
-        // Skip inherited properties
-        if (!Object.hasOwn(options, key)) {
-            continue;
-        }
+    // `Object.keys()` skips inherited properties.
+    for (const key of Object.keys(options)) {
         // Forward every non-standard, non-Ky option to fetch().
         // We intentionally do not check whether the key also exists on `Request`, because some runtimes
         // patch `Request.prototype` with fetch-only extensions. For example, Next.js adds `next`, and the
         // old `key in request` heuristic dropped it unless Ky kept a special-case allowlist.
         // Passing all non-standard keys makes that allowlist unnecessary and preserves future fetch extensions too.
-        if (!(key in requestOptionsRegistry) && !(key in kyOptionKeys)) {
-            unknownOptions[key] = options[key];
+        // The registries are plain objects, so `Object.hasOwn()` is required: `in` would also match `Object.prototype` members such as `constructor` and `toString`, silently dropping those options.
+        if (!Object.hasOwn(requestOptionsRegistry, key) && !Object.hasOwn(kyOptionKeys, key)) {
+            // Defined instead of assigned, so a `__proto__` key becomes an own property of the init object rather than replacing its prototype, which would both drop the option and give `fetch()` an object that inherits from caller data.
+            Object.defineProperty(unknownOptions, key, {
+                value: options[key],
+                writable: true,
+                enumerable: true,
+                configurable: true,
+            });
         }
     }
     return unknownOptions;
@@ -37731,6 +38136,10 @@ const findUnknownOptions = (options) => {
 const hasSearchParameters = (search) => {
     if (search === undefined) {
         return false;
+    }
+    // Option merging already rejects `null`, but an `init` hook assigns straight onto the options object.
+    if (search === null) {
+        throw new TypeError('The `searchParams` option must not be `null`. Use `undefined` to clear it.');
     }
     // The `typeof array` still gives "object", so we need different checking for array.
     if (Array.isArray(search)) {
@@ -37749,10 +38158,9 @@ const hasSearchParameters = (search) => {
     return Boolean(search);
 };
 //# sourceMappingURL=options.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/is-network-error.js
-// Inlined from https://github.com/sindresorhus/is-network-error v1.3.1
-const objectToString = Object.prototype.toString;
-const isError = (value) => objectToString.call(value) === '[object Error]';
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/is-network-error.js
+// Inlined from https://github.com/sindresorhus/is-network-error v1.3.2
+
 const errorMessages = new Set([
     'network error', // Chrome
     'NetworkError when attempting to fetch resource.', // Firefox
@@ -37773,7 +38181,7 @@ function isRawNetworkError(error) {
     }
     const { message, stack } = error;
     // Safari 17+ has generic message but no stack for network errors
-    if (message === 'Load failed') {
+    if (message === 'Load failed' || (message.startsWith('Load failed (') && message.endsWith(')'))) {
         return stack === undefined
             // Sentry adds its own stack trace to the fetch error, so also check for that
             || '__sentry_captured__' in error;
@@ -37790,13 +38198,14 @@ function isRawNetworkError(error) {
     return errorMessages.has(message);
 }
 //# sourceMappingURL=is-network-error.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/utils/type-guards.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/utils/type-guards.js
+
 
 
 
 
 // Handles cross-realm cases (e.g., iframes, different JS contexts) where `instanceof` fails.
-const isErrorType = (error, cls) => error instanceof cls || error?.name === cls.name;
+const isErrorType = (error, cls) => error instanceof cls || (error?.isKyError === true && error?.name === cls.name);
 /**
 Type guard to check if an error is a `KyError`.
 
@@ -37822,7 +38231,8 @@ try {
 ```
 */
 function isKyError(error) {
-    return error?.isKyError === true || isHTTPError(error) || isNetworkError(error) || isTimeoutError(error) || isForceRetryError(error);
+    // Every Ky error inherits this brand from `KyError`, including one from another realm.
+    return error?.isKyError === true;
 }
 /**
 Type guard to check if an error is an `HTTPError`.
@@ -37913,8 +38323,163 @@ const api = ky.extend({
 function isForceRetryError(error) {
     return isErrorType(error, ForceRetryError);
 }
+/**
+Type guard to check if an error is a `ResponseSizeError`.
+
+@param error - The error to check
+@returns `true` if the error is a `ResponseSizeError`, `false` otherwise
+
+@example
+```
+import ky, {isResponseSizeError} from 'ky';
+
+try {
+    await ky('https://example.com/data', {maxResponseSize: 1024}).json();
+} catch (error) {
+    if (isResponseSizeError(error)) {
+        console.log(`Response exceeded ${error.maxResponseSize} bytes`);
+    }
+}
+```
+*/
+function isResponseSizeError(error) {
+    return isErrorType(error, ResponseSizeError);
+}
 //# sourceMappingURL=type-guards.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/core/Ky.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/core/retry-timing.js
+// A reset value is only read as an epoch from this second onwards (2001-09-09). Older values are ambiguous with an ordinary delay, but a delay of 32 years or more is not a real one, so anything below stays delay seconds. This is a fixed constant rather than a date so it cannot go stale and start misreading a recent-but-past reset.
+const timestampThresholdSeconds = 1_000_000_000;
+const delayPattern = /^\d+$/;
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+// HTTP-date parsing is limited to IMF-fixdate and the two obsolete HTTP-date formats. Other date-like strings intentionally fall back to the normal retry delay.
+const imfDatePattern = /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d{2}):(\d{2}):(\d{2}) GMT$/;
+const rfc850DatePattern = /^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\d{2})-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d{2}) (\d{2}):(\d{2}):(\d{2}) GMT$/;
+const asctimeDatePattern = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{2}| \d) (\d{2}:\d{2}:\d{2}) (\d{4})$/;
+const getRetryTimingHeader = (headers) => {
+    const retryAfter = headers.get('Retry-After');
+    if (retryAfter !== null) {
+        return { value: retryAfter, allowTimestamp: false };
+    }
+    // Retry-After is authoritative when present. Only missing Retry-After falls through to rate-limit headers.
+    const rateLimitReset = headers.get('RateLimit-Reset');
+    if (rateLimitReset !== null) {
+        return { value: rateLimitReset, allowTimestamp: true };
+    }
+    const rateLimitRetryAfter = headers.get('X-RateLimit-Retry-After'); // Symfony-based services
+    if (rateLimitRetryAfter !== null) {
+        return { value: rateLimitRetryAfter, allowTimestamp: false };
+    }
+    const rateLimitResetAlias = headers.get('X-RateLimit-Reset') // GitHub
+        ?? headers.get('X-Rate-Limit-Reset'); // Twitter
+    if (rateLimitResetAlias !== null) {
+        return { value: rateLimitResetAlias, allowTimestamp: true };
+    }
+    return undefined;
+};
+const createTimestamp = ({ year, month, day, hours, minutes, seconds }) => {
+    const monthIndex = months.indexOf(month);
+    const dayNumber = Number(day);
+    const hoursNumber = Number(hours);
+    const minutesNumber = Number(minutes);
+    const secondsNumber = Number(seconds);
+    if (monthIndex === -1
+        || hoursNumber > 23
+        || minutesNumber > 59
+        || secondsNumber > 60) {
+        return undefined;
+    }
+    const normalizedSeconds = Math.min(secondsNumber, 59);
+    const date = new Date(Date.UTC(year, monthIndex, dayNumber, hoursNumber, minutesNumber, normalizedSeconds));
+    date.setUTCFullYear(year);
+    const timestamp = date.getTime();
+    // Date.UTC normalizes overflow, so round-trip the parts to reject invalid dates. A leap second is represented by parsing 60 as 59 and adding one second.
+    if (date.getUTCFullYear() !== year
+        || date.getUTCMonth() !== monthIndex
+        || date.getUTCDate() !== dayNumber
+        || date.getUTCHours() !== hoursNumber
+        || date.getUTCMinutes() !== minutesNumber
+        || date.getUTCSeconds() !== normalizedSeconds) {
+        return undefined;
+    }
+    return secondsNumber === 60 ? timestamp + 1000 : timestamp;
+};
+const getCapture = (match, index) => match[index];
+const parseDate = (value) => {
+    const imfDate = imfDatePattern.exec(value);
+    if (imfDate) {
+        return createTimestamp({
+            year: Number(getCapture(imfDate, 3)),
+            month: getCapture(imfDate, 2),
+            day: getCapture(imfDate, 1),
+            hours: getCapture(imfDate, 4),
+            minutes: getCapture(imfDate, 5),
+            seconds: getCapture(imfDate, 6),
+        });
+    }
+    const rfc850Date = rfc850DatePattern.exec(value);
+    if (rfc850Date) {
+        const now = new Date();
+        const twoDigitYear = Number(getCapture(rfc850Date, 3));
+        const currentCenturyYear = (Math.floor(now.getUTCFullYear() / 100) * 100) + twoDigitYear;
+        const fiftyYearsFromNow = Date.UTC(now.getUTCFullYear() + 50, now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
+        let timestamp;
+        // RFC 9110 maps two-digit years to the latest matching century that is not more than 50 years in the future.
+        for (const year of [
+            currentCenturyYear - 100,
+            currentCenturyYear,
+            currentCenturyYear + 100,
+        ]) {
+            const candidateTimestamp = createTimestamp({
+                year,
+                month: getCapture(rfc850Date, 2),
+                day: getCapture(rfc850Date, 1),
+                hours: getCapture(rfc850Date, 4),
+                minutes: getCapture(rfc850Date, 5),
+                seconds: getCapture(rfc850Date, 6),
+            });
+            if (candidateTimestamp !== undefined
+                && candidateTimestamp <= fiftyYearsFromNow) {
+                timestamp = candidateTimestamp;
+            }
+        }
+        return timestamp;
+    }
+    const asctimeDate = asctimeDatePattern.exec(value);
+    if (asctimeDate) {
+        const time = getCapture(asctimeDate, 4);
+        const [hours, minutes, seconds] = time.split(':');
+        return createTimestamp({
+            year: Number(getCapture(asctimeDate, 5)),
+            month: getCapture(asctimeDate, 2),
+            day: getCapture(asctimeDate, 3).trim(),
+            hours,
+            minutes,
+            seconds,
+        });
+    }
+    return undefined;
+};
+const calculateRetryTimingDelay = ({ value, allowTimestamp }) => {
+    if (delayPattern.test(value)) {
+        let delay = Number(value) * 1000;
+        // Standard Retry-After numbers are delay seconds. Timestamp compatibility only applies to reset headers.
+        if (allowTimestamp
+            && Number(value) >= timestampThresholdSeconds) {
+            delay -= Date.now();
+        }
+        return Math.max(0, delay);
+    }
+    const timestamp = parseDate(value);
+    if (timestamp === undefined) {
+        return undefined;
+    }
+    // `createTimestamp()` only returns valid dates, so the delay is always finite.
+    return Math.max(0, timestamp - Date.now());
+};
+//# sourceMappingURL=retry-timing.js.map
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/core/Ky.js
+
+
 
 
 
@@ -37932,7 +38497,33 @@ function isForceRetryError(error) {
 
 const maxErrorResponseBodySize = 10 * 1024 * 1024;
 const prefixUrlRenamedErrorMessage = 'The `prefixUrl` option has been renamed `prefix` in v2 and enhanced to allow slashes in input. See also the new `baseUrl` option for improved flexibility with standard URL resolution: https://github.com/sindresorhus/ky#baseurl';
-const timedOutResponseData = Symbol('timedOutResponseData');
+const timedOut = Symbol('timedOut');
+const getCurrentTime = () => globalThis.performance?.now() ?? Date.now();
+// Settles like `promise`, or resolves with `timedOut` once `milliseconds` pass first. The timer is cleared as soon as `promise` settles.
+// eslint-disable-next-line @typescript-eslint/promise-function-async
+const raceWithTimeout = (promise, milliseconds) => Promise.race([
+    promise,
+    new Promise(resolve => {
+        const timeoutId = setTimeout(() => {
+            resolve(timedOut);
+        }, milliseconds);
+        void promise.finally(() => {
+            clearTimeout(timeoutId);
+        }).catch(() => undefined);
+    }),
+]);
+// Only a returned request or response has a body to release.
+const cancelReturnedBody = (value) => {
+    if (isResponse(value) || isRequest(value)) {
+        cancelBody(value);
+    }
+};
+// Releases the body of a value whose owner already gave up on it, once the operation settles with something. The promise is abandoned on purpose, so its rejection is swallowed rather than surfacing as an unhandled rejection.
+const releaseWhenSettled = (operationPromise) => {
+    void operationPromise.then(value => {
+        cancelReturnedBody(value);
+    }).catch(() => undefined);
+};
 const createTextDecoder = (contentType) => {
     const match = /;\s*charset\s*=\s*(?:"([^"]+)"|([^;,\s]+))/i.exec(contentType);
     const charset = match?.[1] ?? match?.[2];
@@ -37944,54 +38535,192 @@ const createTextDecoder = (contentType) => {
     }
     return new TextDecoder();
 };
+const isJsonContentType = (contentType) => {
+    // Match JSON subtypes like `json`, `problem+json`, and `vnd.api+json`.
+    // Written out rather than matched with a pattern like `/\/(?:.*[.+-])?json$/`, which backtracks quadratically on a `Content-Type` full of slashes. The header comes from the server, so this must stay linear.
+    const mimeType = (contentType.split(';', 1)[0] ?? '').trim().toLowerCase();
+    if (!mimeType.endsWith('json')) {
+        return false;
+    }
+    const separator = mimeType.at(-5);
+    if (separator === '/') {
+        return true;
+    }
+    if (separator !== '.' && separator !== '+' && separator !== '-') {
+        return false;
+    }
+    // The separator is not the slash, so any slash in the type comes before it.
+    return mimeType.includes('/');
+};
+// Reads an error body as text. Returns `undefined` when the body cannot be read or is larger than `maxErrorResponseBodySize`, and `timedOut` when the read takes longer than `milliseconds`.
+const readResponseText = async (response, milliseconds) => {
+    const { body } = response;
+    if (!body) {
+        try {
+            return await response.text();
+        }
+        catch {
+            return undefined;
+        }
+    }
+    let reader;
+    try {
+        reader = body.getReader();
+    }
+    catch {
+        // Another consumer already locked the stream.
+        return undefined;
+    }
+    const contentType = response.headers.get('content-type') ?? '';
+    // JSON uses UTF-8 regardless of the charset parameter (RFC 8259).
+    const decoder = isJsonContentType(contentType) ? new TextDecoder() : createTextDecoder(contentType);
+    const chunks = [];
+    let totalBytes = 0;
+    const readAll = (async () => {
+        try {
+            for (;;) {
+                // eslint-disable-next-line no-await-in-loop
+                const { done, value } = await reader.read();
+                if (done) {
+                    break;
+                }
+                totalBytes += value.byteLength;
+                if (totalBytes > maxErrorResponseBodySize) {
+                    void reader.cancel().catch(() => undefined);
+                    return undefined;
+                }
+                chunks.push(decoder.decode(value, { stream: true }));
+            }
+        }
+        catch (error) {
+            if (isResponseSizeError(error)) {
+                throw error;
+            }
+            return undefined;
+        }
+        chunks.push(decoder.decode());
+        return chunks.join('');
+    })();
+    const result = await raceWithTimeout(readAll, milliseconds);
+    if (result === timedOut) {
+        void reader.cancel().catch(() => undefined);
+    }
+    return result;
+};
 const invalidSchemaMessage = 'The `schema` argument must follow the Standard Schema specification';
-const cloneRetryOptions = (retry) => {
-    if (typeof retry !== 'object') {
-        return retry;
+const missingResponseMessage = 'The request resolved without a response, so there is no body to read.'
+    + ' This happens when a `beforeRetry` hook returns `ky.stop`. Throw from the hook instead of returning `ky.stop`.';
+// Both timeout options are milliseconds or `false`. A `NaN` or negative value used to reach `setTimeout()`, which silently clamps it to ~1ms, or to be ignored entirely when `totalTimeout` was not a number.
+const validateTimeoutOption = (value, name) => {
+    if (value === false) {
+        return;
     }
-    // Clone nested arrays too so init hooks can mutate retry config without leaking state across requests.
-    return {
-        ...retry,
-        ...(retry.methods && { methods: [...retry.methods] }),
-        ...(retry.statusCodes && { statusCodes: [...retry.statusCodes] }),
-        ...(retry.afterStatusCodes && { afterStatusCodes: [...retry.afterStatusCodes] }),
-    };
-};
-const Ky_objectToString = Object.prototype.toString;
-const isRequestInstance = (value) => value instanceof globalThis.Request || Ky_objectToString.call(value) === '[object Request]';
-// Accepted custom responses are treated as full Responses throughout Ky.
-// If a custom fetch returns one, it must behave like a Response for cloning,
-// body consumption, `json()` decoration, and any enabled stream features.
-const isResponseInstance = (value) => value instanceof globalThis.Response || Ky_objectToString.call(value) === '[object Response]';
-const cloneSearchParametersForInitHook = (searchParameters) => {
-    if (Array.isArray(searchParameters)) {
-        return searchParameters.map(parameter => [...parameter]);
+    if (!isNonNegativeNumber(value)) {
+        throw new TypeError(`The \`${name}\` option must be a non-negative number or \`false\``);
     }
-    return cloneShallow(searchParameters);
+    // `Infinity` lands here too, since it is not a usable delay either.
+    if (value > maxSafeTimeout) {
+        throw new RangeError(`The \`${name}\` option cannot be greater than ${maxSafeTimeout}`);
+    }
 };
-// Shallow-clone mutable option properties so init hook mutations don't leak across requests.
+// Defaults only replace `undefined`, so a `null` reaches the validation and is reported instead of silently becoming the default.
+const withAttemptDefaults = ({ throwHttpErrors = true, timeout = 10_000, fetch = globalThis.fetch.bind(globalThis) }) => ({ throwHttpErrors, timeout, fetch });
+// These callbacks are called directly, so a non-function value otherwise surfaces as a runtime error naming Ky's own internals rather than the option the caller set.
+const validateCallbackOptions = (options) => {
+    for (const key of ['parseJson', 'stringifyJson', 'fetch', 'onDownloadProgress', 'onUploadProgress']) {
+        if (options[key] !== undefined && typeof options[key] !== 'function') {
+            throw new TypeError(`The \`${key}\` option must be a function`);
+        }
+    }
+    const { throwHttpErrors } = options;
+    if (typeof throwHttpErrors !== 'boolean' && typeof throwHttpErrors !== 'function') {
+        throw new TypeError('The `throwHttpErrors` option must be a boolean or a function');
+    }
+};
+const leadingC0ControlOrSpacePattern = /^[\0-\u0020]+/g;
+const asciiTabOrNewLinePattern = /[\t\n\r]/g;
+const schemePattern = /^[a-z][\d+.a-z-]*:/i;
+const malformedHttpProtocolPattern = /^https?:(?!\/\/)/i;
+const isAbsoluteInput = (input) => schemePattern.test(input);
+const normalizeInputForProtocolCheck = (input) => input.replaceAll(leadingC0ControlOrSpacePattern, '').replaceAll(asciiTabOrNewLinePattern, '');
+// Joins a string input to `prefix`, then resolves it against `baseUrl`. A `URL` or `Request` input is used as-is.
+const resolveInput = (input, prefix, baseUrl) => {
+    if (typeof input !== 'string') {
+        return input;
+    }
+    if (prefix) {
+        const normalizedPrefix = prefix.replace(/\/+$/, '');
+        const normalizedInput = input.replace(/^\/+/, '');
+        input = `${normalizedPrefix}/${normalizedInput}`;
+    }
+    if (baseUrl) {
+        const normalizedInput = normalizeInputForProtocolCheck(input);
+        if (malformedHttpProtocolPattern.test(normalizedInput)) {
+            throw new TypeError('`input` url protocol must be followed by `//` when using `baseUrl`');
+        }
+        if (!isAbsoluteInput(normalizedInput)) {
+            return new URL(input, (new Request(baseUrl)).url);
+        }
+    }
+    return input;
+};
+// `URLSearchParams#delete()` serializes the whole query again even when the key is missing, which would rewrite an input URL that has nothing to remove, for example `%20` as `+`.
+const deleteSearchParameter = (url, key) => {
+    if (url.searchParams.has(key)) {
+        url.searchParams.delete(key);
+    }
+};
+// Adds the `searchParams` option to the search parameters already in `url`.
+const applySearchParameters = (url, searchParameters) => {
+    const deleted = searchParameters?.[deletedParametersSymbol];
+    if (deleted) {
+        // Remove keys from the input URL first so later searchParams entries can intentionally re-add them.
+        for (const key of deleted) {
+            deleteSearchParameter(url, key);
+        }
+    }
+    if (typeof searchParameters === 'string') {
+        const stringSearchParameters = searchParameters.replace(/^\?/, '');
+        if (stringSearchParameters !== '') {
+            url.search = url.search ? `${url.search}&${stringSearchParameters}` : `?${stringSearchParameters}`;
+        }
+    }
+    else if (isNonArrayObject(searchParameters) && !(searchParameters instanceof URLSearchParams)) {
+        // Filter out undefined values from plain objects. An `undefined` value removes the key from the input URL instead.
+        for (const [key, value] of Object.entries(searchParameters)) {
+            if (value === undefined) {
+                deleteSearchParameter(url, key);
+            }
+            else {
+                url.searchParams.append(key, value);
+            }
+        }
+    }
+    else {
+        for (const [key, value] of new URLSearchParams(searchParameters)) {
+            url.searchParams.append(key, value);
+        }
+    }
+};
+// Clone mutable option properties so init hook mutations don't leak across requests. Non-plain values (functions, class instances) are kept by reference, matching how option merging treats them as whole values. A value a hook assigns is used as-is.
 function cloneInitHookOptions(options) {
     const clonedOptions = {
         ...options,
-        json: cloneShallow(options.json),
-        context: cloneShallow(options.context),
-        headers: cloneShallow(options.headers),
-        searchParams: cloneSearchParametersForInitHook(options.searchParams),
+        // `headers` starts as a plain object with lowercase names in `init` hooks, so hooks can add headers in place even when none were provided.
+        headers: mergeHeaderContainers({}, options.headers ?? {}),
+        // `context` starts as an object in `init` hooks, the same as in every other hook. The copy is shallow like the per-request copy, so nested values stay shared, for example a cache kept in `context`.
+        context: { ...options.context },
+        // Deep-clone so init-hook mutations to nested values do not leak across requests, matching the nested `retry` cloning below.
+        json: cloneDeep(options.json),
+        searchParams: cloneSearchParameters(options.searchParams),
+        // Clone nested arrays too so init hooks can mutate retry config without leaking state across requests.
+        retry: cloneDeep(options.retry),
     };
-    if (options.retry !== undefined) {
-        clonedOptions.retry = cloneRetryOptions(options.retry);
-    }
     return clonedOptions;
 }
 const validateJsonWithSchema = async (jsonValue, schema) => {
-    if ((typeof schema !== 'object'
-        && typeof schema !== 'function')
-        || schema === null) {
-        throw new TypeError(invalidSchemaMessage);
-    }
-    const standardSchema = schema['~standard'];
-    if (typeof standardSchema !== 'object'
-        || standardSchema === null
+    const standardSchema = isObject(schema) || typeof schema === 'function' ? schema['~standard'] : undefined;
+    if (!isObject(standardSchema)
         || typeof standardSchema.validate !== 'function') {
         throw new TypeError(invalidSchemaMessage);
     }
@@ -38009,220 +38738,139 @@ class Ky {
             hook(initHookOptions);
         }
         const ky = new Ky(input, initHookOptions);
-        const function_ = async () => {
-            if (typeof ky.#options.timeout === 'number' && ky.#options.timeout > maxSafeTimeout) {
-                throw new RangeError(`The \`timeout\` option cannot be greater than ${maxSafeTimeout}`);
-            }
-            if (typeof ky.#options.totalTimeout === 'number' && ky.#options.totalTimeout > maxSafeTimeout) {
-                throw new RangeError(`The \`totalTimeout\` option cannot be greater than ${maxSafeTimeout}`);
-            }
-            // Delay the fetch so that body method shortcuts can set the Accept header
-            await Promise.resolve();
-            const beforeRequestResponse = await ky.#runBeforeRequestHooks();
-            let response = beforeRequestResponse ?? await ky.#retry(async () => ky.#fetch());
-            let responseFromHook = beforeRequestResponse !== undefined
-                || ky.#consumeReturnedResponseFromBeforeRetryHook();
-            for (;;) {
-                // `undefined` means a hook stopped the flow without providing a response.
-                // Non-native Responses still continue through Ky if they pass `isResponseInstance()`.
-                if (response === undefined) {
-                    return response;
-                }
-                if (isResponseInstance(response)) {
-                    try {
-                        // eslint-disable-next-line no-await-in-loop
-                        response = await ky.#runAfterResponseHooks(response);
-                    }
-                    catch (error) {
-                        if (!(error instanceof ForceRetryError_ForceRetryError)) {
-                            throw error;
-                        }
-                        // eslint-disable-next-line no-await-in-loop
-                        const retriedResponse = await ky.#retryFromError(error, async () => ky.#fetch());
-                        if (retriedResponse === undefined) {
-                            return retriedResponse;
-                        }
-                        response = retriedResponse;
-                        responseFromHook = ky.#consumeReturnedResponseFromBeforeRetryHook();
-                        continue;
-                    }
-                }
-                const currentResponse = response;
-                // Opaque responses (`response.type === 'opaque'`) from `no-cors` requests always have `status: 0` and `ok: false`, but this is not a failure - the actual status is hidden by the browser.
-                if (!currentResponse.ok && currentResponse.type !== 'opaque' && (typeof ky.#options.throwHttpErrors === 'function'
-                    ? ky.#options.throwHttpErrors(currentResponse.status)
-                    : ky.#options.throwHttpErrors)) {
-                    // `request` must reflect the request that actually failed, but `options` stays as Ky's
-                    // normalized options snapshot. Replacement `Request` instances do not preserve the
-                    // original `BodyInit`, so trying to make `options` mirror arbitrary requests would be lossy.
-                    const httpError = new HTTPError(currentResponse, ky.#getResponseRequest(currentResponse), ky.#getNormalizedOptions());
-                    const errorToThrow = httpError;
-                    // eslint-disable-next-line no-await-in-loop
-                    httpError.data = await ky.#getResponseData(currentResponse);
-                    if (responseFromHook) {
-                        throw errorToThrow;
-                    }
-                    // eslint-disable-next-line no-await-in-loop
-                    const retriedResponse = await ky.#retryFromError(httpError, async () => ky.#fetch());
-                    if (retriedResponse === undefined) {
-                        return retriedResponse;
-                    }
-                    response = retriedResponse;
-                    responseFromHook = ky.#consumeReturnedResponseFromBeforeRetryHook();
-                    continue;
-                }
-                break;
-            }
-            if (!isResponseInstance(response)) {
+        const result = (async () => {
+            let response;
+            try {
+                response = await ky.#run();
                 return response;
             }
-            ky.#decorateResponse(response);
-            // If `onDownloadProgress` is passed, it uses the stream API internally
-            if (ky.#options.onDownloadProgress) {
-                if (typeof ky.#options.onDownloadProgress !== 'function') {
-                    throw new TypeError('The `onDownloadProgress` option must be a function');
-                }
-                if (!supportsResponseStreams) {
-                    throw new Error('Streams are not supported in your environment. `ReadableStream` is missing.');
-                }
-                const progressResponse = response.clone();
-                ky.#cancelResponseBody(response);
-                return streamResponse(progressResponse, ky.#options.onDownloadProgress);
-            }
-            return response;
-        };
-        const result = (async () => {
-            try {
-                return await function_();
-            }
             catch (error) {
-                // Non-Error throws (e.g., thrown strings) pass through unchanged
-                if (!(error instanceof Error)) {
-                    throw error;
-                }
-                // Errors thrown by beforeRetry hooks must propagate unchanged.
-                if (ky.#beforeRetryHookErrors.has(error)) {
-                    throw error;
-                }
-                let processedError = error;
-                for (const hook of ky.#options.hooks.beforeError) {
-                    // `request` is the current failing request. `options` intentionally remains the
-                    // stable normalized Ky options snapshot for the same reason as `HTTPError` above.
-                    // eslint-disable-next-line no-await-in-loop
-                    const hookResult = await hook({
-                        request: ky.request,
-                        options: ky.#getNormalizedOptions(),
-                        error: processedError,
-                        retryCount: ky.#retryCount,
-                    });
-                    // Only overwrite if the hook returns a valid Error instance.
-                    if (hookResult instanceof Error) {
-                        processedError = hookResult;
-                    }
-                }
-                throw processedError;
+                return await ky.#throwProcessedError(error);
             }
             finally {
                 const originalRequest = ky.#originalRequest;
                 // Ignore cancellation errors from already-locked or already-consumed streams.
-                ky.#cancelBody(originalRequest?.body ?? undefined);
-                // Only cancel the current request body if it's distinct from the original (i.e. it was cloned for retries).
-                if (ky.request !== originalRequest) {
-                    ky.#cancelBody(ky.request.body ?? undefined);
+                // A custom fetch or hook can return the request body as its response body; ownership then belongs to the caller.
+                cancelBody(originalRequest, response);
+                // Only cancel the current request body if it's distinct from the original (i.e. it was cloned for retries). `#originalRequest` is only set once a request is handed to fetch, so a pipeline that never started, for example one where a `beforeRequest` hook threw or returned a `Response`, leaves the caller's own body alone.
+                if (originalRequest && ky.request !== originalRequest) {
+                    cancelBody(ky.request, response);
                 }
             }
         })();
-        for (const [type, mimeType] of Object.entries(responseTypes)) {
-            // Only expose `.bytes()` when the environment implements it.
-            if (type === 'bytes'
-                && typeof globalThis.Response?.prototype?.bytes !== 'function') {
-                continue;
-            }
+        // Only expose `.bytes()` when the environment implements it.
+        for (const type of getSupportedResponseTypes()) {
+            const mimeType = responseTypes[type];
             result[type] = async (schema) => {
-                // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-                ky.request.headers.set('accept', ky.request.headers.get('accept') || mimeType);
+                // Before dispatch, `ky.request` is the request that will be sent. After dispatch, `#fetch()` has replaced it with the clone it prepares for a possible retry, so a late shortcut only affects later attempts. A request that was already sent is never changed, because `error.request` would then report a header that never went over the wire.
+                if (ky.request !== ky.#originalRequest) {
+                    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+                    ky.request.headers.set('accept', ky.request.headers.get('accept') || mimeType);
+                }
                 const response = await result;
+                // `ky.stop` from a `beforeRetry` hook resolves the request with no response at all. Reading a body method would otherwise crash deep inside Ky with a TypeError that names Ky internals.
+                if (response === undefined) {
+                    throw new TypeError(missingResponseMessage);
+                }
                 if (type !== 'json') {
-                    return response[type]();
+                    return ky.#raceBodyRead(async () => response[type](), response);
                 }
-                const text = await response.text();
-                if (text === '') {
-                    if (schema !== undefined) {
-                        return validateJsonWithSchema(undefined, schema);
+                const text = await ky.#raceBodyRead(async () => response.text(), response);
+                const request = ky.#getResponseRequest(response);
+                // This implementation is shared by every body method, so its return type has to satisfy all of them. The parsed value is whatever `parseJson` or `JSON.parse` produced, which is `any` at this boundary.
+                let parsedResult;
+                try {
+                    parsedResult = await ky.#raceWithTotalTimeout(async () => {
+                        const jsonValue = text === '' && schema !== undefined && !ky.#options.parseJson
+                            ? undefined
+                            : await ky.#parseJson(text, request, response);
+                        if (schema === undefined) {
+                            return jsonValue;
+                        }
+                        // eslint-disable-next-line no-return-await, @typescript-eslint/return-await -- Awaiting here preserves the caller's async stack when schema validation fails.
+                        return await validateJsonWithSchema(jsonValue, schema);
+                    });
+                }
+                catch (error) {
+                    // A cancellation is part of the request lifecycle, so it reaches `beforeError` like every other abort. Other failures, such as invalid JSON, stay as they are.
+                    if (ky.#userProvidedAbortSignal?.aborted) {
+                        await ky.#throwProcessedError(ky.#userProvidedAbortSignal.reason, request);
                     }
-                    return JSON.parse(text);
+                    throw error;
                 }
-                const jsonValue = initHookOptions.parseJson
-                    ? await initHookOptions.parseJson(text, { request: ky.#getResponseRequest(response), response })
-                    : JSON.parse(text);
-                return schema === undefined ? jsonValue : validateJsonWithSchema(jsonValue, schema);
+                if (parsedResult === timedOut) {
+                    await ky.#throwProcessedError(new TimeoutError(request), request);
+                }
+                return parsedResult;
             };
         }
         return result;
     }
-    // eslint-disable-next-line unicorn/prevent-abbreviations
-    static #normalizeSearchParams(searchParams) {
-        // Filter out undefined values from plain objects
-        if (searchParams && typeof searchParams === 'object' && !Array.isArray(searchParams) && !(searchParams instanceof URLSearchParams)) {
-            return Object.fromEntries(Object.entries(searchParams).filter(([, value]) => value !== undefined));
-        }
-        return searchParams;
-    }
     request;
     #abortController;
     #retryCount = 0;
-    // eslint-disable-next-line @typescript-eslint/prefer-readonly -- False positive: #input is reassigned on line 202
-    #input;
+    #retryLimit;
     #options;
+    // Keep the input Request alive because Node.js stops forwarding its signal when the Request is garbage-collected.
+    #requestInput;
     #originalRequest;
+    #requestBodyCanBeCancelled = false;
     #userProvidedAbortSignal;
     #beforeRetryHookErrors = new WeakSet();
     #cachedNormalizedOptions;
-    #startTime;
-    #returnedResponseFromBeforeRetryHook = false;
+    // When the `totalTimeout` budget runs out, or `Infinity` without a `totalTimeout`.
+    #deadline;
+    // Responses returned by a `beforeRequest` or `beforeRetry` hook. They are used as-is, so a failing status throws instead of being retried.
+    #hookResponses = new WeakSet();
     #responseRequests = new WeakMap();
+    #decoratedResponses = new WeakSet();
     // eslint-disable-next-line complexity
     constructor(input, options = {}) {
-        this.#input = input;
+        // Checked before the options are built, since building them reads `input.headers`.
+        if (typeof input !== 'string' && !(input instanceof URL || input instanceof globalThis.Request)) {
+            throw new TypeError('`input` must be a string, URL, or Request');
+        }
+        // Defaults only replace `undefined`, so a `null` reaches the validation below and is reported instead of silently becoming the default.
+        const { maxResponseSize = Number.POSITIVE_INFINITY, totalTimeout = false, } = options;
         if (Object.hasOwn(options, 'prefixUrl')) {
             throw new Error(prefixUrlRenamedErrorMessage);
         }
+        // An `init` hook assigns straight onto the options object, so these are checked here, after every merge and hook. The defaults below would otherwise quietly turn a `null` into `GET`, no prefix, or the referrer of a `Request` input.
+        for (const key of ['headers', 'method', 'prefix', 'baseUrl', 'referrer', 'referrerPolicy']) {
+            if (options[key] === null) {
+                throw new TypeError(`The \`${key}\` option must not be \`null\`. Use \`undefined\` to clear it.`);
+            }
+        }
+        if (options.context !== undefined && !isNonArrayObject(options.context)) {
+            throw new TypeError('The `context` option must be an object');
+        }
         this.#options = {
             ...options,
-            headers: mergeHeaders(this.#input.headers, options.headers),
+            headers: mergeHeaders(input.headers, options.headers),
             hooks: mergeHooks({}, options.hooks),
-            method: normalizeRequestMethod(options.method ?? this.#input.method ?? 'GET'),
+            method: normalizeRequestMethod(options.method ?? input.method ?? 'GET'),
+            referrer: options.referrer ?? input.referrer,
+            referrerPolicy: options.referrerPolicy ?? input.referrerPolicy,
             // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
             prefix: String(options.prefix || ''),
             retry: normalizeRetryOptions(options.retry),
-            throwHttpErrors: options.throwHttpErrors ?? true,
-            timeout: options.timeout ?? 10_000,
-            totalTimeout: options.totalTimeout ?? false,
-            fetch: options.fetch ?? globalThis.fetch.bind(globalThis),
+            ...withAttemptDefaults(options),
+            totalTimeout,
+            maxResponseSize,
             context: options.context ?? {},
         };
-        if (typeof this.#input !== 'string' && !(this.#input instanceof URL || this.#input instanceof globalThis.Request)) {
-            throw new TypeError('`input` must be a string, URL, or Request');
+        // Checked here rather than on the way out, because the constructor already calls `stringifyJson`.
+        validateCallbackOptions(this.#options);
+        validateTimeoutOption(this.#options.timeout, 'timeout');
+        validateTimeoutOption(totalTimeout, 'totalTimeout');
+        this.#retryLimit = this.#options.retry.limit;
+        if (maxResponseSize !== Number.POSITIVE_INFINITY && (!Number.isSafeInteger(maxResponseSize) || maxResponseSize < 0)) {
+            throw new TypeError('The `maxResponseSize` option must be a non-negative safe integer or Infinity');
         }
-        if (typeof this.#input === 'string') {
-            if (this.#options.prefix) {
-                const normalizedPrefix = this.#options.prefix.replace(/\/+$/, '');
-                const normalizedInput = this.#input.replace(/^\/+/, '');
-                this.#input = `${normalizedPrefix}/${normalizedInput}`;
-            }
-            if (this.#options.baseUrl) {
-                let absoluteInput;
-                try {
-                    absoluteInput = new URL(this.#input);
-                }
-                catch { }
-                if (!absoluteInput) {
-                    this.#input = new URL(this.#input, (new Request(this.#options.baseUrl)).url);
-                }
-            }
-        }
+        this.#requestInput = input instanceof globalThis.Request ? input : undefined;
+        input = resolveInput(input, this.#options.prefix, this.#options.baseUrl);
         if (supportsAbortController && supportsAbortSignal) {
-            this.#userProvidedAbortSignal = this.#options.signal ?? this.#input.signal;
+            this.#userProvidedAbortSignal = this.#options.signal ?? this.#requestInput?.signal;
             this.#abortController = new globalThis.AbortController();
             this.#options.signal = this.#createManagedSignal();
         }
@@ -38230,306 +38878,441 @@ class Ky {
             // @ts-expect-error - Types are outdated.
             this.#options.duplex = 'half';
         }
+        // A `Request` input's headers are already merged in, so only a content-type from `options.headers` counts as user-provided.
+        const userProvidedContentType = options.headers !== undefined && mergeHeaders({}, options.headers).has('content-type');
         if (this.#options.json !== undefined) {
             this.#options.body = this.#options.stringifyJson?.(this.#options.json) ?? JSON.stringify(this.#options.json);
-            this.#options.headers.set('content-type', this.#options.headers.get('content-type') ?? 'application/json');
+            if (!userProvidedContentType) {
+                this.#options.headers.set('content-type', 'application/json');
+            }
         }
         // To provide correct form boundary, Content-Type header should be deleted when creating Request from another Request with FormData/URLSearchParams body
         // Only delete if user didn't explicitly provide a custom content-type
-        const userProvidedContentType = options.headers && new globalThis.Headers(options.headers).has('content-type');
-        if (this.#input instanceof globalThis.Request
+        if (input instanceof globalThis.Request
             && ((supportsFormData && this.#options.body instanceof globalThis.FormData) || this.#options.body instanceof URLSearchParams)
             && !userProvidedContentType) {
             this.#options.headers.delete('content-type');
         }
-        this.request = new globalThis.Request(this.#input, this.#options);
-        if (hasSearchParameters(this.#options.searchParams)) {
+        this.request = new globalThis.Request(input, this.#options);
+        this.#requestBodyCanBeCancelled = typeof globalThis.ReadableStream === 'function' && this.#options.body instanceof globalThis.ReadableStream;
+        const { searchParams } = this.#options;
+        if (hasSearchParameters(searchParams)) {
             const url = new URL(this.request.url);
-            const deleted = this.#options.searchParams?.[deletedParametersSymbol];
-            if (deleted) {
-                // Remove keys from the input URL first so later searchParams entries can intentionally re-add them.
-                for (const key of deleted) {
-                    url.searchParams.delete(key);
-                }
-            }
-            if (typeof this.#options.searchParams === 'string') {
-                const stringSearchParameters = this.#options.searchParams.replace(/^\?/, '');
-                if (stringSearchParameters !== '') {
-                    url.search = url.search ? `${url.search}&${stringSearchParameters}` : `?${stringSearchParameters}`;
-                }
-            }
-            else {
-                const optionsSearchParameters = new URLSearchParams(Ky.#normalizeSearchParams(this.#options.searchParams));
-                for (const [key, value] of optionsSearchParameters.entries()) {
-                    url.searchParams.append(key, value);
-                }
-            }
-            if (this.#options.searchParams
-                && typeof this.#options.searchParams === 'object'
-                && !Array.isArray(this.#options.searchParams)
-                && !(this.#options.searchParams instanceof URLSearchParams)) {
-                for (const [key, value] of Object.entries(this.#options.searchParams)) {
-                    if (value === undefined) {
-                        url.searchParams.delete(key);
-                    }
-                }
-            }
+            applySearchParameters(url, searchParams);
             // Recreate request with the updated URL. We already have all options in this.#options, including duplex.
-            this.request = new globalThis.Request(url, this.#options);
-        }
-        if (this.#options.onUploadProgress && typeof this.#options.onUploadProgress !== 'function') {
-            throw new TypeError('The `onUploadProgress` option must be a function');
+            // Rebuilding is also what drops an inherited `Request` body, so it is skipped when the search parameters leave the URL unchanged.
+            if (url.href !== this.request.url) {
+                // Request options are read back from the current request so values inherited from a `Request` input (like `credentials`) survive, while explicit options already won when that request was built.
+                // A `Request` input's body is only available as a stream, so keeping it requires request stream support.
+                const { body: inheritedBody, cache, credentials, integrity, keepalive, mode, redirect, referrer, referrerPolicy, } = this.request;
+                const canUseInheritedBody = supportsRequestStreams && !keepalive && mode !== 'no-cors';
+                this.request = new globalThis.Request(url, {
+                    ...this.#options,
+                    cache,
+                    credentials,
+                    integrity,
+                    keepalive,
+                    mode,
+                    redirect,
+                    referrer,
+                    referrerPolicy,
+                    body: this.#options.body ?? (canUseInheritedBody ? inheritedBody : undefined),
+                });
+            }
         }
         // `totalTimeout` starts when the request pipeline is created, so it also includes
         // Ky's internal scheduling and user hook time before the first fetch attempt.
-        this.#startTime = typeof this.#options.totalTimeout === 'number' ? this.#getCurrentTime() : undefined;
+        this.#deadline = typeof totalTimeout === 'number' ? getCurrentTime() + totalTimeout : Number.POSITIVE_INFINITY;
     }
-    #calculateDelay() {
-        const retryDelay = this.#options.retry.delay(this.#retryCount + 1);
+    async #run() {
+        // Delay the fetch so that body method shortcuts can set the Accept header
+        await Promise.resolve();
+        const beforeRequestResponse = await this.#runBeforeRequestHooks();
+        if (beforeRequestResponse !== undefined) {
+            this.#retryLimit = normalizeRetryOptions(this.#options.retry).limit;
+        }
+        let response = beforeRequestResponse ?? await this.#retry();
+        for (;;) {
+            // `undefined` means a hook stopped the flow.
+            if (response === undefined) {
+                return undefined;
+            }
+            // Read before the `afterResponse` hooks run, since they can replace the response.
+            const responseFromHook = this.#hookResponses.has(response);
+            let retryError;
+            try {
+                // eslint-disable-next-line no-await-in-loop
+                response = await this.#runAfterResponseHooks(response);
+            }
+            catch (error) {
+                if (!isForceRetryError(error)) {
+                    throw error;
+                }
+                retryError = error;
+            }
+            if (retryError === undefined) {
+                const currentResponse = response;
+                // Opaque responses (`response.type === 'opaque'`) from `no-cors` requests always have `status: 0` and `ok: false`, but this is not a failure - the actual status is hidden by the browser.
+                if (currentResponse.ok || currentResponse.type === 'opaque' || !this.#shouldThrowHttpErrors(currentResponse)) {
+                    break;
+                }
+                // `request` must reflect the request that actually failed, but `options` stays as Ky's
+                // normalized options snapshot. Replacement `Request` instances do not preserve the
+                // original `BodyInit`, so trying to make `options` mirror arbitrary requests would be lossy.
+                const httpError = new HTTPError(currentResponse, this.#getResponseRequest(currentResponse), this.#getNormalizedOptions());
+                // eslint-disable-next-line no-await-in-loop
+                httpError.data = await this.#getResponseData(currentResponse);
+                this.#throwIfAbortedByUser();
+                this.#throwIfTotalTimeoutExhausted();
+                if (responseFromHook) {
+                    throw httpError;
+                }
+                retryError = httpError;
+            }
+            // eslint-disable-next-line no-await-in-loop
+            response = await this.#retryFromError(retryError);
+        }
+        this.#decorateResponse(response);
+        // If `onDownloadProgress` is passed, it uses the stream API internally
+        if (this.#options.onDownloadProgress) {
+            if (!supportsResponseStreams) {
+                throw new Error('Streams are not supported in your environment. `ReadableStream` is missing.');
+            }
+            const progressResponse = streamResponse(response, this.#options.onDownloadProgress);
+            this.#setResponseRequest(progressResponse, this.#getResponseRequest(response));
+            return this.#decorateResponse(progressResponse);
+        }
+        return response;
+    }
+    #calculateDelay(retry, error) {
+        const retryDelay = retry.delay(this.#retryCount + 1);
+        // A `retry.delay` that does not return a usable number would turn every delay into `NaN`, which `setTimeout()` clamps to 1ms, silently disabling the configured backoff. The `jitter` function form already guards its own result, so the input is checked here for every jitter form.
+        if (!isNonNegativeNumber(retryDelay)) {
+            // The failure that was being retried is chained as the cause, so `beforeError` can still inspect it instead of losing the response and data to this configuration mistake.
+            throw new TypeError('`retry.delay` must return a non-negative number or `Infinity`', { cause: error });
+        }
         let jitteredDelay = retryDelay;
-        if (this.#options.retry.jitter === true) {
+        if (retry.jitter === true) {
             jitteredDelay = Math.random() * retryDelay;
         }
-        else if (typeof this.#options.retry.jitter === 'function') {
-            jitteredDelay = this.#options.retry.jitter(retryDelay);
+        else if (typeof retry.jitter === 'function') {
+            jitteredDelay = retry.jitter(retryDelay);
             if (!Number.isFinite(jitteredDelay) || jitteredDelay < 0) {
                 jitteredDelay = retryDelay;
             }
         }
-        return Math.min(this.#options.retry.backoffLimit, jitteredDelay);
+        return Math.min(retry.backoffLimit, jitteredDelay);
     }
     async #calculateRetryDelay(error) {
-        if (this.#retryCount >= this.#options.retry.limit) {
+        const retry = normalizeRetryOptions(this.#options.retry);
+        if (this.#retryCount >= Math.min(retry.limit, this.#retryLimit)) {
             throw error;
         }
-        // Wrap non-Error throws to ensure consistent error handling
-        const errorObject = error instanceof Error ? error : new NonError(error);
+        // Wrap non-Error throws to ensure consistent error handling. `NonError.wrap()` checks with `isError` rather than `instanceof`, so a cross-realm error reaches `shouldRetry` as itself, the same way it reaches `beforeError`.
+        const errorObject = NonError.wrap(error);
         // Handle forced retry from afterResponse hook - skip method check and shouldRetry
-        if (errorObject instanceof ForceRetryError_ForceRetryError) {
-            return errorObject.customDelay ?? this.#calculateDelay();
+        if (isForceRetryError(errorObject)) {
+            return errorObject.customDelay ?? this.#calculateDelay(retry, error);
         }
         // Check if method is retriable for non-forced retries
-        if (!this.#options.retry.methods.includes(this.request.method.toLowerCase())) {
+        if (!retry.methods.includes(normalizeRetryMethod(this.request.method))) {
             throw error;
         }
-        // User-provided shouldRetry function takes precedence over default checks (retryOnTimeout, status codes, etc.)
-        if (this.#options.retry.shouldRetry !== undefined) {
-            const result = await this.#options.retry.shouldRetry({ error: errorObject, retryCount: this.#retryCount + 1 });
-            // Strict boolean checking - only exact true/false are handled specially
+        let shouldRetryOverride = false;
+        const { shouldRetry } = retry;
+        if (shouldRetry !== undefined) {
+            const result = await this.#raceWithTotalTimeout(async () => shouldRetry({ error: errorObject, retryCount: this.#retryCount + 1 }));
+            this.#throwIfAbortedByUser();
+            if (result === timedOut) {
+                throw new TimeoutError(this.#sentRequest);
+            }
+            // Only exact booleans override the default retry checks.
             if (result === false) {
                 throw error;
             }
-            if (result === true) {
-                // Force retry - skip all other validation and return delay
-                return this.#calculateDelay();
-            }
-            // If undefined or any other value, fall through to default behavior
+            shouldRetryOverride = result === true;
         }
         // Default timeout behavior
         if (isTimeoutError(error)) {
-            if (!this.#options.retry.retryOnTimeout) {
+            if (!shouldRetryOverride && !retry.retryOnTimeout) {
                 throw error;
             }
-            return this.#calculateDelay();
+            return this.#calculateDelay(retry, error);
         }
         if (isHTTPError(error)) {
-            if (!this.#options.retry.statusCodes.includes(error.response.status)) {
+            if (!shouldRetryOverride && !retry.statusCodes.includes(error.response.status)) {
                 throw error;
             }
-            const retryAfter = error.response.headers.get('Retry-After')
-                ?? error.response.headers.get('RateLimit-Reset')
-                ?? error.response.headers.get('X-RateLimit-Retry-After') // Symfony-based services
-                ?? error.response.headers.get('X-RateLimit-Reset') // GitHub
-                ?? error.response.headers.get('X-Rate-Limit-Reset'); // Twitter
-            if (retryAfter && this.#options.retry.afterStatusCodes.includes(error.response.status)) {
-                let after = Number(retryAfter) * 1000;
-                if (Number.isNaN(after)) {
-                    after = Date.parse(retryAfter) - Date.now();
+            const retryTimingHeader = getRetryTimingHeader(error.response.headers);
+            if (retryTimingHeader && retry.afterStatusCodes.includes(error.response.status)) {
+                const after = calculateRetryTimingDelay(retryTimingHeader);
+                if (after === undefined) {
+                    // Malformed retry timing headers should not disable retries; they only lose their server-provided timing.
+                    return this.#calculateDelay(retry, error);
                 }
-                else if (after >= Date.parse('2024-01-01')) {
-                    // A large number is treated as a timestamp (fixed threshold protects against clock skew)
-                    after -= Date.now();
-                }
-                if (!Number.isFinite(after)) {
-                    return Math.min(this.#options.retry.maxRetryAfter, this.#calculateDelay());
-                }
-                after = Math.max(0, after);
                 // Don't apply jitter when server provides explicit retry timing
-                return Math.min(this.#options.retry.maxRetryAfter, after);
+                return Math.min(retry.maxRetryAfter, after);
             }
-            if (error.response.status === 413) {
+            if (!shouldRetryOverride && error.response.status === 413) {
                 throw error;
             }
-            return this.#calculateDelay();
+            return this.#calculateDelay(retry, error);
         }
         // Only retry known retriable error types. Unknown errors (e.g., programming bugs) are not retried.
-        if (!isNetworkError(error)) {
+        if (!shouldRetryOverride && !isNetworkError(error)) {
             throw error;
         }
-        return this.#calculateDelay();
+        return this.#calculateDelay(retry, error);
     }
     #decorateResponse(response) {
-        const request = this.#getResponseRequest(response);
-        if (this.#options.parseJson) {
-            response.json = async () => {
-                const text = await response.text();
-                if (text === '') {
-                    return JSON.parse(text);
-                }
-                return this.#options.parseJson(text, { request, response });
-            };
+        if (!this.#options.parseJson || this.#decoratedResponses.has(response)) {
+            return response;
         }
+        this.#decoratedResponses.add(response);
+        const request = this.#getResponseRequest(response);
+        response.json = async () => this.#parseJson(await response.text(), request, response);
+        // `clone()` returns a fresh `Response` that would otherwise fall back to the native `json()`.
+        const nativeClone = response.clone.bind(response);
+        response.clone = () => this.#decorateResponse(this.#setResponseRequest(nativeClone(), request));
         return response;
     }
+    // Defaults to the last request that was actually sent, because `this.request` is the clone `#fetch()` prepares for a possible retry and may never be sent at all.
+    async #throwProcessedError(error, request = this.#sentRequest) {
+        // Non-Error throws (e.g., thrown strings) pass through unchanged. `isError` reads the internal brand, so an error from another realm still runs the hooks, the same way the Ky type guards accept branded errors.
+        if (!isError(error)) {
+            throw error;
+        }
+        // Errors thrown by beforeRetry hooks must propagate unchanged.
+        if (this.#beforeRetryHookErrors.has(error)) {
+            throw error;
+        }
+        let processedError = error;
+        for (const hook of this.#options.hooks.beforeError) {
+            // `options` intentionally remains the stable normalized Ky options snapshot for the same reason as `HTTPError` above.
+            // eslint-disable-next-line no-await-in-loop
+            const hookResult = await hook({
+                request,
+                options: this.#getNormalizedOptions(),
+                error: processedError,
+                retryCount: this.#retryCount,
+            });
+            // Only overwrite if the hook returns a valid Error, including one from another realm.
+            if (isError(hookResult)) {
+                processedError = hookResult;
+            }
+        }
+        throw processedError;
+    }
     async #getResponseData(response) {
+        // `request` is the request that actually produced this response, which is not `this.request` once a retry clone has been prepared.
+        const request = this.#getResponseRequest(response);
+        // A timed-out read or parse gives up on the data, but an exhausted `totalTimeout` still fails the request.
+        const throwIfTotalTimeoutReached = ({ fromTotalTimeout }) => {
+            if (fromTotalTimeout) {
+                throw new TimeoutError(request);
+            }
+            this.#throwIfTotalTimeoutExhausted(request);
+        };
         // Even with request timeouts disabled, bound error-body reads so retries and error propagation
         // cannot be stalled indefinitely by never-ending response streams.
-        const text = await this.#readResponseText(response, this.#getErrorDataTimeout());
-        if (text === timedOutResponseData) {
-            this.#throwIfTotalTimeoutExhausted();
+        const readTimeout = this.#getErrorDataTimeout(request);
+        const text = await readResponseText(response, readTimeout.milliseconds);
+        if (text === timedOut) {
+            throwIfTotalTimeoutReached(readTimeout);
             return undefined;
         }
         if (!text) {
             return undefined;
         }
-        if (!this.#isJsonContentType(response.headers.get('content-type') ?? '')) {
+        if (!isJsonContentType(response.headers.get('content-type') ?? '')) {
             return text;
         }
-        const data = await this.#parseJson(text, response, this.#getErrorDataTimeout(), this.#getResponseRequest(response));
-        if (data === timedOutResponseData) {
-            this.#throwIfTotalTimeoutExhausted();
+        const parseTimeout = this.#getErrorDataTimeout(request);
+        // Unparsable error data is given up on, like unreadable error data.
+        const data = await raceWithTimeout(Promise.resolve().then(() => this.#parseJson(text, request, response)), parseTimeout.milliseconds).catch(() => undefined);
+        if (data === timedOut) {
+            throwIfTotalTimeoutReached(parseTimeout);
             return undefined;
         }
         return data;
     }
-    #getErrorDataTimeout() {
+    #getErrorDataTimeout(request) {
         const errorDataTimeout = this.#options.timeout === false ? 10_000 : this.#options.timeout;
         const remainingTotal = this.#getRemainingTotalTimeout();
-        if (remainingTotal === undefined) {
-            return errorDataTimeout;
+        if (remainingTotal === 0) {
+            throw new TimeoutError(request);
         }
-        if (remainingTotal <= 0) {
-            throw new TimeoutError(this.request);
-        }
-        return Math.min(errorDataTimeout, remainingTotal);
+        return {
+            milliseconds: Math.min(errorDataTimeout, remainingTotal),
+            fromTotalTimeout: remainingTotal <= errorDataTimeout,
+        };
     }
-    #isJsonContentType(contentType) {
-        // Match JSON subtypes like `json`, `problem+json`, and `vnd.api+json`.
-        const mimeType = (contentType.split(';', 1)[0] ?? '').trim().toLowerCase();
-        return /\/(?:.*[.+-])?json$/.test(mimeType);
-    }
-    async #readResponseText(response, timeoutMs) {
-        const { body } = response;
-        if (!body) {
-            try {
-                return await response.text();
-            }
-            catch {
-                return undefined;
-            }
+    // The smaller of `timeout` and the `totalTimeout` budget left, or `undefined` when neither applies, since `setTimeout()` cannot wait forever.
+    #getEffectiveTimeout() {
+        const remainingTotal = this.#getRemainingTotalTimeout();
+        if (remainingTotal === 0) {
+            throw new TimeoutError(this.#sentRequest);
         }
-        let reader;
+        const effectiveTimeout = Math.min(this.#options.timeout === false ? Number.POSITIVE_INFINITY : this.#options.timeout, remainingTotal);
+        return effectiveTimeout === Number.POSITIVE_INFINITY ? undefined : effectiveTimeout;
+    }
+    // Unlike error bodies (`#getResponseData`), a successful body read has no fallback value to return -
+    // the caller's `.json()`/`.text()`/etc. promise must settle, so a timeout here always rejects.
+    async #raceBodyRead(createBodyPromise, response) {
+        const failedRequest = this.#getResponseRequest(response);
+        let timeoutMilliseconds;
         try {
-            reader = body.getReader();
+            timeoutMilliseconds = this.#getEffectiveTimeout();
         }
-        catch {
-            // Another consumer already locked the stream.
-            return undefined;
+        catch (error) {
+            await this.#throwProcessedError(error, failedRequest);
         }
-        const decoder = createTextDecoder(response.headers.get('content-type') ?? '');
-        const chunks = [];
-        let totalBytes = 0;
-        const readAll = (async () => {
-            try {
-                for (;;) {
-                    // eslint-disable-next-line no-await-in-loop
-                    const { done, value } = await reader.read();
-                    if (done) {
-                        break;
-                    }
-                    totalBytes += value.byteLength;
-                    if (totalBytes > maxErrorResponseBodySize) {
-                        void reader.cancel().catch(() => undefined);
-                        return undefined;
-                    }
-                    chunks.push(decoder.decode(value, { stream: true }));
+        const bodyPromise = createBodyPromise();
+        let result;
+        try {
+            result = timeoutMilliseconds === undefined
+                ? await bodyPromise
+                : await raceWithTimeout(bodyPromise, timeoutMilliseconds);
+        }
+        catch (error) {
+            if (this.#userProvidedAbortSignal?.aborted) {
+                await this.#throwProcessedError(this.#userProvidedAbortSignal.reason, failedRequest);
+            }
+            if (this.#getRemainingTotalTimeout() !== 0) {
+                // A connection dropped while streaming the body surfaces as a raw runtime `TypeError`. Wrap it like fetch-phase network errors so it is recognizable and runs `beforeError` hooks.
+                // This only happens on the awaited path, so a body that fails after the timeout already won does not run the hooks again.
+                if (isRawNetworkError(error)) {
+                    await this.#throwProcessedError(new NetworkError(failedRequest, { cause: error }), failedRequest);
                 }
+                await this.#throwProcessedError(error, failedRequest);
             }
-            catch {
-                return undefined;
-            }
-            chunks.push(decoder.decode());
-            return chunks.join('');
-        })();
-        const timeoutPromise = new Promise(resolve => {
-            const timeoutId = setTimeout(() => {
-                resolve(timedOutResponseData);
-            }, timeoutMs);
-            void readAll.finally(() => {
-                clearTimeout(timeoutId);
-            });
-        });
-        const result = await Promise.race([readAll, timeoutPromise]);
-        if (result === timedOutResponseData) {
-            void reader.cancel().catch(() => undefined);
+            result = timedOut;
+        }
+        // A cancellation is part of the request lifecycle, so it must not resolve as a successful body read just because the bytes happened to arrive first. `.json()` already gets this check for free through `#raceWithTotalTimeout()`, which is why the shortcuts used to disagree here.
+        if (this.#userProvidedAbortSignal?.aborted) {
+            await this.#throwProcessedError(this.#userProvidedAbortSignal.reason, failedRequest);
+        }
+        if (result === timedOut || this.#getRemainingTotalTimeout() === 0) {
+            // The stream is locked by the native body method's own reader by this point, so
+            // `response.body.cancel()` would reject as "already locked". Aborting the request's
+            // signal is what actually interrupts the underlying network read.
+            this.#abortController?.abort();
+            await this.#throwProcessedError(new TimeoutError(failedRequest), failedRequest);
         }
         return result;
     }
-    async #parseJson(text, response, timeoutMs, request) {
-        let timeoutId;
-        try {
-            return await Promise.race([
-                Promise.resolve().then(() => this.#options.parseJson
-                    ? this.#options.parseJson(text, { request, response })
-                    : JSON.parse(text)),
-                new Promise(resolve => {
-                    timeoutId = setTimeout(() => {
-                        resolve(timedOutResponseData);
-                    }, timeoutMs);
-                }),
-            ]);
+    async #raceWithTotalTimeout(operation) {
+        const abortSignal = this.#userProvidedAbortSignal;
+        abortSignal?.throwIfAborted();
+        const remainingTotal = this.#getRemainingTotalTimeout();
+        if (remainingTotal === 0) {
+            this.#abortController?.abort();
+            return timedOut;
         }
-        catch {
-            return undefined;
+        let timeoutId;
+        let abortListener;
+        let operationPromise;
+        try {
+            const abortPromise = new Promise((_resolve, reject) => {
+                if (!abortSignal) {
+                    return;
+                }
+                abortListener = () => {
+                    // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- AbortSignal reasons can be any value and must be preserved exactly.
+                    reject(abortSignal.reason);
+                };
+                // The signal was checked above, and nothing ran since, so it cannot have aborted before the listener is added.
+                abortSignal.addEventListener('abort', abortListener, { once: true });
+            });
+            operationPromise = operation();
+            if (remainingTotal === Number.POSITIVE_INFINITY) {
+                return await Promise.race([operationPromise, abortPromise]);
+            }
+            const timeoutPromise = new Promise(resolve => {
+                timeoutId = setTimeout(() => {
+                    resolve(timedOut);
+                }, remainingTotal);
+            });
+            const result = await Promise.race([operationPromise, timeoutPromise, abortPromise]);
+            if (result === timedOut || this.#getRemainingTotalTimeout() === 0) {
+                this.#abortController?.abort();
+                if (result === timedOut) {
+                    releaseWhenSettled(operationPromise);
+                }
+                else {
+                    cancelReturnedBody(result);
+                }
+                return timedOut;
+            }
+            return result;
+        }
+        catch (error) {
+            if (abortSignal?.aborted) {
+                // The abort won the race, so whatever the operation eventually returns is discarded. Release its body, the same way the timeout path above does for a value it never consumed.
+                if (operationPromise) {
+                    releaseWhenSettled(operationPromise);
+                }
+                abortSignal.throwIfAborted();
+            }
+            if (this.#getRemainingTotalTimeout() === 0) {
+                this.#abortController?.abort();
+                return timedOut;
+            }
+            throw error;
         }
         finally {
             clearTimeout(timeoutId);
+            if (abortListener) {
+                abortSignal?.removeEventListener('abort', abortListener);
+            }
         }
     }
-    #cancelBody(body) {
-        if (!body) {
-            return;
-        }
-        // Ignore cancellation failures from already-locked or already-consumed streams.
-        void body.cancel().catch(() => undefined);
-    }
-    #cancelResponseBody(response) {
-        // Ignore cancellation failures from already-locked or already-consumed streams.
-        this.#cancelBody(response.body ?? undefined);
+    // Uses `parseJson` when it is set, and `JSON.parse()` otherwise.
+    #parseJson(text, request, response) {
+        const { parseJson } = this.#options;
+        return parseJson ? parseJson(text, { request, response }) : JSON.parse(text);
     }
     #createManagedSignal() {
         return this.#userProvidedAbortSignal
             ? AbortSignal.any([this.#userProvidedAbortSignal, this.#abortController.signal])
             : this.#abortController.signal;
     }
-    #throwIfTotalTimeoutExhausted() {
-        const remaining = this.#getRemainingTotalTimeout();
-        if (remaining !== undefined && remaining <= 0) {
-            throw new TimeoutError(this.request);
+    // A `throwHttpErrors` predicate that throws used to escape from the `if` condition, before the body was read or released, leaving the caller with an error and no handle on the response to release it with.
+    #shouldThrowHttpErrors(response) {
+        const { throwHttpErrors } = this.#options;
+        try {
+            return typeof throwHttpErrors === 'function' ? throwHttpErrors(response.status) : throwHttpErrors;
+        }
+        catch (error) {
+            cancelBody(response);
+            throw error;
+        }
+    }
+    // `#fetch()` replaces `this.request` with the clone it prepares for a possible retry, so anything reporting the request that produced a response or failed has to use the one that was actually sent.
+    get #sentRequest() {
+        return this.#originalRequest ?? this.request;
+    }
+    #throwIfTotalTimeoutExhausted(request = this.#sentRequest) {
+        if (this.#getRemainingTotalTimeout() === 0) {
+            throw new TimeoutError(request);
         }
     }
     async #runBeforeRequestHooks() {
         for (const hook of this.#options.hooks.beforeRequest) {
             // eslint-disable-next-line no-await-in-loop
-            const result = await hook({
+            const result = await this.#raceWithTotalTimeout(async () => hook({
                 request: this.request,
                 options: this.#getNormalizedOptions(),
                 retryCount: 0,
-            });
-            if (isRequestInstance(result)) {
-                this.#assignRequest(result);
+            }));
+            if (result === timedOut) {
+                throw new TimeoutError(this.#sentRequest);
             }
-            else if (isResponseInstance(result)) {
+            if (isRequest(result)) {
+                this.#assignRequest(this.#withManagedSignal(result));
+            }
+            else if (isResponse(result)) {
+                this.#hookResponses.add(result);
                 return result;
             }
         }
@@ -38537,113 +39320,117 @@ class Ky {
     }
     async #runAfterResponseHooks(response) {
         const responseRequest = this.#getResponseRequest(response);
+        response = this.#limitResponseSize(response);
         for (const hook of this.#options.hooks.afterResponse) {
             const hookResponse = this.#setResponseRequest(response.clone(), responseRequest);
             this.#decorateResponse(hookResponse);
             let modifiedResponse;
             try {
                 // eslint-disable-next-line no-await-in-loop
-                modifiedResponse = await hook({
+                modifiedResponse = await this.#raceWithTotalTimeout(async () => hook({
+                    // Deliberately `this.request`, which `#fetch()` has already replaced with the clone prepared for a retry, so its body is still unread. A hook that forces a retry with `ky.retry({request: new Request(request)})` depends on being able to copy an unconsumed request from here.
                     request: this.request,
                     options: this.#getNormalizedOptions(),
                     response: hookResponse,
                     retryCount: this.#retryCount,
-                });
+                }));
+                if (modifiedResponse === timedOut) {
+                    throw new TimeoutError(this.#sentRequest);
+                }
+                if (isRetryMarker(modifiedResponse)) {
+                    throw new ForceRetryError(modifiedResponse.options);
+                }
             }
             catch (error) {
-                // Cancel both responses to prevent memory leaks when hook throws
-                if (hookResponse !== response) {
-                    this.#cancelResponseBody(hookResponse);
-                }
-                this.#cancelResponseBody(response);
+                // Cancel both the cloned response passed to the hook and the current response to prevent memory leaks when a hook throws, times out, or forces a retry (especially important in Deno/Bun).
+                // Do not await cancellation since hooks can clone the response, leaving extra tee branches that keep cancel promises pending per the Streams spec.
+                cancelBody(hookResponse);
+                cancelBody(response);
                 throw error;
             }
-            if (modifiedResponse instanceof RetryMarker) {
-                // Cancel both the cloned response passed to the hook and the current response to prevent resource leaks (especially important in Deno/Bun).
-                // Do not await cancellation since hooks can clone the response, leaving extra tee branches that keep cancel promises pending per the Streams spec.
-                if (hookResponse !== response) {
-                    this.#cancelResponseBody(hookResponse);
-                }
-                this.#cancelResponseBody(response);
-                throw new ForceRetryError_ForceRetryError(modifiedResponse.options);
-            }
-            const nextResponse = isResponseInstance(modifiedResponse)
+            const nextResponse = isResponse(modifiedResponse)
                 ? this.#setResponseRequest(modifiedResponse, responseRequest)
                 : response;
             // Cancel any response bodies we won't use to prevent memory leaks.
             // Uses fire-and-forget since hooks may have cloned the response, creating tee branches that block cancellation.
             // If the hook wrapped an existing body into a new Response, both Response objects can still point at the same stream.
-            if (hookResponse !== response && hookResponse !== nextResponse && hookResponse.body !== nextResponse.body) {
-                this.#cancelResponseBody(hookResponse);
+            cancelBody(hookResponse, nextResponse);
+            cancelBody(response, nextResponse);
+            if (nextResponse !== response) {
+                response = this.#limitResponseSize(nextResponse);
             }
-            if (response !== nextResponse && response.body !== nextResponse.body) {
-                this.#cancelResponseBody(response);
-            }
-            response = nextResponse;
         }
         return response;
     }
-    async #retry(function_) {
+    async #retry() {
         try {
-            return await function_();
+            return await this.#fetch();
         }
         catch (error) {
-            return this.#retryFromError(error, function_);
+            return this.#retryFromError(error);
         }
     }
-    async #retryFromError(error, function_) {
-        this.#returnedResponseFromBeforeRetryHook = false;
+    async #retryFromError(error) {
+        this.#throwIfAbortedByUser();
         const retryDelay = Math.min(await this.#calculateRetryDelay(error), maxSafeTimeout);
         const delayOptions = { signal: this.#userProvidedAbortSignal };
         const remainingTimeout = this.#getRemainingTotalTimeout();
-        if (remainingTimeout !== undefined) {
-            if (remainingTimeout <= 0) {
-                throw new TimeoutError(this.request);
-            }
-            // If waiting would consume all remaining budget, time out without starting another request.
-            if (retryDelay >= remainingTimeout) {
-                await delay(remainingTimeout, delayOptions);
-                throw new TimeoutError(this.request);
-            }
+        if (remainingTimeout === 0) {
+            throw new TimeoutError(this.#sentRequest);
+        }
+        // If waiting would consume all remaining budget, time out without starting another request.
+        if (retryDelay >= remainingTimeout) {
+            await delay(remainingTimeout, delayOptions);
+            throw new TimeoutError(this.#sentRequest);
         }
         // Only use user-provided signal for delay, not our internal abortController
         await delay(retryDelay, delayOptions);
         this.#throwIfTotalTimeoutExhausted();
+        // Reset abortController if it was aborted (happens on timeout retry) so hooks and the retried request get a fresh signal
+        if (this.#abortController?.signal.aborted) {
+            this.#abortController = new globalThis.AbortController();
+            this.#options.signal = this.#createManagedSignal();
+            this.#assignRequest(this.#withManagedSignal(this.request), this.#requestBodyCanBeCancelled);
+        }
         // Apply custom request from forced retry before beforeRetry hooks
         // Ensure the custom request has the correct managed signal for timeouts and user aborts
-        if (error instanceof ForceRetryError_ForceRetryError && error.customRequest) {
-            const customRequest = new globalThis.Request(error.customRequest, this.#options.signal ? { signal: this.#options.signal } : undefined);
+        if (isForceRetryError(error) && error.customRequest) {
             // Replacement Requests are authoritative by design. Do not rewrite headers here,
             // even for cross-origin retries. Callers using `ky.retry({request})` explicitly
             // opted into the exact Request they constructed.
-            this.#assignRequest(customRequest);
+            this.#assignRequest(this.#withManagedSignal(error.customRequest));
         }
         for (const hook of this.#options.hooks.beforeRetry) {
             let hookResult;
             try {
                 // eslint-disable-next-line no-await-in-loop
-                hookResult = await hook({
+                hookResult = await this.#raceWithTotalTimeout(async () => hook({
                     request: this.request,
                     options: this.#getNormalizedOptions(),
-                    error: error,
+                    error: NonError.wrap(error),
                     retryCount: this.#retryCount + 1,
-                });
+                }));
             }
             catch (hookError) {
-                // Preserve the original request error path (`throw error`) so beforeError hooks can still run.
-                if (hookError instanceof Error && hookError !== error) {
+                // A cancellation is part of the request lifecycle, so it reaches `beforeError` like every other abort rather than being hidden as a hook error below.
+                this.#throwIfAbortedByUser();
+                // Preserve the original request error path (`throw error`) so beforeError hooks can still run. `isError` rather than `instanceof`, so a cross-realm error is recognised the same way `#throwProcessedError` does.
+                if (isError(hookError) && hookError !== error) {
                     this.#beforeRetryHookErrors.add(hookError);
                 }
                 throw hookError;
             }
-            if (isRequestInstance(hookResult)) {
+            if (hookResult === timedOut) {
+                throw new TimeoutError(this.#sentRequest);
+            }
+            if (isRequest(hookResult)) {
                 // Same contract as `ky.retry({request})`: a Request returned from `beforeRetry`
                 // is used as-is rather than being sanitized or otherwise rewritten by Ky.
-                this.#assignRequest(hookResult);
+                this.#assignRequest(this.#withManagedSignal(hookResult));
                 break;
             }
-            if (isResponseInstance(hookResult)) {
-                this.#returnedResponseFromBeforeRetryHook = true;
+            if (isResponse(hookResult)) {
+                this.#hookResponses.add(hookResult);
                 this.#retryCount++;
                 return hookResult;
             }
@@ -38651,112 +39438,169 @@ class Ky {
             if (hookResult === stop) {
                 return;
             }
+            if (isNonArrayObject(hookResult)) {
+                this.#applyBeforeRetryOptions(hookResult.options);
+            }
         }
         this.#throwIfTotalTimeoutExhausted();
         this.#retryCount++;
-        return this.#retry(function_);
-    }
-    #consumeReturnedResponseFromBeforeRetryHook() {
-        const value = this.#returnedResponseFromBeforeRetryHook;
-        this.#returnedResponseFromBeforeRetryHook = false;
-        return value;
+        return this.#retry();
     }
     async #fetch() {
-        // Reset abortController if it was aborted (happens on timeout retry)
-        if (this.#abortController?.signal.aborted) {
-            this.#abortController = new globalThis.AbortController();
-            this.#options.signal = this.#createManagedSignal();
-            // Recreate request with new signal
-            this.request = new globalThis.Request(this.request, { signal: this.#options.signal });
-        }
+        // A previous attempt can return without consuming its upload. Release that unused branch before replacing the request reference.
+        cancelBody(this.#originalRequest, this.request);
         const nonRequestOptions = findUnknownOptions(this.#options);
-        const retryRequest = this.#options.retry.limit > 0 ? this.request.clone() : undefined;
-        const request = this.#wrapRequestWithUploadProgress(this.request, this.#options.body ?? undefined);
+        this.#retryLimit = normalizeRetryOptions(this.#options.retry).limit;
+        // Reattach the managed signal because Node.js can garbage-collect the abort controller used by Request.clone().
+        const retryRequest = this.#retryLimit > 0 ? this.#withManagedSignal(this.request.clone()) : undefined;
+        const request = this.#wrapRequestWithUploadProgress(this.request);
         // Cloning is done here to prepare in advance for retries.
         // Skip cloning when retries are disabled - cloning a streaming body calls ReadableStream#tee()
         // which buffers the entire stream in memory, causing excessive memory usage for large uploads.
         this.#originalRequest = request;
         if (retryRequest) {
             this.request = retryRequest;
+            this.#requestBodyCanBeCancelled = true;
         }
         try {
-            const remainingTotal = this.#getRemainingTotalTimeout();
-            if (remainingTotal !== undefined && remainingTotal <= 0) {
-                throw new TimeoutError(this.request);
-            }
-            const effectiveTimeout = this.#options.timeout === false
-                ? remainingTotal
-                : (remainingTotal === undefined
-                    ? this.#options.timeout
-                    : Math.min(this.#options.timeout, remainingTotal));
+            const effectiveTimeout = this.#getEffectiveTimeout();
+            // Called unbound so a native `window.fetch` is not invoked with the options object as `this`, which throws "Illegal invocation" in browsers.
+            const { fetch } = this.#options;
             const response = effectiveTimeout === undefined
-                ? await this.#options.fetch(request, nonRequestOptions)
+                ? await fetch(request, nonRequestOptions)
                 : await timeout(request, nonRequestOptions, this.#abortController, {
                     timeout: effectiveTimeout,
-                    fetch: this.#options.fetch,
+                    fetch,
                 });
+            // `undefined` would otherwise look like `ky.stop`, and any other value fails later with an error that does not name the cause.
+            if (!isResponse(response)) {
+                throw new TypeError('The `fetch` option must resolve with a `Response`');
+            }
+            if (this.#getRemainingTotalTimeout() === 0) {
+                this.#abortController?.abort();
+                cancelBody(response);
+                throw new TimeoutError(request);
+            }
             return this.#setResponseRequest(response, request);
         }
         catch (error) {
+            this.#throwIfAbortedByUser();
+            if (this.#getRemainingTotalTimeout() === 0) {
+                this.#abortController?.abort();
+                throw new TimeoutError(request);
+            }
             if (isRawNetworkError(error)) {
-                throw new NetworkError(this.request, { cause: error });
+                throw new NetworkError(request, { cause: error });
             }
             throw error;
         }
     }
-    #getRemainingTotalTimeout() {
-        if (this.#startTime === undefined) {
-            return undefined;
-        }
-        const elapsed = this.#getCurrentTime() - this.#startTime;
-        return Math.max(0, this.#options.totalTimeout - elapsed);
+    // Chromium reports a user abort during a fetch or body read as `TypeError: Failed to fetch`, which would otherwise be mistaken for a dropped connection. Surface the abort reason instead, like other runtimes do.
+    #throwIfAbortedByUser() {
+        this.#userProvidedAbortSignal?.throwIfAborted();
     }
-    #getCurrentTime() {
-        return globalThis.performance?.now() ?? Date.now();
+    // `0` once the `totalTimeout` budget is spent, and `Infinity` without a `totalTimeout`.
+    #getRemainingTotalTimeout() {
+        return Math.max(0, this.#deadline - getCurrentTime());
+    }
+    // Omitted options keep their value, and `undefined` restores Ky's default. The changes apply to the next attempt and every later one.
+    #applyBeforeRetryOptions(options) {
+        if (!isNonArrayObject(options)) {
+            throw new TypeError('The `options` returned from a `beforeRetry` hook must be an object');
+        }
+        for (const key of Object.keys(options)) {
+            if (!beforeRetryOptionKeys.includes(key)) {
+                throw new TypeError(`The \`${key}\` option cannot be changed from a \`beforeRetry\` hook`);
+            }
+        }
+        const mergedOptions = { ...this.#options, ...options };
+        const updatedOptions = { ...mergedOptions, ...withAttemptDefaults(mergedOptions) };
+        validateCallbackOptions(updatedOptions);
+        validateTimeoutOption(updatedOptions.timeout, 'timeout');
+        Object.assign(this.#options, updatedOptions);
+        this.#cachedNormalizedOptions = undefined;
     }
     #getNormalizedOptions() {
         if (!this.#cachedNormalizedOptions) {
             // Exclude Ky-specific options that are not part of `RequestInit`.
-            const { hooks, json, parseJson, stringifyJson, searchParams, timeout, totalTimeout, throwHttpErrors, fetch, ...normalizedOptions } = this.#options;
+            const { hooks, json, parseJson, stringifyJson, searchParams, timeout, totalTimeout, maxResponseSize, throwHttpErrors, fetch, ...normalizedOptions } = this.#options;
             this.#cachedNormalizedOptions = Object.freeze(normalizedOptions);
         }
         return this.#cachedNormalizedOptions;
     }
-    #assignRequest(request) {
+    #assignRequest(request, requestBodyCanBeCancelled = false) {
+        // Runtime-derived bodies such as `FormData` may still be serialized after a hook constructs a replacement Request, so only caller-provided streams and Ky's own prepared retry clones are safe to cancel here.
+        if (this.#requestBodyCanBeCancelled) {
+            cancelBody(this.request, request);
+        }
         this.#cachedNormalizedOptions = undefined;
         this.request = request;
+        this.#requestBodyCanBeCancelled = requestBodyCanBeCancelled;
     }
+    // A replacement `Request` from a hook or `ky.retry({request})` carries its own signal, so re-attach Ky's managed signal to keep timeouts and user aborts working. Request-like objects are used as-is since the `Request` constructor cannot copy them, so they keep whatever signal they carry, even on a retry after a timeout.
+    #withManagedSignal(request) {
+        if (!this.#options.signal || !(request instanceof globalThis.Request)) {
+            return request;
+        }
+        return new globalThis.Request(request, {
+            signal: this.#options.signal,
+            referrer: request.referrer,
+            referrerPolicy: request.referrerPolicy,
+        });
+    }
+    // A response Ky did not fetch, such as one returned from a `beforeRetry` hook, is reported with the last request that was sent, like every error is.
     #getResponseRequest(response) {
-        return this.#responseRequests.get(response) ?? this.request;
+        return this.#responseRequests.get(response) ?? this.#sentRequest;
     }
     #setResponseRequest(response, request) {
         this.#responseRequests.set(response, request);
         return response;
     }
-    #wrapRequestWithUploadProgress(request, originalBody) {
-        if (!this.#options.onUploadProgress || !request.body || !supportsRequestStreams) {
+    #limitResponseSize(response) {
+        const request = this.#getResponseRequest(response);
+        return this.#setResponseRequest(limitResponseSize(response, request, this.#options.maxResponseSize), request);
+    }
+    #wrapRequestWithUploadProgress(request) {
+        if (!this.#options.onUploadProgress || !supportsRequestStreams || !request.body) {
             return request;
         }
-        return streamRequest(request, this.#options.onUploadProgress, originalBody ?? this.#options.body ?? undefined);
+        return streamRequest(request, this.#options.onUploadProgress, this.#options.body);
     }
 }
 //# sourceMappingURL=Ky.js.map
-;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.0.2/node_modules/ky/distribution/index.js
+;// CONCATENATED MODULE: ./node_modules/.pnpm/ky@2.2.0/node_modules/ky/distribution/index.js
 /*! MIT License © Sindre Sorhus */
 
 
 
+// Errors while setting up the request, such as invalid options or a throwing `init` hook, reject the returned promise instead of throwing, the same way `fetch()` reports them, so callers only have one error channel to handle.
+const createRequest = (input, getOptions) => {
+    try {
+        return Ky.create(input, getOptions());
+    }
+    catch (error) {
+        // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- A hook can throw any value, and it must be preserved exactly.
+        const result = Promise.reject(error);
+        // Matches `Ky.create()`, which only exposes `.bytes()` when the environment implements it.
+        for (const type of getSupportedResponseTypes()) {
+            // Returning the same promise marks it as handled, so a body method call does not also report an unhandled rejection.
+            result[type] = async () => result;
+        }
+        return result;
+    }
+};
 const createInstance = (defaults) => {
     // eslint-disable-next-line @typescript-eslint/promise-function-async
-    const ky = (input, options) => Ky.create(input, validateAndMerge(defaults, options));
+    const ky = (input, options) => createRequest(input, () => validateAndMerge(defaults, options));
     for (const method of requestMethods) {
         // eslint-disable-next-line @typescript-eslint/promise-function-async
-        ky[method] = (input, options) => Ky.create(input, validateAndMerge(defaults, options, { method }));
+        ky[method] = (input, options) => createRequest(input, () => validateAndMerge(defaults, options, { method }));
     }
     ky.create = (newDefaults) => createInstance(validateAndMerge(newDefaults));
     ky.extend = (newDefaults) => {
         if (typeof newDefaults === 'function') {
-            newDefaults = newDefaults(defaults ?? {});
+            // Pass a copy so mutations inside the callback cannot leak into this instance's defaults. Deep, because options like `context` are merged shallowly, so a nested value would still point at the parent's object. Non-plain values such as a `FormData` body are shared, the same way the `hooks.init` copies share them.
+            newDefaults = newDefaults(validateAndMerge(cloneDeep(defaults)));
         }
         return createInstance(validateAndMerge(defaults, newDefaults));
     };
@@ -38766,6 +39610,7 @@ const createInstance = (defaults) => {
 };
 const ky = createInstance();
 /* harmony default export */ const distribution = (ky);
+
 
 
 
