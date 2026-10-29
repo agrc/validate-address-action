@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.17](https://github.com/agrc/validate-address-action/compare/v1.0.16...v1.0.17) (2026-10-29)
+
+
+### Dependencies
+
+* bump js-yaml from 4.3.1 to 4.3.2 ([#92](https://github.com/agrc/validate-address-action/issues/92)) ([2b7a1c3](https://github.com/agrc/validate-address-action/commit/2b7a1c377c900d67f03e845018991229dc7dd692))
+* bump source-map-js from 1.2.1 to 1.2.2 ([#103](https://github.com/agrc/validate-address-action/issues/103)) ([2024627](https://github.com/agrc/validate-address-action/commit/202462786b046e5ca63310d45c19bb99667ced09))
+* bump the safe-dependencies group with 7 updates ([#95](https://github.com/agrc/validate-address-action/issues/95)) ([25bc127](https://github.com/agrc/validate-address-action/commit/25bc1277b96fa9fdfed378d50b831f478b778e83))
+* bump undici from 6.28.0 to 6.29.1 ([#101](https://github.com/agrc/validate-address-action/issues/101)) ([9d05607](https://github.com/agrc/validate-address-action/commit/9d05607200290c365f691f7b3d3e655971c9eb25))
+* bump vite from 8.0.12 to 8.3.5 ([#100](https://github.com/agrc/validate-address-action/issues/100)) ([be8c677](https://github.com/agrc/validate-address-action/commit/be8c677fe77aba21b5676a07ee75946d4d25e038))
+* **dev:** bump the major-dependencies group with 3 updates ([#96](https://github.com/agrc/validate-address-action/issues/96)) ([2749b0d](https://github.com/agrc/validate-address-action/commit/2749b0d5c34a76574ae6602895470c529d9bf145))
+* **dev:** bump vitest from 4.1.10 to 4.1.11 ([#99](https://github.com/agrc/validate-address-action/issues/99)) ([4f3350e](https://github.com/agrc/validate-address-action/commit/4f3350ecf81b2b33bf9fde5c81a7dca5df5c886b))
+
 ## [1.0.16](https://github.com/agrc/validate-address-action/compare/v1.0.15...v1.0.16) (2026-08-11)
 
 
